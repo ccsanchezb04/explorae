@@ -1,0 +1,172 @@
+.img-responsive { margin: 0 auto; }
+#navbar-header {
+    background: #ddd;
+    border: 0;
+    border-radius: 0px;
+    font-size: 1.1em;
+    font-style: italic;
+}
+.navbar-default .navbar-nav li a {
+    color: #008ec0;
+    padding: 21px 11px;
+}
+.navbar-default .navbar-nav li a:hover, 
+.navbar-default .navbar-nav li a:focus {
+    background:#00ABE2;
+    color: #fff;
+}
+#navbar-header li.active a, 
+#navbar-header li.active a:hover, 
+#navbar-header li.active a:focus { 
+  background: #FF9800; 
+  position: relative;
+  color: #fff !important;
+}
+.carousel-caption {
+    width: 35%; 
+    margin-left: 20px;
+    margin-top: -20px;
+    left: 0;
+    padding: 0 10px;
+    text-align: left;
+    background: rgba(0,0,0,0.5);    
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+}
+.carousel-indicators { display: none; }
+#aliados, #sub-menu, footer { margin-top: 20px; }
+#sub-menu {
+    background: #e8e8e8;
+    padding: 10px;
+    text-align: center;
+    font-style: italic;
+}
+#sub-menu .col-md-3 a:hover { 
+    outline: none;
+    background: #fff; 
+}
+footer {
+    width:100%;
+    background: url(../images/footer.png) no-repeat #f5f5f5;
+    background-size: cover;
+    padding: 10px 0;
+}
+footer .row h1 {
+    color:#008ec0; 
+    line-height:1.2em; 
+    margin: 0 0 0 10px;
+}
+footer .row p {
+    margin:0 10px; 
+    color:#fff !important; 
+    font-size: 1.2em;
+}
+footer .row ul {
+    margin:10px;
+    color:#fff; 
+    font-size: 1.2em;
+    padding: 0;   
+}
+footer .row ul li {
+    border-top: 1px solid #d1d1d1; 
+    margin-top: 5px; 
+    padding-top: 5px;
+    list-style: none;
+}
+#aliados #logo-aliados {
+    background: #fff;
+    margin-right: 10px;
+}
+#aliados-2 { margin-top: 10px; }
+#navigationMenu {
+    width: auto;
+    position: fixed;
+    right: 10px;
+    top: 0;
+    z-index: 9999;
+}
+#navigationMenu li{
+    list-style:none;
+    height:39px;    
+    width:40px;
+    padding:2px;
+    margin-bottom: 5px;
+}
+#navigationMenu span{
+    /* Container properties */
+    width:0;
+    right:38px;
+    padding:0;
+    position:absolute;
+    overflow:hidden;
+    /* Text properties */
+    font-family:'Myriad Pro',Arial, Helvetica, sans-serif;
+    font-size:18px;
+    font-weight:bold;
+    letter-spacing:0.6px;
+    white-space:nowrap;
+    line-height:39px;    
+    /* CSS3 Transition: */
+    -webkit-transition: 0.25s;    
+    /* Future proofing (these do not work yet): */
+    -moz-transition: 0.25s;
+    transition: 0.25s;
+}
+#navigationMenu a{
+    /* background:url('img/navigation.jpg') no-repeat; */
+    height:39px;
+    width:38px;
+    display:block;
+    position:relative;
+}
+#navigationMenu a:hover span{ 
+    width:auto; 
+    padding:0 20px;
+    overflow:visible; 
+}
+#navigationMenu a:hover{
+    text-decoration:none;    
+    /* CSS outer glow with the box-shadow property */    
+    -webkit-box-shadow:0 0 5px #9ddff5;
+       -moz-box-shadow:0 0 5px #9ddff5;
+        -ms-box-shadow:0 0 5px #9ddff5;
+         -o-box-shadow:0 0 5px #9ddff5;
+    box-shadow:0 0 5px #9ddff5;
+}
+/* Green Button */
+#navigationMenu .cotiza { background:url(../images/cotiza.png); }
+#navigationMenu .cotiza:hover { background-position:0 0px;}
+#navigationMenu .cotiza span{
+    background-color:#9A243E;
+    color:#fff;
+    text-shadow:1px 1px 0 #333;
+}
+/* Blue Button */
+#navigationMenu .facebook { background:url(../images/facebook.png); }
+#navigationMenu .facebook:hover { background-position:0 0px;}
+#navigationMenu .facebook span{
+    background-color:#244479;
+    color:#fff;
+    text-shadow:1px 1px 0 #333;
+}
+#navigationMenu .twitter { background:url(../images/twitter.png); }
+#navigationMenu .twitter:hover { background-position:0 0px;}
+#navigationMenu .twitter span{
+    background-color:#006381;
+    color:#fff;
+    text-shadow:1px 1px 0 #333;
+}
+/* Yellow Button */
+#navigationMenu .youtube { background:url(../images/youtube.png); }
+#navigationMenu .youtube:hover{ background-position:0 0px;}
+#navigationMenu .youtube span{
+    background-color:#981B16;
+    color:#fff;
+    text-shadow:1px 1px 0 #333;
+}
+@media screen and (max-width: 768px){
+    .carousel-caption {
+        display: none;
+    }
+}

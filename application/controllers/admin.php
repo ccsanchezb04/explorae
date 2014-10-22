@@ -22,6 +22,7 @@ class Admin extends CI_Controller {
         $data['lstc'] = $this->homeadmin->lstCliente();
         $this->load->view('layout/header');
         $this->load->view('admin/admin', $data);
+        $this->load->view('admin/admin_users/modals_users');
         $this->load->view('layout/footer');
     }
     

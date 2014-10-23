@@ -3,6 +3,7 @@
     <script src="<?php echo base_url(); ?>public/js/jquery-1.11.1.min.js"></script>
     <script src="<?php echo base_url(); ?>public/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url(); ?>public/js/main.js"></script>
+    <script src="<?php echo base_url(); ?>public/js/jquery.colorbox-min.js"></script>
     <script src="<?php echo base_url(); ?>public/bxslider/jquery.bxslider.min.js"></script>
     <div id="fb-root"></div>
     <script>(function(d, s, id) {

@@ -10,8 +10,8 @@ class Homeadmin extends CI_model
     var $no_identificacion    = '';
     var $email                = '';    
     var $password             = '';
-    var $tel_fijo             = '';
-    var $tel_movil            = '';
+    var $telefono_fijo        = '';
+    var $telefono_movil       = '';
     var $direccion_residencia = '';    
     var $ciudad_residencia    = '';
     var $tipo_usuario         = '';
@@ -23,6 +23,11 @@ class Homeadmin extends CI_model
     /*=====================================================================================================================================================================*/
     /*======================================================= USUARIOS ====================================================================================================*/
     /*=====================================================================================================================================================================*/
+    public function lstUsers($id)
+    {
+        $query = $this->db->get_where('usuarios', array('id_usuario' => $id));
+        return $query->result();
+    }
     public function lstAdmin()
     {
         $query = $this->db->get_where('usuarios', array('tipo_usuario' => 'admin'));
@@ -37,6 +42,41 @@ class Homeadmin extends CI_model
     {
         $query = $this->db->get_where('usuarios', array('tipo_usuario' => 'cliente'));
         return $query->result();
+    }
+
+    public function add_user()
+    {
+        $this->id_usuario           = $this->input->post('id');
+        $this->nombres              = $this->input->post('nombres');
+        $this->apellidos            = $this->input->post('apellidos');
+        $this->no_identificacion    = $this->input->post('no_identificacion'); 
+        $this->email                = $this->input->post('email');
+        $this->password             = $this->input->post('password');       
+        $this->telefono_fijo        = $this->input->post('tel_fijo');
+        $this->telefono_movil       = $this->input->post('tel_movil');  
+        $this->direccion_residencia = $this->input->post('direccion');      
+        $this->ciudad_residencia    = $this->input->post('ciudad');      
+        $this->tipo_usuario         = $this->input->post('tipo_usuario');
+        $this->estado               = $this->input->post('estado');      
+        $this->fecha_registro       = $this->input->post('fecha_registro');      
+
+
+
+        if (!$this->db->insert('usuarios', $this)) 
+        {
+            //echo mysql_error($query);
+            echo "<script type='text/javascript'>";
+            echo "alert('Problemas al Adicionar el Usuario!');";
+            echo "</script>";
+        }
+        else
+        {
+            //echo mysql_error($query);
+            echo "<script type='text/javascript'>";
+            echo "alert('El usuario se adiciono con exito....!');";
+            echo "window.location.replace('".base_url()."Admin');";
+            echo "</script>";
+        }
     }
     /*=====================================================================================================================================================================*/
     /*=====================================================================================================================================================================*/

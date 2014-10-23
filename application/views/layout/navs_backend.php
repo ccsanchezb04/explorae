@@ -27,8 +27,5 @@
         <li <?php if ($page=="admin-equipo") {echo "class='active'";} ?>>
             <a href="#equipos" data-toggle="tab">Gestion Equipos</a>                     
         </li>
-        <div class="btn btn-danger btn-block" id="close-session">
-            <a href="<?php base_url(); ?>Login/close" id="">Cerrar Sesión</a>
-        </div>
     </ul>
 </div>

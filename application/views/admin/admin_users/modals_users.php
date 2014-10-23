@@ -6,9 +6,9 @@
             <h4 class="modal-title" id="myModalLabel">Agregar Usuario</h4>
         </div>
         <div class="modal-body">
-            <form class="form-horizontal" role="form" method="post" action="<?php echo base_url(); ?>Admin/add_user">
+            <form class="form-horizontal" role="form"method="post" action="<?php echo base_url(); ?>Admin/add_user">
                 <div class="form-group">
-                    <label for="nombres" class="col-sm-4 control-label">Nombres::</label>
+                    <label for="nombres" class="col-sm-4 control-label">Nombres:</label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" name="nombres" id="nombres">
                     </div>
@@ -71,14 +71,34 @@
                             <option value="cliente">Cliente</option>
                         </select>
                     </div>                                
+                    <input type="hidden" name="id" value="default">
                     <input type="hidden" name="estado" value="Activo">
                     <input type="hidden" name="fecha_registro" value="<?php echo date('Y-m-d'); ?>">
                 </div>
-            </form>
+           
         </div>
         <div class="modal-footer">
-            <button type="submit" class="btn btn-success">Enviar</button>
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-success">Agregar</button>
+            </form>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button> 
+        </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade bs-example-modal-lg" id="list_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Agregar Usuario</h4>
+        </div>
+        <div class="modal-body">
+            <div class="modal-content">
+                
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button> 
         </div>
     </div>
   </div>

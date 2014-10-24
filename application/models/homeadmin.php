@@ -58,9 +58,7 @@ class Homeadmin extends CI_model
         $this->ciudad_residencia    = $this->input->post('ciudad');      
         $this->tipo_usuario         = $this->input->post('tipo_usuario');
         $this->estado               = $this->input->post('estado');      
-        $this->fecha_registro       = $this->input->post('fecha_registro');      
-
-
+        $this->fecha_registro       = $this->input->post('fecha_registro'); 
 
         if (!$this->db->insert('usuarios', $this)) 
         {
@@ -74,6 +72,38 @@ class Homeadmin extends CI_model
             //echo mysql_error($query);
             echo "<script type='text/javascript'>";
             echo "alert('El usuario se adiciono con exito....!');";
+            //echo "window.location.replace('".base_url()."Admin');";
+            echo "</script>";
+        }
+    }
+    public function upd_user($id)
+    {
+        $this->id_usuario           = $this->input->post('id');
+        $this->nombres              = $this->input->post('nombres');
+        $this->apellidos            = $this->input->post('apellidos');
+        $this->no_identificacion    = $this->input->post('no_identificacion'); 
+        $this->email                = $this->input->post('email');
+        $this->password             = $this->input->post('password');       
+        $this->telefono_fijo        = $this->input->post('tel_fijo');
+        $this->telefono_movil       = $this->input->post('tel_movil');  
+        $this->direccion_residencia = $this->input->post('direccion');      
+        $this->ciudad_residencia    = $this->input->post('ciudad');      
+        $this->tipo_usuario         = $this->input->post('tipo_usuario');
+        $this->estado               = $this->input->post('estado');      
+        $this->fecha_registro       = $this->input->post('fecha_registro'); 
+
+        $this->db->where('id_usuario', $this->id);
+
+        if (!$this->db->update('usuarios', $this)) 
+        {
+            echo "<script type='text/javascript'>";
+            echo "alert('Problemas al Modificar el Usuario!');";
+            echo "</script>";
+        }
+        else
+        {
+            echo "<script type='text/javascript'>";
+            echo "alert('El usuario se modifico con exito....!');";
             echo "window.location.replace('".base_url()."Admin');";
             echo "</script>";
         }

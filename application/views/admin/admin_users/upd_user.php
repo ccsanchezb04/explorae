@@ -1,8 +1,9 @@
 <div class="container">
    <div class="panel panel-default">   
         <div class="panel-heading">
-            <h3 class="text-info">Agregar Usuario</h3>
+            <h3 class="text-info">Modificar Usuario</h3>
         </div>
+    <?php foreach ($variable as $key): ?>
         <form class="form-horizontal" role="form"method="post" action="<?php echo base_url(); ?>Admin/add_user">
             <div class="form-group">
                 <label for="nombres" class="col-sm-4 control-label">Nombres:</label>
@@ -77,6 +78,7 @@
                     <button type="submit" class="btn btn-success btn-block">Agregar</button>
                 </div> 
             </div>
-        </form>
+        </form> 
+    <?php endforeach ?>
     </div>
 </div>

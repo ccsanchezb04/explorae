@@ -19,10 +19,8 @@
                                         <span class="glyphicon glyphicon-user"></span>&nbsp;<?php echo $this->session->userdata('nameUser'); ?>&nbsp;<span class="caret"></span>            
                                     </button>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Ir a pagina</a></li>
-                                    <?php foreach ($lstu as $key): ?>
-                                        <li><a href="<?php echo base_url(); ?>Admin/upd_user/<?php echo $key->id_usuario; ?>">Modificar Perfil</a></li>  
-                                    <?php endforeach ?>                                                                              
+                                        <li><a href="#">Ir a pagina</a></li>                                    
+                                        <li><a href="<?php echo base_url(); ?>Admin/upd_user/<?php echo $this->session->userdata('idUser'); ?>" class="iframe cboxElement">Modificar Perfil</a></li>                                                                                               
                                         <li class="divider"></li>
                                         <li><a href="<?php echo base_url(); ?>Login/close">Cerrar Sesión</a></li>
                                     </ul>
@@ -57,11 +55,11 @@
                                                 <span class='glyphicon glyphicon-cog'></span>
                                             </a>
                                             <?php if ($key->estado == "Activo"): ?>
-                                            <a href="<?php echo base_url(); ?>Admin/state_user/<?php echo $key->id_usuario; ?>" type='button' class='btn btn-sm btn-warning iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CAMBIAR ESTADO / DESACTIVAR">
+                                            <a href="<?php echo base_url(); ?>Admin/inact_user/<?php echo $key->id_usuario; ?>" type='button' class='btn btn-sm btn-warning' data-toggle="tooltip" data-placement="bottom" title="CAMBIAR ESTADO / DESACTIVAR">
                                                 <span class='glyphicon glyphicon-remove'></span>
                                             </a>
                                         <?php else: ?>
-                                            <a href="<?php echo base_url(); ?>Admin/state_user/<?php echo $key->id_usuario; ?>" type='button' class='btn btn-sm btn-warning iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CAMBIAR ESTADO / ACTIVAR">
+                                            <a href="<?php echo base_url(); ?>Admin/act_user/<?php echo $key->id_usuario; ?>" type='button' class='btn btn-sm btn-warning' data-toggle="tooltip" data-placement="bottom" title="CAMBIAR ESTADO / ACTIVAR">
                                                 <span class='glyphicon glyphicon-ok'></span>
                                             </a>
                                         <?php endif ?>
@@ -89,22 +87,22 @@
                                         <td><?php echo $key->telefono_movil; ?></td>
                                         <td><?php echo $key->email; ?></td>
                                         <td>                    
-                                            <a href="<?php echo base_url(); ?>Admin/list_user/<?php echo $key->id_usuario; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement'  data-toggle="tooltip" data-placement="left" title="CONSULTAR">
+                                            <a href="<?php echo base_url(); ?>Admin/list_user/<?php echo $key->id_usuario; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement'  data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
                                                 <span class='glyphicon glyphicon-eye-open'></span>
                                             </a>
                                             <a href="<?php echo base_url(); ?>Admin/upd_user/<?php echo $key->id_usuario; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement'  data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
                                                 <span class='glyphicon glyphicon-cog'></span>
                                             </a>
                                         <?php if ($key->estado == "Activo"): ?>
-                                            <a href="<?php echo base_url(); ?>Admin/state_user/<?php echo $key->id_usuario; ?>" type='button' class='btn btn-sm btn-warning iframe cboxElement'  data-toggle="tooltip" data-placement="bottom" title="CAMBIAR ESTADO / DESACTIVAR">
+                                            <a href="<?php echo base_url(); ?>Admin/inact_user/<?php echo $key->id_usuario; ?>" type='button' class='btn btn-sm btn-warning iframe cboxElement'  data-toggle="tooltip" data-placement="bottom" title="CAMBIAR ESTADO / DESACTIVAR">
                                                 <span class='glyphicon glyphicon-remove'></span>
                                             </a>
                                         <?php else: ?>
-                                            <a href="<?php echo base_url(); ?>Admin/state_user/<?php echo $key->id_usuario; ?>" type='button' class='btn btn-sm btn-warning iframe cboxElement'  data-toggle="tooltip" data-placement="bottom" title="CAMBIAR ESTADO / ACTIVAR">
+                                            <a href="<?php echo base_url(); ?>Admin/act_user/<?php echo $key->id_usuario; ?>" type='button' class='btn btn-sm btn-warning iframe cboxElement'  data-toggle="tooltip" data-placement="bottom" title="CAMBIAR ESTADO / ACTIVAR">
                                                 <span class='glyphicon glyphicon-ok'></span>
                                             </a>
                                         <?php endif ?>
-                                            <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_usuario; ?>" data-rol="usuario"  data-toggle="tooltip" data-placement="right" title="ELIMINAR">
+                                            <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_usuario; ?>" data-rol="usuario"  data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">
                                                 <span class='glyphicon glyphicon-trash'></span>
                                             </a>                    
                                         </td>

@@ -95,10 +95,20 @@ class Admin extends CI_Controller {
             }           
         }
 
-        $data['lstu'] = $this->homeadmin->lstUser($id);
+        $data['lstu'] = $this->homeadmin->lstUsers($id);
         $this->load->view('layout/header');
         $this->load->view('admin/admin_users/upd_user', $data);
         $this->load->view('layout/footer');
+    }
+
+    public function inact_user($id)
+    {
+        $this->homeadmin->inact_user($id);
+    }
+
+    public function act_user($id)
+    {
+        $this->homeadmin->act_user($id);
     }
 
 /*=====================================================================================================================================================================*/

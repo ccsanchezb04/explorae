@@ -69,15 +69,15 @@ class Homeadmin extends CI_model
         }
         else
         {
-            //echo mysql_error($query);
             echo "<script type='text/javascript'>";
             echo "alert('El usuario se adiciono con exito....!');";
-            //echo "window.location.replace('".base_url()."Admin');";
             echo "</script>";
         }
     }
+
     public function upd_user($id)
     {
+        $this->id = $id;
         $this->id_usuario           = $this->input->post('id');
         $this->nombres              = $this->input->post('nombres');
         $this->apellidos            = $this->input->post('apellidos');
@@ -104,6 +104,64 @@ class Homeadmin extends CI_model
         {
             echo "<script type='text/javascript'>";
             echo "alert('El usuario se modifico con exito....!');";
+            echo "</script>";
+        }
+    }
+
+    public function act_user($id)
+    {        
+        $this->estado = "Activo";
+        $this->db->where('id_usuario', $id);
+        if (!$this->db->update('usuarios', array('estado'=> $this->estado))) 
+        {
+            echo "<script type='text/javascript'>";
+            echo "alert('Problemas al cambiar el estado');";
+            echo "</script>";
+        }
+        else
+        {
+            echo "<script type='text/javascript'>";
+            echo "alert('El estado del usuarios es: ".$this->estado."');";
+            echo "window.location.replace('".base_url()."Admin');";
+            echo "</script>";
+        }
+
+    }
+
+    public function inact_user($id)
+    {        
+        $this->estado = "Inactivo";
+        $this->db->where('id_usuario', $id);
+        if (!$this->db->update('usuarios', array('estado'=> $this->estado))) 
+        {
+            echo "<script type='text/javascript'>";
+            echo "alert('Problemas al cambiar el estado');";
+            echo "</script>";
+        }
+        else
+        {
+            echo "<script type='text/javascript'>";
+            echo "alert('El estado del usuarios es: ".$this->estado."');";
+            echo "window.location.replace('".base_url()."Admin');";
+            echo "</script>";
+        }
+    }
+
+    public function delete_user($id)
+    {
+        $this->id_usuario = $id;
+        $this->db->where('id_usuario', $this->id_usuario);
+
+        if (!$this->db->delete('usuarios')) 
+        {
+            echo "<script type='text/javascript'>";
+            echo "alert('Problemas al Eliminar el Usuario!');";
+            echo "</script>";
+        }
+        else
+        {
+            echo "<script type='text/javascript'>";
+            echo "alert('El usuario se elimino con exito....!');";
             echo "window.location.replace('".base_url()."Admin');";
             echo "</script>";
         }

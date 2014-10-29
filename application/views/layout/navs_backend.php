@@ -4,10 +4,10 @@
     </div>
     <ul class="nav nav-pills nav-stacked">
         <li <?php if ($page=="admin") {echo "class='active'";} ?>>
-            <a href="#usuarios" data-toggle="tab">Gestión Usuarios</a>                     
+            <a href="<?php echo base_url(); ?>Admin" data-toggle="tab">Gestión Usuarios</a>                     
         </li>
         <li <?php if ($page=="admin-salon") {echo "class='active'";} ?>>
-            <a href="#salones" data-toggle="tab">Gestión Salones</a>                     
+            <a href="<?php echo base_url(); ?>Admin/salones" data-toggle="tab">Gestión Salones</a>                     
         </li>
         <li <?php if ($page=="admin-salon") {echo "class='active'";} ?>>
             <a href="#salones" data-toggle="tab">Gestión Decoración</a>                     

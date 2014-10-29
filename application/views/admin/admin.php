@@ -54,7 +54,7 @@
                                             <a href="<?php echo base_url(); ?>Admin/upd_user/<?php echo $key->id_usuario; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
                                                 <span class='glyphicon glyphicon-cog'></span>
                                             </a>
-                                            <?php if ($key->estado == "Activo"): ?>
+                                        <?php if ($key->estado == "Activo"): ?>
                                             <a href="<?php echo base_url(); ?>Admin/inact_user/<?php echo $key->id_usuario; ?>" type='button' class='btn btn-sm btn-warning' data-toggle="tooltip" data-placement="bottom" title="CAMBIAR ESTADO / DESACTIVAR">
                                                 <span class='glyphicon glyphicon-remove'></span>
                                             </a>
@@ -63,7 +63,7 @@
                                                 <span class='glyphicon glyphicon-ok'></span>
                                             </a>
                                         <?php endif ?>
-                                            <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_usuario; ?>" data-rol="usuario"  data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">
+                                            <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_usuario; ?>" data-rol="user" data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">
                                                 <span class='glyphicon glyphicon-trash'></span>
                                             </a>                    
                                         </td>
@@ -102,7 +102,7 @@
                                                 <span class='glyphicon glyphicon-ok'></span>
                                             </a>
                                         <?php endif ?>
-                                            <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_usuario; ?>" data-rol="usuario"  data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">
+                                            <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_usuario; ?>" data-rol="user"  data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">
                                                 <span class='glyphicon glyphicon-trash'></span>
                                             </a>                    
                                         </td>

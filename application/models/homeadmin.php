@@ -77,7 +77,6 @@ class Homeadmin extends CI_model
 
     public function upd_user($id)
     {
-        $this->id = $id;
         $this->id_usuario           = $this->input->post('id');
         $this->nombres              = $this->input->post('nombres');
         $this->apellidos            = $this->input->post('apellidos');
@@ -92,7 +91,7 @@ class Homeadmin extends CI_model
         $this->estado               = $this->input->post('estado');      
         $this->fecha_registro       = $this->input->post('fecha_registro'); 
 
-        $this->db->where('id_usuario', $this->id);
+        $this->db->where('id_usuario', $id);
 
         if (!$this->db->update('usuarios', $this)) 
         {
@@ -147,7 +146,7 @@ class Homeadmin extends CI_model
         }
     }
 
-    public function delete_user($id)
+    public function dlt_user($id)
     {
         $this->id_usuario = $id;
         $this->db->where('id_usuario', $this->id_usuario);

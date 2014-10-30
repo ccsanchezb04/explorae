@@ -127,6 +127,7 @@ class Admin extends CI_Controller {
     {
         $id = $this->session->userdata('idUser'); 
         $data['lstu'] = $this->homeadmin->lstUsers($id);
+        $data['lstr'] = $this->mod_rooms->lstRoom();
         $this->load->view('layout/header');
         $this->load->view('admin/salones', $data);
         $this->load->view('layout/footer');
@@ -204,16 +205,6 @@ class Admin extends CI_Controller {
         $this->load->view('admin/admin_users/upd_user', $data);
         $this->load->view('layout/footer');
     }
-
-    /*public function inact_room($id)
-    {
-        $this->homeadmin->inact_user($id);
-    }
-
-    public function act_room($id)
-    {
-        $this->homeadmin->act_user($id);
-    }*/
 
     public function dlt_room($id)
     {

@@ -33,7 +33,7 @@
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="asesor">
-                                <table class="table table-striped">
+                                <table class="table table-striped" id="panel">
                                     <tr>
                                         <th>ID</th>
                                         <th>Nombre Completo</th>
@@ -72,7 +72,7 @@
                                 </table>
                             </div>
                             <div class="tab-pane" id="cliente">
-                                <table class="table table-striped">
+                                <table class="table table-striped" id="panel">
                                     <tr>
                                         <th>ID</th>
                                         <th>Nombre Completo</th>

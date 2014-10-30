@@ -4,28 +4,28 @@
     </div>
     <ul class="nav nav-pills nav-stacked">
         <li <?php if ($page=="admin") {echo "class='active'";} ?>>
-            <a href="<?php echo base_url(); ?>Admin" data-toggle="tab">Gestión Usuarios</a>                     
+            <a href="<?php echo base_url(); ?>Admin">Gestión Usuarios</a>                     
         </li>
         <li <?php if ($page=="admin-salon") {echo "class='active'";} ?>>
-            <a href="<?php echo base_url(); ?>Admin/salones" data-toggle="tab">Gestión Salones</a>                     
+            <a href="<?php echo base_url(); ?>Admin/salon">Gestión Salones</a>                     
         </li>
-        <li <?php if ($page=="admin-salon") {echo "class='active'";} ?>>
-            <a href="#salones" data-toggle="tab">Gestión Decoración</a>                     
+        <li <?php if ($page=="admin-") {echo "class='active'";} ?>>
+            <a href="#salones">Gestión Decoración</a>                     
         </li>
-        <li <?php if ($page=="admin-salon") {echo "class='active'";} ?>>
-            <a href="#salones" data-toggle="tab">Gestión Temáticas</a>                     
+        <li <?php if ($page=="admin-") {echo "class='active'";} ?>>
+            <a href="#salones">Gestión Temáticas</a>                     
         </li>
-        <li <?php if ($page=="admin-salon") {echo "class='active'";} ?>>
-            <a href="#salones" data-toggle="tab">Gestión Menú</a>                     
+        <li <?php if ($page=="admin-") {echo "class='active'";} ?>>
+            <a href="#salones">Gestión Menú</a>                     
         </li>
         <li <?php if ($page=="admin-evento") {echo "class='active'";} ?>>
-            <a href="#eventos" data-toggle="tab">Gestión Eventos</a>                     
+            <a href="#eventos">Gestión Eventos</a>                     
         </li>        
         <li <?php if ($page=="admin-artista") {echo "class='active'";} ?>>
-            <a href="#artistas" data-toggle="tab">Gestión Artistas</a>                     
+            <a href="#artistas">Gestión Artistas</a>                     
         </li>
         <li <?php if ($page=="admin-equipo") {echo "class='active'";} ?>>
-            <a href="#equipos" data-toggle="tab">Gestion Equipos</a>                     
+            <a href="#equipos">Gestion Equipos</a>                     
         </li>
     </ul>
 </div>

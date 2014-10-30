@@ -6,7 +6,7 @@
         </div>
         <div class="col-md-9">
             <div class="tab-content">
-                <div class="tab-pane active" id="usuarios">
+                <div class="tab-pane active" id="salones">
                     <div class="row" id="head-backend">
                         <div class="col-md-6">
                             <a href="<?php echo base_url(); ?>Admin/add_room" type="button" class="btn btn-primary btn-block iframe cboxElement" data-toggle="tooltip" data-placement="bottom" title="AGREGAR">
@@ -27,7 +27,7 @@
                             </div>
                         </div>
                     </div>
-                    <table class="table table-striped">
+                    <table class="table table-striped" id="panel">
                         <tr>
                             <th>Nombre del salon</th>
                             <th>Precio de alquiler</th>
@@ -35,7 +35,7 @@
                             <th>Correo de contacto</th>
                             <th>Acciones</th>
                         </tr>
-                        <?php foreach ($lstSalon as $key): ?>
+                        <?php foreach ($lstr as $key): ?>
                         <tr>
                             <td><?php echo $key->nombre_salon; ?></td>
                             <td><?php echo $key->precio_alquiler; ?></td>

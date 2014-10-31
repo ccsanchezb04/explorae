@@ -156,13 +156,8 @@ class Admin extends CI_Controller {
                 $this->homeadmin->add_user();
             }       
         }
-        $id = $this->session->userdata('idUser'); 
-        $data['lstu'] = $this->homeadmin->lstUsers($id);
-        $data['lsta'] = $this->homeadmin->lstAdmin();
-        $data['lsts'] = $this->homeadmin->lstAsesor();
-        $data['lstc'] = $this->homeadmin->lstCliente();
         $this->load->view('layout/header');
-        $this->load->view('admin/admin_users/add_users');
+        $this->load->view('admin/admin_rooms/add_room');
         $this->load->view('layout/footer');
     } 
 

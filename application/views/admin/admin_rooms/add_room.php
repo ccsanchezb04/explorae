@@ -49,7 +49,17 @@
             <div class="form-group">
                 <label for="direccion" class="col-sm-4 control-label">Imagen del salon:</label>
                 <div class="col-sm-6">
-                    <input type="file" class="form-control" name="imagen_salon" id="direccion">
+                    <div class="fileupload fileupload-new" data-provides="fileupload"><input type="hidden">
+                        <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px; line-height: 150px;"></div>
+                        <div>
+                            <span class="btn btn-default btn-file">
+                                <span class="fileupload-new">Seleccione Imagen</span>
+                                <span class="fileupload-exists">Cambiar</span>
+                                <input type="file" name="imagen" accept="image/png image/jpg">
+                            </span>
+                            <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remover</a>
+                        </div>
+                    </div>
                 </div>                                
                 <input type="hidden" name="id" value="default">
                 <input type="hidden" name="estado" value="Activo">

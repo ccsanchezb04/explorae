@@ -15,6 +15,11 @@ class Mod_rooms extends CI_model
     var $imagen_salon        = '';    
     //=====================================================================
     //=====================================================================
+
+    public function __construct(){
+        parent::__construct();
+        $this->upload_i = './public/images';
+    }
     
     /*=====================================================================================================================================================================*/
     /*======================================================= USUARIOS ====================================================================================================*/
@@ -27,6 +32,23 @@ class Mod_rooms extends CI_model
 
     public function add_room()
     {
+        $config = array(
+        'upload_path'   => $this->upload_i,
+        'allowed_types' => 'gif|jpg|png'
+        );
+        
+        // Cargo la libreria upload con su configuracion
+        $this->load->library('upload', $config);
+        // Subo la imagen con name='imagen'
+        $this->upload->do_upload('imagen_producto');
+        
+        // Datos del Archivo Subido
+        $datos = $this->upload->data();
+        $config = array(
+        'file_name' => $datos['file_name'],
+        'file_path' => $datos['file_path'],
+        'full_name' => $datos['full_path']);
+
         $this->id_salon            = $this->input->post('id');
         $this->nombre_salon        = $this->input->post('nombre_salon');
         $this->precio_alquiler     = $this->input->post('precio_alquiler');
@@ -35,7 +57,7 @@ class Mod_rooms extends CI_model
         $this->nombre_contacto     = $this->input->post('nombre_contacto');       
         $this->telefono_contacto   = $this->input->post('tel_contacto');
         $this->email_contacto      = $this->input->post('email_contacto');  
-        $this->imagen_salon        = $this->input->post('imagen_salon'); 
+        $this->imagen_salon        = $config['file_name']; 
 
         if (!$this->db->insert('salones', $this)) 
         {

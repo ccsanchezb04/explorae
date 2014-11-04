@@ -1,9 +1,10 @@
 <div class="container">
+<?php echo validation_errors(); ?>
    <div class="panel panel-default">   
         <div class="panel-heading">
-            <h3 class="text-info">Agregar Usuario</h3>
+            <h3 class="text-info">Agregar Salon</h3>
         </div>
-        <form class="form-horizontal" role="form"method="post" enctype="multipart/form-data">
+        <form class="form-horizontal" role="form" method="post" action="<?php echo base_url(); ?>Admin/add_room" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="nombres" class="col-sm-4 control-label">Nombre Salon:</label>
                 <div class="col-sm-6">
@@ -19,7 +20,7 @@
             <div class="form-group">
                 <label for="identificacion" class="col-sm-4 control-label">Direccion de ubicacion:</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="dereccion_ubicacion" id="identificacion">
+                    <input type="text" class="form-control" name="direccion_ubicacion" id="identificacion">
                 </div> 
             </div>
             <div class="form-group">
@@ -55,15 +56,13 @@
                             <span class="btn btn-default btn-file">
                                 <span class="fileupload-new">Seleccione Imagen</span>
                                 <span class="fileupload-exists">Cambiar</span>
-                                <input type="file" name="imagen" accept="image/png image/jpg">
+                                <input type="file" name="imagen_salon" accept="image/png image/jpg">
                             </span>
                             <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remover</a>
                         </div>
                     </div>
                 </div>                                
                 <input type="hidden" name="id" value="default">
-                <input type="hidden" name="estado" value="Activo">
-                <input type="hidden" name="fecha_registro" value="<?php echo date('Y-m-d'); ?>">
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-4 col-sm-6">

@@ -42,13 +42,13 @@
                             <td><?php echo $key->nombre_contacto; ?></td>
                             <td><?php echo $key->email_contacto; ?></td>
                             <td>                    
-                                <a href="<?php echo base_url(); ?>Admin/list_user/<?php echo $key->id_salon; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
+                                <a href="<?php echo base_url(); ?>Admin/list_room/<?php echo $key->id_salon; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
                                     <span class='glyphicon glyphicon-eye-open'></span>
                                 </a>
-                                <a href="<?php echo base_url(); ?>Admin/upd_user/<?php echo $key->id_salon; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
+                                <a href="<?php echo base_url(); ?>Admin/upd_room/<?php echo $key->id_salon; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
                                     <span class='glyphicon glyphicon-cog'></span>
                                 </a>
-                                <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_salon; ?>" data-rol="user" data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">
+                                <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_salon; ?>" data-rol="room" data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">
                                     <span class='glyphicon glyphicon-trash'></span>
                                 </a>                    
                             </td>

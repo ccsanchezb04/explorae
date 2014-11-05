@@ -18,7 +18,7 @@ class Mod_rooms extends CI_model
 
     public function __construct(){
         parent::__construct();
-        $this->upload_i = '../../public/images/page/salones';
+        $this->upload_i = '../../public/images/page/salones/';
     }
     
     /*=====================================================================================================================================================================*/
@@ -50,15 +50,27 @@ class Mod_rooms extends CI_model
             'full_name' => $datos['full_path']
         );
 
-        $salon = array('id_salon'            => $this->input->post('id'),
-                       'nombre_salon'        => $this->input->post('nombre_salon'),
-                       'precio_alquiler'     => $this->input->post('precio_alquiler'),
-                       'direccion_ubicacion' => $this->input->post('direccion_ubicacion'),
-                       'total_capacidad'     => $this->input->post('total_capacidad'),
-                       'nombre_contacto'     => $this->input->post('nombre_contacto'),
-                       'telefono_contacto'   => $this->input->post('tel_contacto'),
-                       'email_contacto'      => $this->input->post('email_contacto'),
-                       'imagen_salon'        => $config['file_name']);
+        $this->id_salon            = $this->input->post('id');
+        $this->nombre_salon        = $this->input->post('nombre_salon');
+        $this->precio_alquiler     = $this->input->post('precio_alquiler');
+        $this->direccion_ubicacion = $this->input->post('direccion_ubicacion');
+        $this->total_capacidad     = $this->input->post('total_capacidad');
+        $this->nombre_contacto     = $this->input->post('nombre_contacto');
+        $this->telefono_contacto   = $this->input->post('tel_contacto');
+        $this->email_contacto      = $this->input->post('email_contacto');
+        $this->imagen_salon        = $config['file_name'];
+
+        $salon = array('id_salon'            => $this->id_salon,
+                       'nombre_salon'        => $this->nombre_salon,
+                       'precio_alquiler'     => $this->precio_alquiler,
+                       'direccion_ubicacion' => $this->direccion_ubicacion,
+                       'total_capacidad'     => $this->total_capacidad,
+                       'nombre_contacto'     => $this->nombre_contacto,
+                       'telefono_contacto'   => $this->telefono_contacto,
+                       'email_contacto'      => $this->email_contacto,
+                       'imagen_salon'        => $this->imagen_salon);
+
+        var_dump($salon);
 
         if (!$this->db->insert('salones', $salon)) 
         {
@@ -153,7 +165,7 @@ class Mod_rooms extends CI_model
             echo "window.location.replace('".base_url()."index.php/CProductos/indexProd');";
             echo "</script>";
         }
-        /*$this->id_salon            = $this->input->post('id');
+    /*  $this->id_salon            = $this->input->post('id');
         $this->nombre_salon        = $this->input->post('nombre_salon');
         $this->precio_alquiler     = $this->input->post('precio_alquiler');
         $this->direccion_ubicacion = $this->input->post('direccion_ubicacion'); 

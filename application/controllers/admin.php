@@ -9,6 +9,7 @@ class Admin extends CI_Controller {
         $this->load->helper('url', 'form_validation');      
         $this->load->model('homeadmin');
         $this->load->model('mod_rooms');
+        $this->upload_i = '../../public/images/page/salones/';
         /*$this->removeCache();*/
     }
 

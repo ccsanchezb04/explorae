@@ -18,7 +18,7 @@ class Mod_rooms extends CI_model
 
     public function __construct(){
         parent::__construct();
-        $this->upload_i = '../../public/images/page/salones/';
+        //$this->upload_i = '../../public/images/page/salones/';
     }
     
     /*=====================================================================================================================================================================*/
@@ -33,7 +33,7 @@ class Mod_rooms extends CI_model
     public function add_room()
     {
         $config = array(
-            'upload_path'   => $this->upload_i,
+            'upload_path'   => '../../public/images/page/salones/',
             'allowed_types' => 'jpg|png'
         );
         
@@ -71,6 +71,7 @@ class Mod_rooms extends CI_model
                        'imagen_salon'        => $this->imagen_salon);
 
         var_dump($salon);
+        echo $this;
 
         if (!$this->db->insert('salones', $salon)) 
         {

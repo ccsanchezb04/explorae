@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-11-2014 a las 00:01:24
+-- Tiempo de generación: 07-11-2014 a las 23:41:44
 -- Versión del servidor: 5.6.20
 -- Versión de PHP: 5.5.15
 
@@ -35,16 +35,21 @@ CREATE TABLE IF NOT EXISTS `artistas` (
   `correo_contacto` text NOT NULL,
   `lista_canciones` text NOT NULL,
   `tipo_artista` text NOT NULL,
-  `imagen_artista` text NOT NULL
+  `imagen_artista` text NOT NULL,
+  `galeria_1` text,
+  `galeria_2` text,
+  `galeria_3` text,
+  `galeria_4` text,
+  `galeria_5` text
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `artistas`
 --
 
-INSERT INTO `artistas` (`id_artista`, `nombre_artista`, `precio_contrato`, `nombre_contacto`, `telefono_contacto`, `correo_contacto`, `lista_canciones`, `tipo_artista`, `imagen_artista`) VALUES
-(1, 'Jareck', 3500000, 'Jhon Doe', 3124586, 'jhon.doe@mail.com', 'muchas cancionesmuchas cancionesmuchas cancionesmuchas canciones', 'solista', '../public/images/page/artistas/jareck.jpg'),
-(2, 'Kamil', 2000000, 'Jhon Doe', 21385421, 'jhon.doe@mail.com', 'muchas cancionesmuchas cancionesmuchas cancionesmuchas cancionesmuchas cancionesmuchas cancionesmuchas cancionesmuchas canciones', 'grupo', '../public/images/page/artistas/kamil.jpg');
+INSERT INTO `artistas` (`id_artista`, `nombre_artista`, `precio_contrato`, `nombre_contacto`, `telefono_contacto`, `correo_contacto`, `lista_canciones`, `tipo_artista`, `imagen_artista`, `galeria_1`, `galeria_2`, `galeria_3`, `galeria_4`, `galeria_5`) VALUES
+(1, 'Jareck', 3500000, 'Jhon Doe', 3124586, 'jhon.doe@mail.com', 'muchas cancionesmuchas cancionesmuchas cancionesmuchas canciones', 'solista', '../public/images/page/artistas/jareck.jpg', NULL, NULL, NULL, NULL, NULL),
+(2, 'Kamil', 2000000, 'Jhon Doe', 21385421, 'jhon.doe@mail.com', 'muchas cancionesmuchas cancionesmuchas cancionesmuchas cancionesmuchas cancionesmuchas cancionesmuchas cancionesmuchas canciones', 'grupo', '../public/images/page/artistas/kamil.jpg', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -62,7 +67,27 @@ CREATE TABLE IF NOT EXISTS `cotizacion_evento` (
   `artista_id` int(11) NOT NULL,
   `equipo_id` int(11) NOT NULL,
   `salon_id` int(11) NOT NULL,
+  `decoracion_id` int(11) NOT NULL,
   `usuario_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `decoraciones`
+--
+
+CREATE TABLE IF NOT EXISTS `decoraciones` (
+`id_decoracion` int(11) NOT NULL,
+  `nombre_decoracion` text NOT NULL,
+  `categoria_decoracion` int(11) NOT NULL,
+  `precio_decoracion` int(11) NOT NULL,
+  `imagen_decoracion` text,
+  `galeria_1` text,
+  `galeria_2` text,
+  `galeria_3` text,
+  `galeria_4` text,
+  `galeria_5` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -79,15 +104,20 @@ CREATE TABLE IF NOT EXISTS `equipos` (
   `telefono_contacto` bigint(20) NOT NULL,
   `correo_contacto` text NOT NULL,
   `detalle` text NOT NULL,
-  `imagen_equipo` text NOT NULL
+  `imagen_equipo` text NOT NULL,
+  `galeria_1` text,
+  `galeria_2` text,
+  `galeria_3` text,
+  `galeria_4` text,
+  `galeria_5` text
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Volcado de datos para la tabla `equipos`
 --
 
-INSERT INTO `equipos` (`id_equipo`, `nombre_equipo`, `precio_alquiler`, `nombre_contacto`, `telefono_contacto`, `correo_contacto`, `detalle`, `imagen_equipo`) VALUES
-(1, 'Pista Luminosa', 200000, 'Pedro Pataquiva', 54812344, 'pedrito.pata@mail.com', 'Esta es una pista conformada con bombillos LED, de direfentes colores, especial para eventos sociales que se realizan en horas de la noche', '../public/images/page/equipos/pista_luminosa.jpg');
+INSERT INTO `equipos` (`id_equipo`, `nombre_equipo`, `precio_alquiler`, `nombre_contacto`, `telefono_contacto`, `correo_contacto`, `detalle`, `imagen_equipo`, `galeria_1`, `galeria_2`, `galeria_3`, `galeria_4`, `galeria_5`) VALUES
+(1, 'Pista Luminosa', 200000, 'Pedro Pataquiva', 54812344, 'pedrito.pata@mail.com', 'Esta es una pista conformada con bombillos LED, de direfentes colores, especial para eventos sociales que se realizan en horas de la noche', '../public/images/page/equipos/pista_luminosa.jpg', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -98,17 +128,21 @@ INSERT INTO `equipos` (`id_equipo`, `nombre_equipo`, `precio_alquiler`, `nombre_
 CREATE TABLE IF NOT EXISTS `eventos_empresariales` (
 `id_empresariales` int(11) NOT NULL,
   `nombre_evento` text NOT NULL,
-  `precio` bigint(20) NOT NULL,
   `descripcion` text NOT NULL,
-  `imagen_empresarial` text NOT NULL
+  `imagen_empresarial` text NOT NULL,
+  `galleria_1` text,
+  `galleria_2` text,
+  `galleria_3` text,
+  `galleria_4` text,
+  `galleria_5` text
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Volcado de datos para la tabla `eventos_empresariales`
 --
 
-INSERT INTO `eventos_empresariales` (`id_empresariales`, `nombre_evento`, `precio`, `descripcion`, `imagen_empresarial`) VALUES
-(1, 'Coctel', 1000000, 'Este es un evento empresarial', '../public/images/page/eventos_empresariales/salon15.jpg');
+INSERT INTO `eventos_empresariales` (`id_empresariales`, `nombre_evento`, `descripcion`, `imagen_empresarial`, `galleria_1`, `galleria_2`, `galleria_3`, `galleria_4`, `galleria_5`) VALUES
+(1, 'Coctel', 'Este es un evento empresarial', '../public/images/page/eventos_empresariales/salon15.jpg', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -119,17 +153,21 @@ INSERT INTO `eventos_empresariales` (`id_empresariales`, `nombre_evento`, `preci
 CREATE TABLE IF NOT EXISTS `eventos_sociales` (
 `id_sociales` int(11) NOT NULL,
   `nombre_evento` text NOT NULL,
-  `precio` bigint(20) NOT NULL,
   `descripcion` text NOT NULL,
-  `imagen_social` text NOT NULL
+  `imagen_social` text NOT NULL,
+  `galleria_1` text,
+  `galleria_2` text,
+  `galleria_3` text,
+  `galleria_4` text,
+  `galleria_5` text
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Volcado de datos para la tabla `eventos_sociales`
 --
 
-INSERT INTO `eventos_sociales` (`id_sociales`, `nombre_evento`, `precio`, `descripcion`, `imagen_social`) VALUES
-(1, 'Primera Comuniï¿½n ', 1200000, 'Evento social', '../public/images/page/eventos_sociales/salon4.jpg');
+INSERT INTO `eventos_sociales` (`id_sociales`, `nombre_evento`, `descripcion`, `imagen_social`, `galleria_1`, `galleria_2`, `galleria_3`, `galleria_4`, `galleria_5`) VALUES
+(1, 'Primera Comuniï¿½n ', 'Evento social', '../public/images/page/eventos_sociales/salon4.jpg', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -146,17 +184,22 @@ CREATE TABLE IF NOT EXISTS `salones` (
   `nombre_contacto` text NOT NULL,
   `telefono_contacto` bigint(20) NOT NULL,
   `email_contacto` text NOT NULL,
-  `imagen_salon` text NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+  `imagen_salon` text NOT NULL,
+  `galeria_1` text,
+  `galeria_2` text,
+  `galeria_3` text,
+  `galeria_4` text,
+  `galeria_5` text
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `salones`
 --
 
-INSERT INTO `salones` (`id_salon`, `nombre_salon`, `precio_alquiler`, `direccion_ubicacion`, `total_capacidad`, `nombre_contacto`, `telefono_contacto`, `email_contacto`, `imagen_salon`) VALUES
-(1, 'Liborio Lopera', 600000, 'Cra 20 # 17-35', 110, 'Jose Ignacio Lopera', 124578936, 'jlopera33@gmail.com', '../../public/images/page/salones/salon1.jpg'),
-(2, 'En cualquier parte', 520000, 'Cll 00 # 00-00', 110, 'Jhon Doe', 12345462, 'jhon.doe@mail.com', ''),
-(4, 'El cuchitri', 650000, 'Cra 20 # 17-35', 110, 'Jose Ignacio Lopera', 23123456421, 'pedrito.pata@mail.com', '');
+INSERT INTO `salones` (`id_salon`, `nombre_salon`, `precio_alquiler`, `direccion_ubicacion`, `total_capacidad`, `nombre_contacto`, `telefono_contacto`, `email_contacto`, `imagen_salon`, `galeria_1`, `galeria_2`, `galeria_3`, `galeria_4`, `galeria_5`) VALUES
+(1, 'Liborio Lopera', 600000, 'Cra 20 # 17-35', 110, 'Jose Ignacio Lopera', 124578936, 'jlopera33@gmail.com', '../../public/images/page/salones/salon1.jpg', NULL, NULL, NULL, NULL, NULL),
+(2, 'En cualquier parte', 520000, 'Cll 00 # 00-00', 110, 'Jhon Doe', 12345462, 'jhon.doe@mail.com', '', NULL, NULL, NULL, NULL, NULL),
+(4, 'El cuchitri', 650000, 'Cra 20 # 17-35', 110, 'Jose Ignacio Lopera', 23123456421, 'pedrito.pata@mail.com', '', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -206,7 +249,13 @@ ALTER TABLE `artistas`
 -- Indices de la tabla `cotizacion_evento`
 --
 ALTER TABLE `cotizacion_evento`
- ADD PRIMARY KEY (`id_cotizacion`), ADD KEY `empresariales_id` (`empresariales_id`,`artista_id`,`equipo_id`,`salon_id`,`usuario_id`), ADD KEY `sociales_id` (`sociales_id`), ADD KEY `empresariales_id_2` (`empresariales_id`), ADD KEY `artista_id` (`artista_id`), ADD KEY `equipo_id` (`equipo_id`), ADD KEY `salon_id` (`salon_id`), ADD KEY `usuario_id` (`usuario_id`);
+ ADD PRIMARY KEY (`id_cotizacion`), ADD KEY `empresariales_id` (`empresariales_id`,`artista_id`,`equipo_id`,`salon_id`,`usuario_id`), ADD KEY `sociales_id` (`sociales_id`), ADD KEY `empresariales_id_2` (`empresariales_id`), ADD KEY `artista_id` (`artista_id`), ADD KEY `equipo_id` (`equipo_id`), ADD KEY `salon_id` (`salon_id`), ADD KEY `usuario_id` (`usuario_id`), ADD KEY `decoracion_id` (`decoracion_id`);
+
+--
+-- Indices de la tabla `decoraciones`
+--
+ALTER TABLE `decoraciones`
+ ADD PRIMARY KEY (`id_decoracion`);
 
 --
 -- Indices de la tabla `equipos`
@@ -253,6 +302,11 @@ MODIFY `id_artista` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 ALTER TABLE `cotizacion_evento`
 MODIFY `id_cotizacion` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT de la tabla `decoraciones`
+--
+ALTER TABLE `decoraciones`
+MODIFY `id_decoracion` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT de la tabla `equipos`
 --
 ALTER TABLE `equipos`
@@ -271,7 +325,7 @@ MODIFY `id_sociales` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- AUTO_INCREMENT de la tabla `salones`
 --
 ALTER TABLE `salones`
-MODIFY `id_salon` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+MODIFY `id_salon` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
@@ -289,7 +343,9 @@ ADD CONSTRAINT `cotizacion_evento_ibfk_1` FOREIGN KEY (`sociales_id`) REFERENCES
 ADD CONSTRAINT `cotizacion_evento_ibfk_2` FOREIGN KEY (`empresariales_id`) REFERENCES `eventos_empresariales` (`id_empresariales`) ON DELETE NO ACTION ON UPDATE NO ACTION,
 ADD CONSTRAINT `cotizacion_evento_ibfk_3` FOREIGN KEY (`artista_id`) REFERENCES `artistas` (`id_artista`) ON DELETE NO ACTION ON UPDATE NO ACTION,
 ADD CONSTRAINT `cotizacion_evento_ibfk_4` FOREIGN KEY (`equipo_id`) REFERENCES `equipos` (`id_equipo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `cotizacion_evento_ibfk_5` FOREIGN KEY (`salon_id`) REFERENCES `salones` (`id_salon`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ADD CONSTRAINT `cotizacion_evento_ibfk_5` FOREIGN KEY (`salon_id`) REFERENCES `salones` (`id_salon`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+ADD CONSTRAINT `cotizacion_evento_ibfk_6` FOREIGN KEY (`decoracion_id`) REFERENCES `decoraciones` (`id_decoracion`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+ADD CONSTRAINT `cotizacion_evento_ibfk_7` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

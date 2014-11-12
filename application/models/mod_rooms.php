@@ -12,13 +12,14 @@ class Mod_rooms extends CI_model
     var $nombre_contacto     = '';
     var $telefono_contacto   = '';
     var $email_contacto      = '';
-    var $imagen_salon        = '';    
+    var $imagen_salon        = '';
+    var $upload_i            = '';
     //=====================================================================
     //=====================================================================
 
     public function __construct(){
         parent::__construct();
-        //$this->upload_i = '../../public/images/page/salones/';
+        $this->upload_i = './public/images/page/salones/';
     }
     
     /*=====================================================================================================================================================================*/
@@ -33,7 +34,7 @@ class Mod_rooms extends CI_model
     public function add_room()
     {
         $config = array(
-            'upload_path'   => '../../public/images/page/salones/',
+            'upload_path'   => $this->upload_i,
             'allowed_types' => 'jpg|png'
         );
         
@@ -98,7 +99,7 @@ class Mod_rooms extends CI_model
     {
         if ($_FILES['imagen_salon']['name'])        {
 
-            $ruta = "../../public/images/".$_FILES['imagen_salon']['name'];
+            $ruta = "./public/images/".$_FILES['imagen_salon']['name'];
 
             if (file_exists($_POST['campo_oculto']))
             {

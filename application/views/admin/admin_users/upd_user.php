@@ -4,7 +4,7 @@
             <h3 class="text-info">Modificar Usuario</h3>
         </div>
     <?php foreach ($lstu as $key): ?>
-        <form class="form-horizontal" role="form"method="post">
+        <form class="form-horizontal" role="form" method="post">
             <div class="form-group">
                 <label for="nombres" class="col-sm-4 control-label">Nombres:</label>
                 <div class="col-sm-6">

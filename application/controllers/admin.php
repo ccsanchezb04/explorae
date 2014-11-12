@@ -167,17 +167,14 @@ class Admin extends CI_Controller {
     {
         if ($_POST) 
         {
-            $this->form_validation->set_rules('nombre_salon', 'Nombre del salon', 'required');
-            $this->form_validation->set_rules('apellidos', 'Apellidos', 'required');
-            $this->form_validation->set_rules('no_identificacion', 'Identificacion', 'required');
-            $this->form_validation->set_rules('email', 'Correo Electronico', 'required|valid_mail');
-            $this->form_validation->set_rules('password', 'Contraseña', 'required');            
-            $this->form_validation->set_rules('tel_fijo', 'Telefono Fijo', 'required|is_numeric');
-            $this->form_validation->set_rules('tel_movil', 'Telefono Movil', 'required|is_numeric');
-            $this->form_validation->set_rules('direccion', 'Direccion de residencia', 'required');
-            $this->form_validation->set_rules('ciudad', 'Ciudad de residencia', 'required');            
-            $this->form_validation->set_rules('tipo_usuario', 'Tipo de usuario', 'required'); 
-            $this->form_validation->set_rules('estado', 'Estado', 'required'); 
+            $this->form_validation->set_rules('nombre_salon', 'Nombre de salon', 'required');
+            $this->form_validation->set_rules('precio_alquiler', 'Predcio del alquiler', 'required|valid_mail');
+            $this->form_validation->set_rules('direccion_ubicacion', 'Direccion de ubicacion', 'required');
+            $this->form_validation->set_rules('total_capacidad', 'Total de capacidad', 'required');
+            $this->form_validation->set_rules('nombre_contacto', 'Nombre de contacto', 'required');            
+            $this->form_validation->set_rules('tel_contacto', 'Telefono de contacto', 'required|is_numeric');
+            $this->form_validation->set_rules('email_contacto', 'Correo de contacto', 'required');
+            $this->form_validation->set_rules('imagen_salon', 'Imagen del salon');
 
             $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissable">
                                                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>', '
@@ -185,13 +182,13 @@ class Admin extends CI_Controller {
 
             if ($this->form_validation->run() == true) 
             {
-                $this->mod_rooms->upd_user($id);
+                $this->mod_rooms->upd_room($id);
             }           
         }
 
-        $data['lstu'] = $this->homeadmin->lstUsers($id);
+        $data['lstr'] = $this->mod_rooms->lst_room($id);
         $this->load->view('layout/header');
-        $this->load->view('admin/admin_users/upd_user', $data);
+        $this->load->view('admin/admin_rooms/upd_room', $data);
         $this->load->view('layout/footer');
     }
 

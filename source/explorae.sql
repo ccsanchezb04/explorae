@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-11-2014 a las 23:41:44
+-- Tiempo de generación: 12-11-2014 a las 23:47:02
 -- Versión del servidor: 5.6.20
 -- Versión de PHP: 5.5.15
 
@@ -181,6 +181,7 @@ CREATE TABLE IF NOT EXISTS `salones` (
   `precio_alquiler` bigint(20) NOT NULL,
   `direccion_ubicacion` text NOT NULL,
   `total_capacidad` int(11) NOT NULL,
+  `categoria_salon` int(11) NOT NULL,
   `nombre_contacto` text NOT NULL,
   `telefono_contacto` bigint(20) NOT NULL,
   `email_contacto` text NOT NULL,
@@ -190,16 +191,17 @@ CREATE TABLE IF NOT EXISTS `salones` (
   `galeria_3` text,
   `galeria_4` text,
   `galeria_5` text
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Volcado de datos para la tabla `salones`
 --
 
-INSERT INTO `salones` (`id_salon`, `nombre_salon`, `precio_alquiler`, `direccion_ubicacion`, `total_capacidad`, `nombre_contacto`, `telefono_contacto`, `email_contacto`, `imagen_salon`, `galeria_1`, `galeria_2`, `galeria_3`, `galeria_4`, `galeria_5`) VALUES
-(1, 'Liborio Lopera', 600000, 'Cra 20 # 17-35', 110, 'Jose Ignacio Lopera', 124578936, 'jlopera33@gmail.com', '../../public/images/page/salones/salon1.jpg', NULL, NULL, NULL, NULL, NULL),
-(2, 'En cualquier parte', 520000, 'Cll 00 # 00-00', 110, 'Jhon Doe', 12345462, 'jhon.doe@mail.com', '', NULL, NULL, NULL, NULL, NULL),
-(4, 'El cuchitri', 650000, 'Cra 20 # 17-35', 110, 'Jose Ignacio Lopera', 23123456421, 'pedrito.pata@mail.com', '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `salones` (`id_salon`, `nombre_salon`, `precio_alquiler`, `direccion_ubicacion`, `total_capacidad`, `categoria_salon`, `nombre_contacto`, `telefono_contacto`, `email_contacto`, `imagen_salon`, `galeria_1`, `galeria_2`, `galeria_3`, `galeria_4`, `galeria_5`) VALUES
+(1, 'En cualquier parte', 520000, 'Cll 00 # 00-00', 110, 2, 'Jhon Doe', 12345462, 'jhon.doe@mail.com', 'salon81.jpg', NULL, NULL, NULL, NULL, NULL),
+(2, 'Liborio Lopera', 600000, 'Cra 20 # 17-35', 110, 2, 'Jose Ignacio Lopera', 124578936, 'jlopera33@gmail.com', 'salon1.jpg', NULL, NULL, NULL, NULL, NULL),
+(4, 'El cuchitri', 650000, 'Cra 20 # 17-35', 110, 1, 'Jose Ignacio Lopera', 23123456421, 'pedrito.pata@mail.com', 'salon5.jpg', NULL, NULL, NULL, NULL, NULL),
+(5, 'otro salon', 560000, 'Cll 00 # 00-00', 120, 1, 'Jhon Doe', 123456, 'jhon.doe@mail.com', 'salon14.jpg', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -229,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 
 INSERT INTO `usuarios` (`id_usuario`, `nombres`, `apellidos`, `no_identificacion`, `email`, `password`, `telefono_fijo`, `telefono_movil`, `direccion_residencia`, `ciudad_residencia`, `tipo_usuario`, `estado`, `fecha_registro`) VALUES
 (1, 'CRISTIAN', 'SANCHEZ', 1053829585, 'ccsanchez80@misena.edu.co', '123456', 12345, 123456, 'Cll 53 # 10-58', 'Manizales', 'admin', 'Activo', '2014-09-23'),
-(2, 'DIANA', 'CIFUENTES', 75123654, 'asesoraexplora@gmail.com', '123456', 543211, 76541231, 'Cra 20 # 17-35', 'Manizales', 'asesor', 'Activo', '2014-09-25'),
+(2, 'DIANA', 'CIFUENTES', 75123654, 'asesoraexplora@gmail.com', '123456', 543211, 76541231, 'Cra 19 # 17-54', 'Manizales', 'asesor', 'Activo', '2014-09-25'),
 (3, 'prueba', 'cliente', 75111222, 'prueba@mail.com', NULL, 127845, 14785234, 'Cll 00 # 00-00', 'manizales', 'cliente', 'Activo', '2014-09-26'),
 (4, 'Juanito', 'AlimaÃ±a', 41457812, 'juanito@mail.com', NULL, 124578, 9865321, 'Cll 00 # 00-00', 'manizales', 'cliente', 'Activo', '2014-09-29'),
 (5, 'Jhon ', 'Doe', 1548992, 'jhon.doe@mail.com', '', 2584657, 13245687, 'Cll 00 # 00-00', 'Manizales', 'cliente', 'Activo', '2014-10-15'),
@@ -325,7 +327,7 @@ MODIFY `id_sociales` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- AUTO_INCREMENT de la tabla `salones`
 --
 ALTER TABLE `salones`
-MODIFY `id_salon` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `id_salon` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --

@@ -28,7 +28,11 @@
         </tr>
          <tr>
             <th>Categoria</th>
-            <td><?php echo $key->categoria_salon; ?></td>
+            <td><?php 
+            for ($i=0; $i < $key->categoria_salon;  $i++) { 
+                echo "<span class='glyphicon glyphicon-star'></span>";
+            }
+            ?></td>
         </tr>             
         <tr>
             <th>Nombre del contacto</th>

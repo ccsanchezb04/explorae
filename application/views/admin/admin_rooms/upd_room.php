@@ -31,6 +31,17 @@
                 </div> 
             </div>
             <div class="form-group">
+                <label for="categoria" class="col-sm-4 control-label">Total de capacidad:</label>
+                <div class="col-sm-6">
+                   <select name="categoria_salon" id="categoria" class="form-control">
+                       <option value="">Seleccione...</option>
+                       <option value="1"<?php if ($key->categoria_salon == "1") echo "selected=''selected"; ?>>1</option>
+                       <option value="2"<?php if ($key->categoria_salon == "2") echo "selected=''selected"; ?>>2</option>
+                       <option value="3"<?php if ($key->categoria_salon == "3") echo "selected=''selected"; ?>>3</option>
+                   </select>
+                </div> 
+            </div>
+            <div class="form-group">
                 <label for="password" class="col-sm-4 control-label">Nombre del contacto | Nombre del encargado:</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" name="nombre_contacto" id="password" value="<?php echo $key->nombre_contacto; ?>">

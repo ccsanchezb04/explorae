@@ -171,7 +171,7 @@ class Mod_deco extends CI_model
                                'nombre_contacto'      => $this->nombre_contacto,
                                'telefono_contacto'    => $this->telefono_contacto,
                                'email_contacto'       => $this->email_contacto,
-                               'imagen_decoracion'    => $this->imagen_decoracion
+                               'imagen_decoracion'    => $this->imagen_decoracion,
                                'galeria_1'            => $this->galeria_1,
                                'galeria_2'            => $this->galeria_2,
                                'galeria_3'            => $this->galeria_3,

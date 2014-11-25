@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $('.btn').tooltip();
     $('.bxslider').bxSlider({auto: true});
-    $(".iframe").colorbox({iframe:true, width:"60%", height:"60%"});
+    $(".iframe").colorbox({iframe:true, width:"90%", height:"60%"});
 
     $('body').on('click', '.btn-delete', function(event) {
         event.preventDefault();

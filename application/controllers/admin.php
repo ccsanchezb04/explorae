@@ -9,6 +9,7 @@ class Admin extends CI_Controller {
         $this->load->helper('url', 'form_validation');      
         $this->load->model('homeadmin');
         $this->load->model('mod_rooms');
+        $this->load->model('mod_deco');
         $this->upload_i = './public/images/page/salones/';
         /*$this->removeCache();*/
     }
@@ -209,7 +210,7 @@ class Admin extends CI_Controller {
     {
         $id = $this->session->userdata('idUser'); 
         $data['lstu'] = $this->homeadmin->lstUsers($id);
-        $data['lstd'] = $this->mod_deco->lstRoom();
+        $data['lstd'] = $this->mod_deco->lstDeco();
         $this->load->view('layout/header');
         $this->load->view('admin/decoraciones', $data);
         $this->load->view('layout/footer');

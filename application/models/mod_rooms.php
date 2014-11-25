@@ -63,8 +63,8 @@ class Mod_rooms extends CI_model
         // ===========================================================
 
         // ===========================================================
-        // ================= Imagenes de la galeria ==================
-        $galeria = array(
+        // ================= Imagen 1 de la galeria ==================
+        $galeria1 = array(
             'upload_path'   => $this->upload_galeria,
             'allowed_types' => 'jpg|png'
         );
@@ -73,14 +73,98 @@ class Mod_rooms extends CI_model
         $this->load->library('upload', $galeria);
         // Subo la imagen con name='imagen'
         $this->upload->do_upload('galeria_1');
-        $this->upload->do_upload('galeria_2');
-        $this->upload->do_upload('galeria_3');
-        $this->upload->do_upload('galeria_4');
-        $this->upload->do_upload('galeria_5');
         
         // Datos del Archivo Subido
         $datos = $this->upload->data();
-        $galeria = array(
+        $galeria1 = array(
+            'file_name' => $datos['file_name'],
+            'file_path' => $datos['file_path'],
+            'full_name' => $datos['full_path']
+        );
+        // ===========================================================
+        // ===========================================================
+
+        // ===========================================================
+        // ================= Imagen 2 de la galeria ==================
+        $galeria2 = array(
+            'upload_path'   => $this->upload_galeria,
+            'allowed_types' => 'jpg|png'
+        );
+        
+        // Cargo la libreria upload con su configuracion
+        $this->load->library('upload', $galeria);
+        // Subo la imagen con name='imagen'
+        $this->upload->do_upload('galeria_1');
+        
+        // Datos del Archivo Subido
+        $datos = $this->upload->data();
+        $galeria2 = array(
+            'file_name' => $datos['file_name'],
+            'file_path' => $datos['file_path'],
+            'full_name' => $datos['full_path']
+        );
+        // ===========================================================
+        // ===========================================================
+
+        // ===========================================================
+        // ================= Imagen 3 de la galeria ==================
+        $galeria3 = array(
+            'upload_path'   => $this->upload_galeria,
+            'allowed_types' => 'jpg|png'
+        );
+        
+        // Cargo la libreria upload con su configuracion
+        $this->load->library('upload', $galeria);
+        // Subo la imagen con name='imagen'
+        $this->upload->do_upload('galeria_1');
+        
+        // Datos del Archivo Subido
+        $datos = $this->upload->data();
+        $galeria3 = array(
+            'file_name' => $datos['file_name'],
+            'file_path' => $datos['file_path'],
+            'full_name' => $datos['full_path']
+        );
+        // ===========================================================
+        // ===========================================================
+
+        // ===========================================================
+        // ================= Imagen 4 de la galeria ==================
+        $galeria4 = array(
+            'upload_path'   => $this->upload_galeria,
+            'allowed_types' => 'jpg|png'
+        );
+        
+        // Cargo la libreria upload con su configuracion
+        $this->load->library('upload', $galeria);
+        // Subo la imagen con name='imagen'
+        $this->upload->do_upload('galeria_1');
+        
+        // Datos del Archivo Subido
+        $datos = $this->upload->data();
+        $galeria4 = array(
+            'file_name' => $datos['file_name'],
+            'file_path' => $datos['file_path'],
+            'full_name' => $datos['full_path']
+        );
+        // ===========================================================
+        // ===========================================================
+
+        // ===========================================================
+        // ================= Imagen 5 de la galeria ==================
+        $galeria5 = array(
+            'upload_path'   => $this->upload_galeria,
+            'allowed_types' => 'jpg|png'
+        );
+        
+        // Cargo la libreria upload con su configuracion
+        $this->load->library('upload', $galeria);
+        // Subo la imagen con name='imagen'
+        $this->upload->do_upload('galeria_1');
+        
+        // Datos del Archivo Subido
+        $datos = $this->upload->data();
+        $galeria5 = array(
             'file_name' => $datos['file_name'],
             'file_path' => $datos['file_path'],
             'full_name' => $datos['full_path']
@@ -98,11 +182,11 @@ class Mod_rooms extends CI_model
         $this->telefono_contacto   = $this->input->post('tel_contacto');
         $this->email_contacto      = $this->input->post('email_contacto');
         $this->imagen_salon        = $config['file_name'];
-        $this->$this->galeria_1    = $galeria['file_name']; 
-        $this->$this->galeria_2    = $galeria['file_name']; 
-        $this->$this->galeria_3    = $galeria['file_name']; 
-        $this->$this->galeria_4    = $galeria['file_name'];
-        $this->$this->galeria_5    = $galeria['file_name'];
+        $this->$this->galeria_1    = $galeria1['file_name']; 
+        $this->$this->galeria_2    = $galeria2['file_name']; 
+        $this->$this->galeria_3    = $galeria3['file_name']; 
+        $this->$this->galeria_4    = $galeria4['file_name'];
+        $this->$this->galeria_5    = $galeria5['file_name'];
 
         $salon = array('id_salon'            => $this->id_salon,
                        'nombre_salon'        => $this->nombre_salon,

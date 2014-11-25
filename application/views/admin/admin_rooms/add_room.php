@@ -64,16 +64,108 @@
                     <div class="fileupload fileupload-new" data-provides="fileupload"><input type="hidden">
                         <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px; line-height: 150px;"></div>
                         <div>
-                            <span class="btn btn-default btn-file">
+                            <span class="btn btn-danger btn-file">
                                 <span class="fileupload-new">Seleccione Imagen</span>
                                 <span class="fileupload-exists">Cambiar</span>
                                 <input type="file" name="imagen_salon" accept="image/png image/jpg">
                             </span>
-                            <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remover</a>
+                            <a href="#" class="btn btn-info fileupload-exists" data-dismiss="fileupload">Remover</a>
                         </div>
                     </div>
                 </div>                                
                 <input type="hidden" name="id" value="default">
+            </div>
+            <div class="imagenes_galeria">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="direccion" class=" control-label">Imagen 1 Galeria:</label>
+                        <!-- <div class="col-sm-6"> -->
+                            <div class="fileupload fileupload-new" data-provides="fileupload"><input type="hidden">
+                                <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px; line-height: 150px;"></div>
+                                <div>
+                                    <span class="btn btn-warning btn-file">
+                                        <span class="fileupload-new">Seleccione Imagen</span>
+                                        <span class="fileupload-exists">Cambiar</span>
+                                        <input type="file" name="galeria_1" accept="image/png image/jpg">
+                                    </span>
+                                    <a href="#" class="btn btn-info fileupload-exists" data-dismiss="fileupload">Remover</a>
+                                </div>
+                            </div>
+                        <!-- </div>   -->                              
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="direccion" class=" control-label">Imagen 2 Galeria:</label>
+                        <!-- <div class="col-sm-6"> -->
+                            <div class="fileupload fileupload-new" data-provides="fileupload"><input type="hidden">
+                                <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px; line-height: 150px;"></div>
+                                <div>
+                                    <span class="btn btn-warning btn-file">
+                                        <span class="fileupload-new">Seleccione Imagen</span>
+                                        <span class="fileupload-exists">Cambiar</span>
+                                        <input type="file" name="galeria_2" accept="image/png image/jpg">
+                                    </span>
+                                    <a href="#" class="btn btn-info fileupload-exists" data-dismiss="fileupload">Remover</a>
+                                </div>
+                            </div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="direccion" class=" control-label">Imagen 3 Galeria:</label>
+                        <!-- <div class="col-sm-6"> -->
+                            <div class="fileupload fileupload-new" data-provides="fileupload"><input type="hidden">
+                                <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px; line-height: 150px;"></div>
+                                <div>
+                                    <span class="btn btn-warning btn-file">
+                                        <span class="fileupload-new">Seleccione Imagen</span>
+                                        <span class="fileupload-exists">Cambiar</span>
+                                        <input type="file" name="galeria_3" accept="image/png image/jpg">
+                                    </span>
+                                    <a href="#" class="btn btn-info fileupload-exists" data-dismiss="fileupload">Remover</a>
+                                </div>
+                            </div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="direccion" class=" control-label">Imagen 4 Galeria:</label>
+                       <!--  <div class="col-sm-6"> -->
+                            <div class="fileupload fileupload-new" data-provides="fileupload"><input type="hidden">
+                                <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px; line-height: 150px;"></div>
+                                <div>
+                                    <span class="btn btn-warning btn-file">
+                                        <span class="fileupload-new">Seleccione Imagen</span>
+                                        <span class="fileupload-exists">Cambiar</span>
+                                        <input type="file" name="galeria_4" accept="image/png image/jpg">
+                                    </span>
+                                    <a href="#" class="btn btn-info fileupload-exists" data-dismiss="fileupload">Remover</a>
+                                </div>
+                            </div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="direccion" class=" control-label">Imagen 5 Galeria:</label>
+                        <!-- <div class="col-sm-6"> -->
+                            <div class="fileupload fileupload-new" data-provides="fileupload"><input type="hidden">
+                                <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px; line-height: 150px;"></div>
+                                <div>
+                                    <span class="btn btn-warning btn-file">
+                                        <span class="fileupload-new">Seleccione Imagen</span>
+                                        <span class="fileupload-exists">Cambiar</span>
+                                        <input type="file" name="galeria_5" accept="image/png image/jpg">
+                                    </span>
+                                    <a href="#" class="btn btn-info fileupload-exists" data-dismiss="fileupload">Remover</a>
+                                </div>
+                            </div>
+                        <!-- </div> -->
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-4 col-sm-6">

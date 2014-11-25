@@ -176,6 +176,10 @@ footer .row ul li {
 #head-backend .btn { margin: 0 auto; }
 #view-state { font-weight: bold; }
 #panel { margin-top: 15px; }
+.imagenes_galeria {    
+    margin: 0 auto; 
+    width: 90%;
+}
 @media screen and (max-width: 768px){
     .carousel-caption {
         display: none;

@@ -75,11 +75,11 @@
                 </div>                                
                 <input type="hidden" name="id" value="default">
             </div>
-            <div class="imagenes_galeria">
+            <!-- <div class="imagenes_galeria">
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="direccion" class=" control-label">Imagen 1 Galeria:</label>
-                        <!-- <div class="col-sm-6"> -->
+                        <div class="col-sm-6">
                             <div class="fileupload fileupload-new" data-provides="fileupload"><input type="hidden">
                                 <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px; line-height: 150px;"></div>
                                 <div>
@@ -91,13 +91,13 @@
                                     <a href="#" class="btn btn-info fileupload-exists" data-dismiss="fileupload">Remover</a>
                                 </div>
                             </div>
-                        <!-- </div>   -->                              
+                        </div>                              
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="direccion" class=" control-label">Imagen 2 Galeria:</label>
-                        <!-- <div class="col-sm-6"> -->
+                        <div class="col-sm-6">
                             <div class="fileupload fileupload-new" data-provides="fileupload"><input type="hidden">
                                 <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px; line-height: 150px;"></div>
                                 <div>
@@ -109,13 +109,13 @@
                                     <a href="#" class="btn btn-info fileupload-exists" data-dismiss="fileupload">Remover</a>
                                 </div>
                             </div>
-                        <!-- </div> -->
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="direccion" class=" control-label">Imagen 3 Galeria:</label>
-                        <!-- <div class="col-sm-6"> -->
+                        <div class="col-sm-6">
                             <div class="fileupload fileupload-new" data-provides="fileupload"><input type="hidden">
                                 <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px; line-height: 150px;"></div>
                                 <div>
@@ -127,13 +127,13 @@
                                     <a href="#" class="btn btn-info fileupload-exists" data-dismiss="fileupload">Remover</a>
                                 </div>
                             </div>
-                        <!-- </div> -->
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="direccion" class=" control-label">Imagen 4 Galeria:</label>
-                       <!--  <div class="col-sm-6"> -->
+                       <div class="col-sm-6">
                             <div class="fileupload fileupload-new" data-provides="fileupload"><input type="hidden">
                                 <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px; line-height: 150px;"></div>
                                 <div>
@@ -145,13 +145,13 @@
                                     <a href="#" class="btn btn-info fileupload-exists" data-dismiss="fileupload">Remover</a>
                                 </div>
                             </div>
-                        <!-- </div> -->
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="direccion" class=" control-label">Imagen 5 Galeria:</label>
-                        <!-- <div class="col-sm-6"> -->
+                        <div class="col-sm-6">
                             <div class="fileupload fileupload-new" data-provides="fileupload"><input type="hidden">
                                 <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px; line-height: 150px;"></div>
                                 <div>
@@ -163,10 +163,10 @@
                                     <a href="#" class="btn btn-info fileupload-exists" data-dismiss="fileupload">Remover</a>
                                 </div>
                             </div>
-                        <!-- </div> -->
+                        </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="form-group">
                 <div class="col-sm-offset-4 col-sm-6">
                     <button type="submit" class="btn btn-success btn-block">Agregar</button>

@@ -75,6 +75,12 @@
                 </div>                                
                 <input type="hidden" name="id" value="default">
             </div>
+            <div class="form-group">
+                <label for="direccion" class="col-sm-4 control-label">Galeria de producto:</label>
+                <div class="col-sm-6">
+                    <input type="file" name="galeria" multiple="multiple" id="galeria" value="Seleccione Imagenes">
+                </div>
+            </div>
             <!-- <div class="imagenes_galeria">
                 <div class="col-md-3">
                     <div class="form-group">

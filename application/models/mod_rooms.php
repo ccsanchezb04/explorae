@@ -71,18 +71,7 @@ class Mod_rooms extends CI_model
         
         // Cargo la libreria upload con su configuracion
         $this->load->library('upload', $galeria);
-        // Subo la imagen con name='imagen'
-        foreach ($_FILES as $fieldname => $file) {
-            if (!empty($file['galeria'])){
-                $this->upload->initialize($galeria);
-                if (!$this->upload->do_upload($fieldname)){
-                    $errors = $this->upload->display_errors();
-                }
-            }
-            for ($i=0; $i < 5; $i++) { 
-                $galeria[$i] = $_FILES['galeria']['name']
-            }
-        }﻿
+        // Subo la imagen con name='imagen'        
         
         // Datos del Archivo Subido
         $datos = $this->upload->data();
@@ -91,6 +80,18 @@ class Mod_rooms extends CI_model
             'file_path' => $datos['file_path'],
             'full_name' => $datos['full_path']
         );
+
+       /* foreach ($_FILES as $fieldname => $file) {
+            if (!empty($file['galeria'])){
+                //$this->upload->initialize($galeria);
+                if (!$this->upload->do_upload($fieldname)){
+                    $errors = $this->upload->display_errors();
+                }
+            }
+            for ($i=0; $i < 5; $i++) { 
+                $galeria[$i] = $_FILES['galeria']['name'];
+            }
+        }﻿*/
         // ===========================================================
         // ===========================================================
 

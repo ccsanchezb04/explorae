@@ -210,7 +210,9 @@ class Admin extends CI_Controller {
     {
         $id = $this->session->userdata('idUser'); 
         $data['lstu'] = $this->homeadmin->lstUsers($id);
-        $data['lstd'] = $this->mod_deco->lstDeco();
+        $data['lstdc1'] = $this->mod_deco->lstDecoCate1();
+        $data['lstdc2'] = $this->mod_deco->lstDecoCate2();
+        $data['lstdc3'] = $this->mod_deco->lstDecoCate3();
         $this->load->view('layout/header');
         $this->load->view('admin/decoraciones', $data);
         $this->load->view('layout/footer');

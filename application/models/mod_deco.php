@@ -4,21 +4,20 @@ class Mod_deco extends CI_model
 {
     //=====================================================================
     //======================== VARIABLES USUARIO ==========================
-    var $id_decoracion       = '';
-    var $nombre_decoracion   = '';
-    var $precio_alquiler     = '';
-    var $direccion_ubicacion = '';
-    var $total_capacidad     = '';    
-    var $nombre_contacto     = '';
-    var $telefono_contacto   = '';
-    var $email_contacto      = '';
-    var $imagen_decoracion   = '';
-    var $galeria_1           = '';
-    var $galeria_2           = '';
-    var $galeria_3           = '';
-    var $galeria_4           = '';
-    var $galeria_5           = '';
-    var $upload_i            = '';
+    var $id_decoracion        = '';
+    var $nombre_decoracion    = '';
+    var $precio_decoracion    = '';
+    var $categoria_decoracion = '';
+    var $contacto_decoracion  = '';    
+    var $telefono_contacto    = '';
+    var $email_contacto       = '';
+    var $imagen_decoracion    = '';
+    var $galeria_1            = '';
+    var $galeria_2            = '';
+    var $galeria_3            = '';
+    var $galeria_4            = '';
+    var $galeria_5            = '';
+    var $upload_i             = '';
     //=====================================================================
     //=====================================================================
 
@@ -30,9 +29,21 @@ class Mod_deco extends CI_model
     /*=====================================================================================================================================================================*/
     /*======================================================= USUARIOS ====================================================================================================*/
     /*=====================================================================================================================================================================*/
-    public function lstDeco()
+    public function lstDecoCate1()
     {
-        $query = $this->db->get('decoraciones');
+        $query = $this->db->get_where('decoraciones', array('categoria_decoracion' => 1));
+        return $query->result();
+    }
+
+    public function lstDecoCate2()
+    {
+        $query = $this->db->get_where('decoraciones', array('categoria_decoracion' => 2));
+        return $query->result();
+    }
+
+    public function lstDecoCate3()
+    {
+        $query = $this->db->get_where('decoraciones', array('categoria_decoracion' => 3));
         return $query->result();
     }
 
@@ -58,34 +69,26 @@ class Mod_deco extends CI_model
 
         $this->id_decoracion        = $this->input->post('id');
         $this->nombre_decoracion    = $this->input->post('nombre_decoracion');
-        $this->precio_alquiler      = $this->input->post('precio_alquiler');
-        $this->direccion_ubicacion  = $this->input->post('direccion_ubicacion');
+        $this->precio_decoracion    = $this->input->post('precio_decoracion');
         $this->categoria_decoracion = $this->input->post('categoria_decoracion');
-        $this->nombre_contacto      = $this->input->post('nombre_contacto');
+        $this->contacto_decoracion  = $this->input->post('contacto_decoracion');
         $this->telefono_contacto    = $this->input->post('tel_contacto');
         $this->email_contacto       = $this->input->post('email_contacto');
         $this->imagen_decoracion    = $config['file_name']; 
-        $this->$this->galeria_1     = $config['file_name']; 
-        $this->$this->galeria_2     = $config['file_name']; 
-        $this->$this->galeria_3     = $config['file_name']; 
-        $this->$this->galeria_4     = $config['file_name'];
-        $this->$this->galeria_5     = $config['file_name'];
+        // $this->$this->galeria_1     = $config['file_name']; 
+        // $this->$this->galeria_2     = $config['file_name']; 
+        // $this->$this->galeria_3     = $config['file_name']; 
+        // $this->$this->galeria_4     = $config['file_name'];
+        // $this->$this->galeria_5     = $config['file_name'];
 
         $decoracion = array('id_decoracion'        => $this->id_decoracion,
                             'nombre_decoracion'    => $this->nombre_decoracion,
-                            'precio_alquiler'      => $this->precio_alquiler,
-                            'direccion_ubicacion'  => $this->direccion_ubicacion,
-                            'total_capacidad'      => $this->total_capacidad,
-                            'categoria_decoracion' => $this->categoria_decoracion,
-                            'nombre_contacto'      => $this->nombre_contacto,
+                            'precio_decoracion'    => $this->precio_decoracion,
+                            'categoria_decoracion' => $this->categoria_decoracion, 
+                            'contacto_decoracion'  => $this->contacto_decoracion,
                             'telefono_contacto'    => $this->telefono_contacto,
                             'email_contacto'       => $this->email_contacto,
-                            'imagen_decoracion'    => $this->imagen_decoracion,
-                            'galeria_1'            => $this->galeria_1,
-                            'galeria_2'            => $this->galeria_2,
-                            'galeria_3'            => $this->galeria_3,
-                            'galeria_4'            => $this->galeria_4,
-                            'galeria_5'            => $this->galeria_5);
+                            'imagen_decoracion'    => $this->imagen_decoracion);
 
         if (!$this->db->insert('decoraciones', $decoracion)) 
         {
@@ -145,14 +148,11 @@ class Mod_deco extends CI_model
         
         $this->id_decoracion        = $this->input->post('id');
         $this->nombre_decoracion    = $this->input->post('nombre_decoracion');
-        $this->precio_alquiler      = $this->input->post('precio_alquiler');
-        $this->direccion_ubicacion  = $this->input->post('direccion_ubicacion');
-        $this->total_capacidad      = $this->input->post('total_capacidad');
+        $this->precio_decoracion    = $this->input->post('precio_decoracion');
         $this->categoria_decoracion = $this->input->post('categoria_decoracion');
-        $this->nombre_contacto      = $this->input->post('nombre_contacto');
+        $this->contacto_decoracion  = $this->input->post('contacto_decoracion');
         $this->telefono_contacto    = $this->input->post('tel_contacto');
         $this->email_contacto       = $this->input->post('email_contacto');
-
         if (isset($ruta2)) 
         {
             $this->imagen_decoracion = $ruta2;
@@ -164,19 +164,13 @@ class Mod_deco extends CI_model
 
         $decoracionUpd = array('id_decoracion'        => $this->id_decoracion,
                                'nombre_decoracion'    => $this->nombre_decoracion,
-                               'precio_alquiler'      => $this->precio_alquiler,
-                               'direccion_ubicacion'  => $this->direccion_ubicacion,
+                               'precio_decoracion'    => $this->precio_decoracion,                               
                                'total_capacidad'      => $this->total_capacidad,
                                'categoria_decoracion' => $this->categoria_decoracion,
-                               'nombre_contacto'      => $this->nombre_contacto,
+                               'contacto_decoracion'  => $this->contacto_decoracion,
                                'telefono_contacto'    => $this->telefono_contacto,
                                'email_contacto'       => $this->email_contacto,
-                               'imagen_decoracion'    => $this->imagen_decoracion,
-                               'galeria_1'            => $this->galeria_1,
-                               'galeria_2'            => $this->galeria_2,
-                               'galeria_3'            => $this->galeria_3,
-                               'galeria_4'            => $this->galeria_4,
-                               'galeria_5'            => $this->galeria_5);
+                               'imagen_decoracion'    => $this->imagen_decoracion);
 
         $this->db->where('id_decoracion', $id);
 

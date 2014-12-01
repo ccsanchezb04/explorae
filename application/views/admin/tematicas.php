@@ -1,4 +1,4 @@
-<?php $data['page'] = "admin-deco"; ?>
+<?php $data['page'] = "admin-tema"; ?>
 <div class="container" id="content-backend">
     <div class="row">
         <div class="col-md-3">
@@ -7,8 +7,8 @@
         <div class="col-md-9">            
             <div class="row" id="head-backend">
                 <div class="col-md-6">
-                    <a href="<?php echo base_url(); ?>Admin/add_deco" type="button" class="btn btn-primary btn-block iframe cboxElement" data-toggle="tooltip" data-placement="bottom" title="AGREGAR">
-                        Agregar Decoración
+                    <a href="<?php echo base_url(); ?>Admin/add_tema" type="button" class="btn btn-primary btn-block iframe cboxElement" data-toggle="tooltip" data-placement="bottom" title="AGREGAR">
+                        Agregar Temática
                     </a>
                 </div>
                 <div class="col-md-6">                                
@@ -37,26 +37,22 @@
                     <div role="tabpanel" class="tab-pane active" id="cate1">    
                         <table class="table table-striped" id="panel">
                             <tr>
-                                <th>Nombre de la decoracion</th>
-                                <th>Precio de decoracion</th>
-                                <th>Nombre de contacto</th>
-                                <th>Correo de contacto</th>
+                                <th>Nombre de la tematica</th>
+                                <th>Precio de tematica</th>                               
                                 <th>Acciones</th>
                             </tr>
-                            <?php foreach ($lstdc1 as $key): ?>
+                            <?php foreach ($tema1 as $key): ?>
                             <tr>
-                                <td><?php echo $key->nombre_decoracion; ?></td>
-                                <td><?php echo $key->precio_decoracion; ?></td>
-                                <td><?php echo $key->contacto_decoracion; ?></td>
-                                <td><?php echo $key->email_contacto; ?></td>
+                                <td><?php echo $key->nombre_tematica; ?></td>
+                                <td><?php echo $key->precio_tematica; ?></td>                                
                                 <td>                    
-                                    <a href="<?php echo base_url(); ?>Admin/list_<deco></deco>/<?php echo $key->id_decoracion; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
+                                    <a href="<?php echo base_url(); ?>Admin/list_tema/<?php echo $key->id_tematica; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
                                         <span class='glyphicon glyphicon-eye-open'></span>
                                     </a>
-                                    <a href="<?php echo base_url(); ?>Admin/upd_deco/<?php echo $key->id_decoracion; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
+                                    <a href="<?php echo base_url(); ?>Admin/upd_tema/<?php echo $key->id_tematica; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
                                         <span class='glyphicon glyphicon-cog'></span>
                                     </a>
-                                    <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_decoracion; ?>" data-rol="decoracion" data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">
+                                    <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_tematica; ?>" data-rol="tematica" data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">
                                         <span class='glyphicon glyphicon-trash'></span>
                                     </a>                    
                                 </td>
@@ -67,26 +63,22 @@
                     <div role="tabpanel" class="tab-pane" id="cate2">
                         <table class="table table-striped" id="panel">
                             <tr>
-                                <th>Nombre de la decoracion</th>
-                                <th>Precio de decoracion</th>
-                                <th>Nombre de contacto</th>
-                                <th>Correo de contacto</th>
+                                <th>Nombre de la tematica</th>
+                                <th>Precio de tematica</th>                               
                                 <th>Acciones</th>
                             </tr>
-                            <?php foreach ($lstdc2 as $key): ?>
+                            <?php foreach ($tema2 as $key): ?>
                             <tr>
-                                <td><?php echo $key->nombre_decoracion; ?></td>
-                                <td><?php echo $key->precio_decoracion; ?></td>
-                                <td><?php echo $key->contacto_decoracion; ?></td>
-                                <td><?php echo $key->email_contacto; ?></td>
+                                <td><?php echo $key->nombre_tematica; ?></td>
+                                <td><?php echo $key->precio_tematica; ?></td>                               
                                 <td>                    
-                                    <a href="<?php echo base_url(); ?>Admin/list_deco/<?php echo $key->id_decoracion; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
+                                    <a href="<?php echo base_url(); ?>Admin/list_tema/<?php echo $key->id_tematica; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
                                         <span class='glyphicon glyphicon-eye-open'></span>
                                     </a>
-                                    <a href="<?php echo base_url(); ?>Admin/upd_deco/<?php echo $key->id_decoracion; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
+                                    <a href="<?php echo base_url(); ?>Admin/upd_tema/<?php echo $key->id_tematica; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
                                         <span class='glyphicon glyphicon-cog'></span>
                                     </a>
-                                    <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_decoracion; ?>" data-rol="decoracion" data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">
+                                    <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_tematica; ?>" data-rol="tematica" data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">
                                         <span class='glyphicon glyphicon-trash'></span>
                                     </a>                    
                                 </td>
@@ -97,26 +89,22 @@
                     <div role="tabpanel" class="tab-pane" id="cate3">
                         <table class="table table-striped" id="panel">
                             <tr>
-                                <th>Nombre de la decoracion</th>
-                                <th>Precio de decoracion</th>
-                                <th>Nombre de contacto</th>
-                                <th>Correo de contacto</th>
+                                <th>Nombre de la tematica</th>
+                                <th>Precio de tematica</th>                                
                                 <th>Acciones</th>
                             </tr>
-                            <?php foreach ($lstdc3 as $key): ?>
+                            <?php foreach ($tema3 as $key): ?>
                             <tr>
-                                <td><?php echo $key->nombre_decoracion; ?></td>
-                                <td><?php echo $key->precio_decoracion; ?></td>
-                                <td><?php echo $key->contacto_decoracion; ?></td>
-                                <td><?php echo $key->email_contacto; ?></td>
+                                <td><?php echo $key->nombre_tematica; ?></td>
+                                <td><?php echo $key->precio_tematica; ?></td>                                
                                 <td>                    
-                                    <a href="<?php echo base_url(); ?>Admin/list_deco/<?php echo $key->id_decoracion; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
+                                    <a href="<?php echo base_url(); ?>Admin/list_tema/<?php echo $key->id_tematica; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
                                         <span class='glyphicon glyphicon-eye-open'></span>
                                     </a>
-                                    <a href="<?php echo base_url(); ?>Admin/upd_deco/<?php echo $key->id_decoracion; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
+                                    <a href="<?php echo base_url(); ?>Admin/upd_tema/<?php echo $key->id_tematica; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
                                         <span class='glyphicon glyphicon-cog'></span>
                                     </a>
-                                    <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_decoracion; ?>" data-rol="decoracion" data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">
+                                    <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_tematica; ?>" data-rol="tematica" data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">
                                         <span class='glyphicon glyphicon-trash'></span>
                                     </a>                    
                                 </td>

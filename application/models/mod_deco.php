@@ -164,9 +164,8 @@ class Mod_deco extends CI_model
 
         $decoracionUpd = array('id_decoracion'        => $this->id_decoracion,
                                'nombre_decoracion'    => $this->nombre_decoracion,
-                               'precio_decoracion'    => $this->precio_decoracion,                               
-                               'total_capacidad'      => $this->total_capacidad,
-                               'categoria_decoracion' => $this->categoria_decoracion,
+                               'precio_decoracion'    => $this->precio_decoracion,
+                               'categoria_decoracion' => $this->categoria_decoracion, 
                                'contacto_decoracion'  => $this->contacto_decoracion,
                                'telefono_contacto'    => $this->telefono_contacto,
                                'email_contacto'       => $this->email_contacto,

@@ -12,8 +12,8 @@
         <li <?php if ($page=="admin-deco") {echo "class='active'";} ?>>
             <a href="<?php echo base_url(); ?>Admin/decoracion">Gestión Decoración</a>                     
         </li>
-        <li <?php if ($page=="admin-") {echo "class='active'";} ?>>
-            <a href="#salones">Gestión Temáticas</a>                     
+        <li <?php if ($page=="admin-tema") {echo "class='active'";} ?>>
+            <a href="<?php echo base_url(); ?>Admin/tematica">Gestión Temáticas</a>                     
         </li>
         <li <?php if ($page=="admin-") {echo "class='active'";} ?>>
             <a href="#salones">Gestión Menú</a>                     

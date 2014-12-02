@@ -10,6 +10,7 @@ class Admin extends CI_Controller {
         $this->load->model('homeadmin');
         $this->load->model('mod_rooms');
         $this->load->model('mod_deco');
+        $this->load->model('mod_tema');
         $this->upload_i = './public/images/page/salones/';
         /*$this->removeCache();*/
     }
@@ -298,20 +299,17 @@ class Admin extends CI_Controller {
         $data['tema2'] = $this->mod_tema->lstTemaCate2();
         $data['tema3'] = $this->mod_tema->lstTemaCate3();
         $this->load->view('layout/header');
-        $this->load->view('admin/decoraciones', $data);
+        $this->load->view('admin/tematicas', $data);
         $this->load->view('layout/footer');
     }
     public function add_tema()
     {
         if ($_POST) 
         {            
-            $this->form_validation->set_rules('nombre_tematica', 'Nombre de decoracion', 'required');
-            $this->form_validation->set_rules('categoria_tematica', 'Categoria Decoracion', 'required');
-            $this->form_validation->set_rules('precio_tematica', 'Predcio de la decoracion', 'required|is_numeric');
-            $this->form_validation->set_rules('contacto_tematica', 'Contacto de decoracion', 'required');        
-            $this->form_validation->set_rules('tel_contacto', 'Telefono de contacto', 'required|is_numeric');
-            $this->form_validation->set_rules('email_contacto', 'Correo de contacto', 'required');
-            $this->form_validation->set_rules('imagen_salon', 'Imagen del salon');
+            $this->form_validation->set_rules('nombre_tematica', 'Nombre de la temática', 'required');
+            $this->form_validation->set_rules('categoria_tematica', 'Categoria Temática', 'required');
+            $this->form_validation->set_rules('precio_tematica', 'Predcio de la temática', 'required|is_numeric');
+            $this->form_validation->set_rules('imagen_salon', 'Imagen de la tematica');
 
             $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissable">
                                                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>', '
@@ -319,19 +317,19 @@ class Admin extends CI_Controller {
 
             if ($this->form_validation->run() == true) 
             {
-                $this->mod_deco->add_deco();
+                $this->mod_tema->add_tema();
             }       
         }
         $this->load->view('layout/header');
-        $this->load->view('admin/admin_deco/add_deco');
+        $this->load->view('admin/admin_tema/add_tema');
         $this->load->view('layout/footer');
     } 
 
     public function list_tema($id)
     {
-        $data['lstDeco'] = $this->mod_deco->lst_deco($id);
+        $data['lstDeco'] = $this->mod_tema->lst_tema($id);
         $this->load->view('layout/header');
-        $this->load->view('admin/admin_deco/list_deco', $data);
+        $this->load->view('admin/admin_tema/list_tema', $data);
         $this->load->view('layout/footer');
     }
 
@@ -339,12 +337,9 @@ class Admin extends CI_Controller {
     {
         if ($_POST) 
         {
-            $this->form_validation->set_rules('nombre_decoracion', 'Nombre de decoracion', 'required');
-            $this->form_validation->set_rules('categoria_decoracion', 'Categoria Decoracion', 'required');
-            $this->form_validation->set_rules('precio_decoracion', 'Predcio de la decoracion', 'required|is_numeric');
-            $this->form_validation->set_rules('contacto_decoracion', 'Contacto de decoracion', 'required');        
-            $this->form_validation->set_rules('tel_contacto', 'Telefono de contacto', 'required|is_numeric');
-            $this->form_validation->set_rules('email_contacto', 'Correo de contacto', 'required');
+           $this->form_validation->set_rules('nombre_tematica', 'Nombre de decoracion', 'required');
+            $this->form_validation->set_rules('categoria_tematica', 'Categoria Decoracion', 'required');
+            $this->form_validation->set_rules('precio_tematica', 'Predcio de la decoracion', 'required|is_numeric');
             $this->form_validation->set_rules('imagen_salon', 'Imagen del salon');
 
             $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissable">
@@ -353,19 +348,19 @@ class Admin extends CI_Controller {
 
             if ($this->form_validation->run() == true) 
             {
-                $this->mod_deco->upd_deco($id);
+                $this->mod_tema->upd_tema($id);
             }           
         }
 
-        $data['decoUpd'] = $this->mod_deco->lst_deco($id);
+        $data['decoUpd'] = $this->mod_tema->lst_tema($id);
         $this->load->view('layout/header');
-        $this->load->view('admin/admin_deco/upd_deco', $data);
+        $this->load->view('admin/admin_tema/upd_tema', $data);
         $this->load->view('layout/footer');
     }
 
     public function dlt_tema($id)
     {
-        $this->mod_deco->dlt_deco($id);
+        $this->mod_tema->dlt_tema($id);
     }
 /*=====================================================================================================================================================================*/
 /*=====================================================================================================================================================================*/

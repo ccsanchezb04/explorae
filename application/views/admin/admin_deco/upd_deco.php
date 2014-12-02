@@ -2,7 +2,7 @@
 <?php echo validation_errors(); ?>
    <div class="panel panel-default">   
         <div class="panel-heading">
-            <h3 class="text-info">Agregar decoracion</h3>
+            <h3 class="text-info">Modificar decoracion</h3>
         </div>
         <form class="form-horizontal" role="form" method="post" action="" enctype="multipart/form-data">
         <?php foreach ($decoUpd as $key): ?> 

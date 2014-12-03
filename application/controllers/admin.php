@@ -11,6 +11,10 @@ class Admin extends CI_Controller {
         $this->load->model('mod_rooms');
         $this->load->model('mod_deco');
         $this->load->model('mod_tema');
+        $this->load->model('mod_menu');
+        // $this->load->model('mod_event');
+        // $this->load->model('mod_artist');
+        // $this->load->model('mod_tools');
         $this->upload_i = './public/images/page/salones/';
         /*$this->removeCache();*/
     }
@@ -327,7 +331,7 @@ class Admin extends CI_Controller {
 
     public function list_tema($id)
     {
-        $data['lstDeco'] = $this->mod_tema->lst_tema($id);
+        $data['lstTema'] = $this->mod_tema->lst_tema($id);
         $this->load->view('layout/header');
         $this->load->view('admin/admin_tema/list_tema', $data);
         $this->load->view('layout/footer');
@@ -352,7 +356,7 @@ class Admin extends CI_Controller {
             }           
         }
 
-        $data['decoUpd'] = $this->mod_tema->lst_tema($id);
+        $data['temaUpd'] = $this->mod_tema->lst_tema($id);
         $this->load->view('layout/header');
         $this->load->view('admin/admin_tema/upd_tema', $data);
         $this->load->view('layout/footer');
@@ -361,6 +365,84 @@ class Admin extends CI_Controller {
     public function dlt_tema($id)
     {
         $this->mod_tema->dlt_tema($id);
+    }
+/*=====================================================================================================================================================================*/
+/*=====================================================================================================================================================================*/
+/*=====================================================================================================================================================================*/
+
+/*=====================================================================================================================================================================*/
+/*======================================================= TEMÁTICAS ==================================================================================================*/
+/*=====================================================================================================================================================================*/
+    public function menu()
+    {
+        $id = $this->session->userdata('idUser'); 
+        $data['lstu'] = $this->homeadmin->lstUsers($id);
+        $data['menu1'] = $this->mod_menu->lstMenuCate1();
+        $data['menu2'] = $this->mod_menu->lstMenuCate2();
+        $data['menu3'] = $this->mod_menu->lstMenuCate3();
+        $this->load->view('layout/header');
+        $this->load->view('admin/menu', $data);
+        $this->load->view('layout/footer');
+    }
+    public function add_menu()
+    {
+        if ($_POST) 
+        {            
+            $this->form_validation->set_rules('nombre_tematica', 'Nombre de la temática', 'required');
+            $this->form_validation->set_rules('categoria_tematica', 'Categoria Temática', 'required');
+            $this->form_validation->set_rules('precio_tematica', 'Predcio de la temática', 'required|is_numeric');
+            $this->form_validation->set_rules('imagen_salon', 'Imagen de la tematica');
+
+            $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissable">
+                                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>', '
+                                                          </div>');
+
+            if ($this->form_validation->run() == true) 
+            {
+                $this->mod_menu->add_menu();
+            }       
+        }
+        $this->load->view('layout/header');
+        $this->load->view('admin/admin_menu/add_menu');
+        $this->load->view('layout/footer');
+    } 
+
+    public function list_menu($id)
+    {
+        $data['lstMenu'] = $this->mod_menu->lst_menu($id);
+        $this->load->view('layout/header');
+        $this->load->view('admin/admin_menu/list_menu', $data);
+        $this->load->view('layout/footer');
+    }
+
+    public function upd_menu($id)
+    {
+        if ($_POST) 
+        {
+           $this->form_validation->set_rules('nombre_tematica', 'Nombre de decoracion', 'required');
+            $this->form_validation->set_rules('categoria_tematica', 'Categoria Decoracion', 'required');
+            $this->form_validation->set_rules('precio_tematica', 'Predcio de la decoracion', 'required|is_numeric');
+            $this->form_validation->set_rules('imagen_salon', 'Imagen del salon');
+
+            $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissable">
+                                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>', '
+                                                          </div>');
+
+            if ($this->form_validation->run() == true) 
+            {
+                $this->mod_menu->upd_menu($id);
+            }           
+        }
+
+        $data['decoUpd'] = $this->mod_menu->lst_menu($id);
+        $this->load->view('layout/header');
+        $this->load->view('admin/admin_menu/upd_menu', $data);
+        $this->load->view('layout/footer');
+    }
+
+    public function dlt_menu($id)
+    {
+        $this->mod_menu->dlt_menu($id);
     }
 /*=====================================================================================================================================================================*/
 /*=====================================================================================================================================================================*/

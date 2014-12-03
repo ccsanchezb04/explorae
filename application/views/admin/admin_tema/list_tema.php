@@ -5,7 +5,7 @@
     
     <table class="table table-striped pull-center">     
     
-    <?php foreach ($lstDeco as $key): ?>
+    <?php foreach ($lstTema as $key): ?>
         <tr>
             <th>ID temática</th>
             <td><?php echo $key->id_tematica; ?></td>

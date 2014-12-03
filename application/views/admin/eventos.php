@@ -1,4 +1,4 @@
-<?php $data['page'] = "admin-menu"; ?>
+<?php $data['page'] = "admin-event"; ?>
 <div class="container" id="content-backend">
     <div class="row">
         <div class="col-md-3">
@@ -7,8 +7,8 @@
         <div class="col-md-9">            
             <div class="row" id="head-backend">
                 <div class="col-md-6">
-                    <a href="<?php echo base_url(); ?>Admin/add_menu" type="button" class="btn btn-primary btn-block iframe cboxElement" data-toggle="tooltip" data-placement="bottom" title="AGREGAR">
-                        Agregar menú
+                    <a href="<?php echo base_url(); ?>Admin/add_tema" type="button" class="btn btn-primary btn-block iframe cboxElement" data-toggle="tooltip" data-placement="bottom" title="AGREGAR">
+                        Agregar Temática
                     </a>
                 </div>
                 <div class="col-md-6">                                
@@ -37,22 +37,22 @@
                     <div role="tabpanel" class="tab-pane active" id="cate1">    
                         <table class="table table-striped" id="panel">
                             <tr>
-                                <th>Nombre del menú</th>
-                                <th>Precio del menú</th>                               
+                                <th>Nombre de la tematica</th>
+                                <th>Precio de tematica</th>                               
                                 <th>Acciones</th>
                             </tr>
-                            <?php foreach ($menu1 as $key): ?>
+                            <?php foreach ($tema1 as $key): ?>
                             <tr>
-                                <td><?php echo $key->nombre_menu; ?></td>
-                                <td><?php echo $key->precio_menu; ?></td>                                
+                                <td><?php echo $key->nombre_tematica; ?></td>
+                                <td><?php echo $key->precio_tematica; ?></td>                                
                                 <td>                    
-                                    <a href="<?php echo base_url(); ?>Admin/list_menu/<?php echo $key->id_menu; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
+                                    <a href="<?php echo base_url(); ?>Admin/list_tema/<?php echo $key->id_tematica; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
                                         <span class='glyphicon glyphicon-eye-open'></span>
                                     </a>
-                                    <a href="<?php echo base_url(); ?>Admin/upd_menu/<?php echo $key->id_menu; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
+                                    <a href="<?php echo base_url(); ?>Admin/upd_tema/<?php echo $key->id_tematica; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
                                         <span class='glyphicon glyphicon-cog'></span>
                                     </a>
-                                    <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_menu; ?>" data-rol="menu" data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">
+                                    <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_tematica; ?>" data-rol="tematica" data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">
                                         <span class='glyphicon glyphicon-trash'></span>
                                     </a>                    
                                 </td>
@@ -63,22 +63,22 @@
                     <div role="tabpanel" class="tab-pane" id="cate2">
                         <table class="table table-striped" id="panel">
                             <tr>
-                                <th>Nombre de la menu</th>
-                                <th>Precio de menu</th>                               
+                                <th>Nombre de la tematica</th>
+                                <th>Precio de tematica</th>                               
                                 <th>Acciones</th>
                             </tr>
-                            <?php foreach ($menu2 as $key): ?>
+                            <?php foreach ($tema2 as $key): ?>
                             <tr>
-                                <td><?php echo $key->nombre_menu; ?></td>
-                                <td><?php echo $key->precio_menu; ?></td>                               
+                                <td><?php echo $key->nombre_tematica; ?></td>
+                                <td><?php echo $key->precio_tematica; ?></td>                               
                                 <td>                    
-                                    <a href="<?php echo base_url(); ?>Admin/list_menu/<?php echo $key->id_menu; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
+                                    <a href="<?php echo base_url(); ?>Admin/list_tema/<?php echo $key->id_tematica; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
                                         <span class='glyphicon glyphicon-eye-open'></span>
                                     </a>
-                                    <a href="<?php echo base_url(); ?>Admin/upd_menu/<?php echo $key->id_menu; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
+                                    <a href="<?php echo base_url(); ?>Admin/upd_tema/<?php echo $key->id_tematica; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
                                         <span class='glyphicon glyphicon-cog'></span>
                                     </a>
-                                    <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_menu; ?>" data-rol="menu" data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">
+                                    <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_tematica; ?>" data-rol="tematica" data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">
                                         <span class='glyphicon glyphicon-trash'></span>
                                     </a>                    
                                 </td>
@@ -89,22 +89,22 @@
                     <div role="tabpanel" class="tab-pane" id="cate3">
                         <table class="table table-striped" id="panel">
                             <tr>
-                                <th>Nombre de la menu</th>
-                                <th>Precio de menu</th>                                
+                                <th>Nombre de la tematica</th>
+                                <th>Precio de tematica</th>                                
                                 <th>Acciones</th>
                             </tr>
-                            <?php foreach ($menu3 as $key): ?>
+                            <?php foreach ($tema3 as $key): ?>
                             <tr>
-                                <td><?php echo $key->nombre_menu; ?></td>
-                                <td><?php echo $key->precio_menu; ?></td>                                
+                                <td><?php echo $key->nombre_tematica; ?></td>
+                                <td><?php echo $key->precio_tematica; ?></td>                                
                                 <td>                    
-                                    <a href="<?php echo base_url(); ?>Admin/list_menu/<?php echo $key->id_menu; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
+                                    <a href="<?php echo base_url(); ?>Admin/list_tema/<?php echo $key->id_tematica; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
                                         <span class='glyphicon glyphicon-eye-open'></span>
                                     </a>
-                                    <a href="<?php echo base_url(); ?>Admin/upd_menu/<?php echo $key->id_menu; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
+                                    <a href="<?php echo base_url(); ?>Admin/upd_tema/<?php echo $key->id_tematica; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
                                         <span class='glyphicon glyphicon-cog'></span>
                                     </a>
-                                    <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_menu; ?>" data-rol="menu" data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">
+                                    <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_tematica; ?>" data-rol="tematica" data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">
                                         <span class='glyphicon glyphicon-trash'></span>
                                     </a>                    
                                 </td>

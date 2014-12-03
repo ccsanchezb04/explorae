@@ -15,17 +15,17 @@
         <li <?php if ($page=="admin-tema") {echo "class='active'";} ?>>
             <a href="<?php echo base_url(); ?>Admin/tematica">Gestión Temáticas</a>                     
         </li>
-        <li <?php if ($page=="admin-") {echo "class='active'";} ?>>
-            <a href="#salones">Gestión Menú</a>                     
+        <li <?php if ($page=="admin-menu") {echo "class='active'";} ?>>
+            <a href="<?php echo base_url(); ?>Admin/menu">Gestión Menú</a>                     
         </li>
         <li <?php if ($page=="admin-evento") {echo "class='active'";} ?>>
-            <a href="#eventos">Gestión Eventos</a>                     
+            <a href="<?php echo base_url(); ?>Admin/evento">Gestión Eventos</a>                     
         </li>        
         <li <?php if ($page=="admin-artista") {echo "class='active'";} ?>>
-            <a href="#artistas">Gestión Artistas</a>                     
+            <a href="<?php echo base_url(); ?>Admin/artista">Gestión Artistas</a>                     
         </li>
         <li <?php if ($page=="admin-equipo") {echo "class='active'";} ?>>
-            <a href="#equipos">Gestion Equipos</a>                     
+            <a href="<?php echo base_url(); ?>Admin/equipo">Gestion Equipos</a>                     
         </li>
     </ul>
 </div>

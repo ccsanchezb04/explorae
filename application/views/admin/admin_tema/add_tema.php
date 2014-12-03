@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="apellidos" class="col-sm-4 control-label">Precio de decoracíon:</label>
+                <label for="apellidos" class="col-sm-4 control-label">Precio de temática:</label>
                 <div class="col-sm-6">
                     <input type="number" class="form-control" name="precio_tematica" id="apellidos">
                 </div>                

@@ -13,7 +13,7 @@ class Mod_menu extends CI_model
     var $carne              = '';
     var $arroz              = '';
     var $ensalada           = '';
-    var $bocado_acompañante = '';
+    var $bocado_acompanante = '';
     var $imagen_menu        = '';
     var $galeria_1          = '';
     var $galeria_2          = '';
@@ -26,7 +26,7 @@ class Mod_menu extends CI_model
 
     public function __construct(){
         parent::__construct();
-        $this->upload_i = './public/images/page/menu/';
+        $this->upload_i = './public/images/page/menus/';
     }
     
     /*=====================================================================================================================================================================*/
@@ -79,7 +79,7 @@ class Mod_menu extends CI_model
         $this->carne              = $this->input->post('carne');
         $this->arroz              = $this->input->post('arroz');
         $this->ensalada           = $this->input->post('ensalada');
-        $this->bocado_acompañante = $this->input->post('bocado_acompañante');
+        $this->bocado_acompanante = $this->input->post('bocado_acompanante');
         $this->imagen_menu        = $config['file_name']; 
         // $this->$this->galeria_1     = $config['file_name']; 
         // $this->$this->galeria_2     = $config['file_name']; 
@@ -96,7 +96,7 @@ class Mod_menu extends CI_model
                       'carne'              => $this->carne,
                       'arroz'              => $this->arroz,
                       'ensalada'           => $this->ensalada,
-                      'bocado_acompañante' => $this->bocado_acompañante,
+                      'bocado_acompanante' => $this->bocado_acompanante,
                       'imagen_menu'        => $this->imagen_menu);
 
         if (!$this->db->insert('menu', $menu)) 
@@ -124,7 +124,7 @@ class Mod_menu extends CI_model
     {
         if ($_FILES['imagen_menu']['name']){
 
-            $ruta = "../../public/images/page/menu/".$_FILES['imagen_menu']['name'];
+            $ruta = "../../public/images/page/menus/".$_FILES['imagen_menu']['name'];
 
             if (file_exists($_POST['ioriginal']))
             {
@@ -164,7 +164,7 @@ class Mod_menu extends CI_model
         $this->carne              = $this->input->post('carne');
         $this->arroz              = $this->input->post('arroz');
         $this->ensalada           = $this->input->post('ensalada');
-        $this->bocado_acompañante = $this->input->post('bocado_acompañante');
+        $this->bocado_acompanante = $this->input->post('bocado_acompanante');
         if (isset($ruta2)) 
         {
             $this->imagen_menu = $ruta2;
@@ -184,7 +184,7 @@ class Mod_menu extends CI_model
                         'carne'              => $this->carne,
                         'arroz'              => $this->arroz,
                         'ensalada'           => $this->ensalada,
-                        'bocado_acompañante' => $this->bocado_acompañante);
+                        'bocado_acompanante' => $this->bocado_acompanante);
     
         $this->db->where('id_menu', $id);
 

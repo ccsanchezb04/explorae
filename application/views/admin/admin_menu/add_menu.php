@@ -2,9 +2,9 @@
 <?php echo validation_errors(); ?>
    <div class="panel panel-default">   
         <div class="panel-heading">
-            <h3 class="text-info">Agregar menu</h3>
+            <h3 class="text-info">Agregar Menú</h3>
         </div>
-        <form class="form-horizontal" role="form" method="post" action="<?php echo base_url(); ?>Admin/add_tema" enctype="multipart/form-data">
+        <form class="form-horizontal" role="form" method="post" action="<?php echo base_url(); ?>Admin/add_menu" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="nombres" class="col-sm-4 control-label">Nombre menú:</label>
                 <div class="col-sm-6">
@@ -61,7 +61,7 @@
             <div class="form-group">
                 <label for="apellidos" class="col-sm-4 control-label">Bocado Acompañante</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="bocado_acompañante" id="apellidos">
+                    <input type="text" class="form-control" name="bocado_acompanante" id="apellidos">
                 </div>                
             </div>
             <div class="form-group">

@@ -43,7 +43,7 @@ class Admin extends CI_Controller {
             $this->form_validation->set_rules('apellidos', 'Apellidos', 'required');
             $this->form_validation->set_rules('no_identificacion', 'Identificacion', 'required');
             $this->form_validation->set_rules('email', 'Correo Electronico', 'required|valid_mail');
-            $this->form_validation->set_rules('password', 'Contraseña', 'required');            
+            $this->form_validation->set_rules('password', 'Contrasena', 'required');            
             $this->form_validation->set_rules('tel_fijo', 'Telefono Fijo', 'required|is_numeric');
             $this->form_validation->set_rules('tel_movil', 'Telefono Movil', 'required|is_numeric');
             $this->form_validation->set_rules('direccion', 'Direccion de residencia', 'required');
@@ -80,7 +80,7 @@ class Admin extends CI_Controller {
             $this->form_validation->set_rules('apellidos', 'Apellidos', 'required');
             $this->form_validation->set_rules('no_identificacion', 'Identificacion', 'required');
             $this->form_validation->set_rules('email', 'Correo Electronico', 'required|valid_mail');
-            $this->form_validation->set_rules('password', 'Contraseña', 'required');            
+            $this->form_validation->set_rules('password', 'Contrasena', 'required');            
             $this->form_validation->set_rules('tel_fijo', 'Telefono Fijo', 'required|is_numeric');
             $this->form_validation->set_rules('tel_movil', 'Telefono Movil', 'required|is_numeric');
             $this->form_validation->set_rules('direccion', 'Direccion de residencia', 'required');
@@ -388,10 +388,17 @@ class Admin extends CI_Controller {
     {
         if ($_POST) 
         {            
-            $this->form_validation->set_rules('nombre_tematica', 'Nombre de la temática', 'required');
-            $this->form_validation->set_rules('categoria_tematica', 'Categoria Temática', 'required');
-            $this->form_validation->set_rules('precio_tematica', 'Predcio de la temática', 'required|is_numeric');
-            $this->form_validation->set_rules('imagen_salon', 'Imagen de la tematica');
+            $this->form_validation->set_rules('nombre_menu', 'Nombre del menú', 'required');
+            $this->form_validation->set_rules('categoria_menu', 'Categoria Menú', 'required');
+            $this->form_validation->set_rules('precio_menu', 'Predcio del menú', 'required|is_numeric');
+            $this->form_validation->set_rules('coctel', 'Coctel', 'required');
+            $this->form_validation->set_rules('pasabocas', 'Pasabocas', 'required');
+            $this->form_validation->set_rules('carne', 'Carne', 'required');
+            $this->form_validation->set_rules('arroz', 'Arroz', 'required');
+            $this->form_validation->set_rules('ensalada', 'Ensalada', 'required');
+            $this->form_validation->set_rules('bocado_acompanante', 'Bocado Acompananate', 'required');
+
+            $this->form_validation->set_rules('imagen_menu', 'Imagen del menú');
 
             $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissable">
                                                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>', '
@@ -419,10 +426,15 @@ class Admin extends CI_Controller {
     {
         if ($_POST) 
         {
-           $this->form_validation->set_rules('nombre_tematica', 'Nombre de decoracion', 'required');
-            $this->form_validation->set_rules('categoria_tematica', 'Categoria Decoracion', 'required');
-            $this->form_validation->set_rules('precio_tematica', 'Predcio de la decoracion', 'required|is_numeric');
-            $this->form_validation->set_rules('imagen_salon', 'Imagen del salon');
+            $this->form_validation->set_rules('nombre_menu', 'Nombre del menú', 'required');
+            $this->form_validation->set_rules('categoria_menu', 'Categoria Menú', 'required');
+            $this->form_validation->set_rules('precio_menu', 'Predcio del menú', 'required|is_numeric');
+            $this->form_validation->set_rules('coctel', 'Coctel', 'required');
+            $this->form_validation->set_rules('pasabocas', 'Pasabocas', 'required');
+            $this->form_validation->set_rules('carne', 'Carne', 'required');
+            $this->form_validation->set_rules('arroz', 'Arroz', 'required');
+            $this->form_validation->set_rules('ensalada', 'Ensalada', 'required');
+            $this->form_validation->set_rules('bocado_acompanante', 'Bocado Acompananate', 'required');
 
             $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissable">
                                                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>', '
@@ -434,7 +446,7 @@ class Admin extends CI_Controller {
             }           
         }
 
-        $data['decoUpd'] = $this->mod_menu->lst_menu($id);
+        $data['menuUpd'] = $this->mod_menu->lst_menu($id);
         $this->load->view('layout/header');
         $this->load->view('admin/admin_menu/upd_menu', $data);
         $this->load->view('layout/footer');

@@ -12,6 +12,8 @@ class Admin extends CI_Controller {
         $this->load->model('mod_deco');
         $this->load->model('mod_tema');
         $this->load->model('mod_menu');
+        $this->load->model('mod_social');
+        $this->load->model('mod_empresa');
         // $this->load->model('mod_event');
         // $this->load->model('mod_artist');
         // $this->load->model('mod_tools');
@@ -371,7 +373,7 @@ class Admin extends CI_Controller {
 /*=====================================================================================================================================================================*/
 
 /*=====================================================================================================================================================================*/
-/*======================================================= TEMÁTICAS ==================================================================================================*/
+/*========================================================== MENÚ =====================================================================================================*/
 /*=====================================================================================================================================================================*/
     public function menu()
     {
@@ -397,7 +399,6 @@ class Admin extends CI_Controller {
             $this->form_validation->set_rules('arroz', 'Arroz', 'required');
             $this->form_validation->set_rules('ensalada', 'Ensalada', 'required');
             $this->form_validation->set_rules('bocado_acompanante', 'Bocado Acompananate', 'required');
-
             $this->form_validation->set_rules('imagen_menu', 'Imagen del menú');
 
             $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissable">
@@ -453,6 +454,99 @@ class Admin extends CI_Controller {
     }
 
     public function dlt_menu($id)
+    {
+        $this->mod_menu->dlt_menu($id);
+    }
+/*=====================================================================================================================================================================*/
+/*=====================================================================================================================================================================*/
+/*=====================================================================================================================================================================*/
+
+/*=====================================================================================================================================================================*/
+/*========================================================= EVENTOS ===================================================================================================*/
+/*=====================================================================================================================================================================*/
+    public function evento()
+    {
+        $id = $this->session->userdata('idUser'); 
+        $data['lstu'] = $this->homeadmin->lstUsers($id);
+        $data['social'] = $this->mod_social->eventSocial();
+        $data['empresa'] = $this->mod_empresa->eventEmpresa();        
+        $this->load->view('layout/header');
+        $this->load->view('admin/eventos', $data);
+        $this->load->view('layout/footer');
+    }
+    public function add_event()
+    {
+        if ($_POST) 
+        { 
+            
+            $this->form_validation->set_rules('nombre_evento', 'Nombre del evento', 'required');
+            $this->form_validation->set_rules('descripcion', 'Descripción del evento', 'required');
+            $this->form_validation->set_rules('tipo_evento', 'Tipo del evento', 'required');
+            $this->form_validation->set_rules('imagen_menu', 'Imagen del menú');
+
+            $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissable">
+                                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>', '
+                                                          </div>');
+            $event = $this->input->post('tipo_evento');
+            if ($event == "social") 
+            {
+                if ($this->form_validation->run() == true) 
+                {
+                    $this->mod_social->add_social();
+                } 
+            }
+            else
+            {
+                if ($this->form_validation->run() == true) 
+                {
+                    $this->mod_empresa->add_empresa();
+                }
+            }     
+        }
+        $this->load->view('layout/header');
+        $this->load->view('admin/admin_events/add_event');
+        $this->load->view('layout/footer');
+    } 
+
+    public function list_event($id)
+    {
+        $data['lstMenu'] = $this->mod_menu->lst_menu($id);
+        $this->load->view('layout/header');
+        $this->load->view('admin/admin_events/list_menu', $data);
+        $this->load->view('layout/footer');
+    }
+
+    public function upd_event($id)
+    {
+        if ($_POST) 
+        {
+            $this->form_validation->set_rules('nombre_menu', 'Nombre del menú', 'required');
+            $this->form_validation->set_rules('categoria_menu', 'Categoria Menú', 'required');
+            $this->form_validation->set_rules('precio_menu', 'Predcio del menú', 'required|is_numeric');
+            $this->form_validation->set_rules('coctel', 'Coctel', 'required');
+            $this->form_validation->set_rules('pasabocas', 'Pasabocas', 'required');
+            $this->form_validation->set_rules('carne', 'Carne', 'required');
+            $this->form_validation->set_rules('arroz', 'Arroz', 'required');
+            $this->form_validation->set_rules('ensalada', 'Ensalada', 'required');
+            $this->form_validation->set_rules('bocado_acompanante', 'Bocado Acompananate', 'required');
+
+            $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissable">
+                                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>', '
+                                                          </div>');
+
+            if ($this->form_validation->run() == true) 
+            {
+                $this->mod_menu->upd_menu($id);
+            }           
+        }
+
+        $data['eventUpd'] = $this->mod_event->lst_menu($id);
+        $this->load->view('layout/header');
+        $this->load->view('admin/admin_events/upd_event', $data);
+        $this->load->view('layout/footer');
+    }
+
+    public function dlt_event($id)
     {
         $this->mod_menu->dlt_menu($id);
     }

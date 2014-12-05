@@ -18,7 +18,7 @@
         <li <?php if ($page=="admin-menu") {echo "class='active'";} ?>>
             <a href="<?php echo base_url(); ?>Admin/menu">Gestión Menú</a>                     
         </li>
-        <li <?php if ($page=="admin-evento") {echo "class='active'";} ?>>
+        <li <?php if ($page=="admin-event") {echo "class='active'";} ?>>
             <a href="<?php echo base_url(); ?>Admin/evento">Gestión Eventos</a>                     
         </li>        
         <li <?php if ($page=="admin-artista") {echo "class='active'";} ?>>

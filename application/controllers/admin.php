@@ -508,42 +508,75 @@ class Admin extends CI_Controller {
         $this->load->view('layout/footer');
     } 
 
-    public function list_event($id)
+    public function list_event($id, $tipo_evento)
     {
-        $data['lstMenu'] = $this->mod_menu->lst_menu($id);
-        $this->load->view('layout/header');
-        $this->load->view('admin/admin_events/list_menu', $data);
-        $this->load->view('layout/footer');
+        if ($tipo_evento == "social") 
+        {
+            $data['lstEvent'] = $this->mod_social->lst_social($id);
+            $data['tipo_evento'] = $tipo_evento;
+            $this->load->view('layout/header');
+            $this->load->view('admin/admin_events/list_event', $data);
+            $this->load->view('layout/footer');
+        }
+        else
+        {
+            $data['lstEvent'] = $this->mod_empresa->lst_empresa($id);
+            $data['tipo_evento'] = $tipo_evento;
+            $this->load->view('layout/header');
+            $this->load->view('admin/admin_events/list_event', $data);
+            $this->load->view('layout/footer');
+        }
     }
 
     public function upd_event($id)
     {
         if ($_POST) 
         {
-            $this->form_validation->set_rules('nombre_menu', 'Nombre del menú', 'required');
-            $this->form_validation->set_rules('categoria_menu', 'Categoria Menú', 'required');
-            $this->form_validation->set_rules('precio_menu', 'Predcio del menú', 'required|is_numeric');
-            $this->form_validation->set_rules('coctel', 'Coctel', 'required');
-            $this->form_validation->set_rules('pasabocas', 'Pasabocas', 'required');
-            $this->form_validation->set_rules('carne', 'Carne', 'required');
-            $this->form_validation->set_rules('arroz', 'Arroz', 'required');
-            $this->form_validation->set_rules('ensalada', 'Ensalada', 'required');
-            $this->form_validation->set_rules('bocado_acompanante', 'Bocado Acompananate', 'required');
+            $this->form_validation->set_rules('nombre_evento', 'Nombre del evento', 'required');
+            $this->form_validation->set_rules('descripcion', 'Descripción del evento', 'required');
+            $this->form_validation->set_rules('tipo_evento', 'Tipo del evento', 'required');
+            $this->form_validation->set_rules('imagen_menu', 'Imagen del menú');
 
             $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissable">
                                                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>', '
                                                           </div>');
 
-            if ($this->form_validation->run() == true) 
+            $event = $this->input->post('tipo_evento');
+            if ($event == "social") 
             {
-                $this->mod_menu->upd_menu($id);
-            }           
+                if ($this->form_validation->run() == true) 
+                {
+                    $this->mod_social->upd_social();
+                } 
+            }
+            else
+            {
+                if ($this->form_validation->run() == true) 
+                {
+                    $this->mod_empresa->upd_empresa();
+                }
+            }         
         }
 
-        $data['eventUpd'] = $this->mod_event->lst_menu($id);
-        $this->load->view('layout/header');
-        $this->load->view('admin/admin_events/upd_event', $data);
-        $this->load->view('layout/footer');
+        // $data['eventUpd'] = $this->mod_event->lst_menu($id);
+        // $this->load->view('layout/header');
+        // $this->load->view('admin/admin_events/upd_event', $data);
+        // $this->load->view('layout/footer');
+
+        if ($event == "social") 
+        {
+            $data['eventUpd'] = $this->mod_social->lst_social($id);
+            $this->load->view('layout/header');
+            $this->load->view('admin/admin_events/list_event', $data);
+            $this->load->view('layout/footer');
+        }
+        else
+        {
+            $data['eventUpd'] = $this->mod_empresa->lst_empresa($id);
+            $this->load->view('layout/header');
+            $this->load->view('admin/admin_events/list_event', $data);
+            $this->load->view('layout/footer');
+        }
     }
 
     public function dlt_event($id)

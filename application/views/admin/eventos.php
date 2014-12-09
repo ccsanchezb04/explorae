@@ -43,10 +43,10 @@
                             <tr>
                                 <td><?php echo $key->nombre_evento; ?></td>                                                                
                                 <td>                    
-                                    <a href="<?php echo base_url(); ?>Admin/list_event/<?php echo $key->id_sociales; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
+                                    <a href="<?php echo base_url(); ?>Admin/list_event/<?php echo $key->id_sociales; ?>/social" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
                                         <span class='glyphicon glyphicon-eye-open'></span>
                                     </a>
-                                    <a href="<?php echo base_url(); ?>Admin/upd_event/<?php echo $key->id_sociales; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
+                                    <a href="<?php echo base_url(); ?>Admin/upd_event/<?php echo $key->id_sociales; ?>/social" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
                                         <span class='glyphicon glyphicon-cog'></span>
                                     </a>
                                     <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_sociales; ?>" data-rol="sociales" data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">
@@ -67,10 +67,10 @@
                             <tr>
                                 <td><?php echo $key->nombre_evento; ?></td>                                                               
                                 <td>                    
-                                    <a href="<?php echo base_url(); ?>Admin/list_event/<?php echo $key->id_empresariales; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
+                                    <a href="<?php echo base_url(); ?>Admin/list_event/<?php echo $key->id_empresariales; ?>/empresarial" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
                                         <span class='glyphicon glyphicon-eye-open'></span>
                                     </a>
-                                    <a href="<?php echo base_url(); ?>Admin/upd_event/<?php echo $key->id_empresariales; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
+                                    <a href="<?php echo base_url(); ?>Admin/upd_event/<?php echo $key->id_empresariales; ?>/empresarial" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
                                         <span class='glyphicon glyphicon-cog'></span>
                                     </a>
                                     <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_empresariales; ?>" data-rol="sociales" data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">

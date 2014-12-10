@@ -93,7 +93,7 @@ class Mod_empresa extends CI_model
     {
         if ($_FILES['imagen_evento']['name']){
 
-            $ruta = "../../public/images/page/eventos_empresariales/".$_FILES['imagen_empresarial']['name'];
+            $ruta = "../../public/images/page/eventos_empresariales/".$_FILES['imagen_evento']['name'];
 
             if (file_exists($_POST['ioriginal']))
             {
@@ -114,7 +114,7 @@ class Mod_empresa extends CI_model
         // Cargo la libreria upload con su configuracion
         $this->load->library('upload', $config);
         // Subo la imagen con name='imagen'
-        $this->upload->do_upload('imagen_empresarial');
+        $this->upload->do_upload('imagen_evento');
         
         // Datos del Archivo Subido
         $datos = $this->upload->data();

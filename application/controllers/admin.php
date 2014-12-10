@@ -14,6 +14,7 @@ class Admin extends CI_Controller {
         $this->load->model('mod_menu');
         $this->load->model('mod_social');
         $this->load->model('mod_empresa');
+        $this->load->model('mod_artist');
         // $this->load->model('mod_event');
         // $this->load->model('mod_artist');
         // $this->load->model('mod_tools');
@@ -528,7 +529,7 @@ class Admin extends CI_Controller {
         }
     }
 
-    public function upd_event($id)
+    public function upd_event($id, $tipo_evento)
     {
         if ($_POST) 
         {
@@ -546,14 +547,14 @@ class Admin extends CI_Controller {
             {
                 if ($this->form_validation->run() == true) 
                 {
-                    $this->mod_social->upd_social();
+                    $this->mod_social->upd_social($id);
                 } 
             }
             else
             {
                 if ($this->form_validation->run() == true) 
                 {
-                    $this->mod_empresa->upd_empresa();
+                    $this->mod_empresa->upd_empresa($id);
                 }
             }         
         }
@@ -563,23 +564,150 @@ class Admin extends CI_Controller {
         // $this->load->view('admin/admin_events/upd_event', $data);
         // $this->load->view('layout/footer');
 
-        if ($event == "social") 
+        if ($tipo_evento == "social") 
         {
             $data['eventUpd'] = $this->mod_social->lst_social($id);
+            $data['tipo_evento'] = $tipo_evento;
+            $this->load->view('layout/header');
+            $this->load->view('admin/admin_events/upd_event', $data);
+            $this->load->view('layout/footer');
+        }
+        else
+        {
+            $data['eventUpd'] = $this->mod_empresa->lst_empresa($id);
+            $data['tipo_evento'] = $tipo_evento;
+            $this->load->view('layout/header');
+            $this->load->view('admin/admin_events/upd_event', $data);
+            $this->load->view('layout/footer');
+        }
+    }
+
+    public function dlt_event($id)
+    {
+        if ($tipo_evento == "social") 
+        {
+            $this->mod_social->dlt_social($id);
+        }
+        else
+        {
+            $this->mod_empresa->dlt_empresa($id);
+        }
+    }
+/*=====================================================================================================================================================================*/
+/*=====================================================================================================================================================================*/
+/*=====================================================================================================================================================================*/
+
+/*=====================================================================================================================================================================*/
+/*======================================================== ARTISTAS ===================================================================================================*/
+/*=====================================================================================================================================================================*/
+    public function artista()
+    {
+        $id = $this->session->userdata('idUser'); 
+        $data['lstu'] = $this->homeadmin->lstUsers($id);
+        $data['artista1'] = $this->mod_artist->artCate1();
+        $data['artista2'] = $this->mod_artist->artCate2();        
+        $data['artista3'] = $this->mod_artist->artCate3();        
+        $this->load->view('layout/header');
+        $this->load->view('admin/artistas', $data);
+        $this->load->view('layout/footer');
+    }
+    public function add_artist()
+    {
+        if ($_POST) 
+        { 
+            
+            $this->form_validation->set_rules('nombre_evento', 'Nombre del evento', 'required');
+            $this->form_validation->set_rules('descripcion', 'Descripción del evento', 'required');
+            $this->form_validation->set_rules('tipo_evento', 'Tipo del evento', 'required');
+            $this->form_validation->set_rules('imagen_menu', 'Imagen del menú');
+
+            $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissable">
+                                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>', '
+                                                          </div>');
+            $event = $this->input->post('tipo_evento');
+            if ($event == "social") 
+            {
+                if ($this->form_validation->run() == true) 
+                {
+                    $this->mod_social->add_social();
+                } 
+            }
+            else
+            {
+                if ($this->form_validation->run() == true) 
+                {
+                    $this->mod_empresa->add_empresa();
+                }
+            }     
+        }
+        $this->load->view('layout/header');
+        $this->load->view('admin/admin_events/add_event');
+        $this->load->view('layout/footer');
+    } 
+
+    public function list_artist($id, $tipo_evento)
+    {
+        if ($tipo_evento == "social") 
+        {
+            $data['lstEvent'] = $this->mod_social->lst_social($id);
+            $data['tipo_evento'] = $tipo_evento;
             $this->load->view('layout/header');
             $this->load->view('admin/admin_events/list_event', $data);
             $this->load->view('layout/footer');
         }
         else
         {
-            $data['eventUpd'] = $this->mod_empresa->lst_empresa($id);
+            $data['lstEvent'] = $this->mod_empresa->lst_empresa($id);
+            $data['tipo_evento'] = $tipo_evento;
             $this->load->view('layout/header');
             $this->load->view('admin/admin_events/list_event', $data);
             $this->load->view('layout/footer');
         }
     }
 
-    public function dlt_event($id)
+    public function upd_artist($id, $tipo_evento)
+    {
+        if ($_POST) 
+        {
+            $this->form_validation->set_rules('nombre_evento', 'Nombre del evento', 'required');
+            $this->form_validation->set_rules('descripcion', 'Descripción del evento', 'required');
+            $this->form_validation->set_rules('tipo_evento', 'Tipo del evento', 'required');
+            $this->form_validation->set_rules('imagen_menu', 'Imagen del menú');
+
+            $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissable">
+                                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>', '
+                                                          </div>');
+
+            if ($this->form_validation->run() == true) 
+            {
+                $this->mod_empresa->upd_empresa($id);
+            }       
+        }
+
+        // $data['eventUpd'] = $this->mod_event->lst_menu($id);
+        // $this->load->view('layout/header');
+        // $this->load->view('admin/admin_events/upd_event', $data);
+        // $this->load->view('layout/footer');
+
+        if ($tipo_evento == "social") 
+        {
+            $data['eventUpd'] = $this->mod_social->lst_social($id);
+            $data['tipo_evento'] = $tipo_evento;
+            $this->load->view('layout/header');
+            $this->load->view('admin/admin_events/upd_event', $data);
+            $this->load->view('layout/footer');
+        }
+        else
+        {
+            $data['eventUpd'] = $this->mod_empresa->lst_empresa($id);
+            $data['tipo_evento'] = $tipo_evento;
+            $this->load->view('layout/header');
+            $this->load->view('admin/admin_events/upd_event', $data);
+            $this->load->view('layout/footer');
+        }
+    }
+
+    public function dlt_artist($id)
     {
         $this->mod_menu->dlt_menu($id);
     }

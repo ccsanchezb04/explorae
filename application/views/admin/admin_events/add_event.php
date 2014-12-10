@@ -2,7 +2,7 @@
 <?php echo validation_errors(); ?>
    <div class="panel panel-default">   
         <div class="panel-heading">
-            <h3 class="text-info">Agregar Menú</h3>
+            <h3 class="text-info">Agregar Evento</h3>
         </div>
         <form class="form-horizontal" role="form" method="post" action="<?php echo base_url(); ?>Admin/add_event" enctype="multipart/form-data">
             <div class="form-group">
@@ -36,7 +36,7 @@
                             <span class="btn btn-danger btn-file">
                                 <span class="fileupload-new">Seleccione Imagen</span>
                                 <span class="fileupload-exists">Cambiar</span>
-                                <input type="file" name="imagen_menu" accept="image/png image/jpg">
+                                <input type="file" name="imagen_evento" accept="image/png image/jpg">
                             </span>
                             <a href="#" class="btn btn-info fileupload-exists" data-dismiss="fileupload">Remover</a>
                         </div>

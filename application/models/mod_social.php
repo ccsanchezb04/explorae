@@ -91,9 +91,9 @@ class Mod_social extends CI_model
 
     public function upd_social($id)
     {
-        if ($_FILES['imagen_evento']['name']){
-
-            $ruta = "../../public/images/page/eventos_sociales/".$_FILES['imagen_social']['name'];
+        if ($_FILES['imagen_evento']['name'])
+        {
+            $ruta = "../../public/images/page/eventos_sociales/".$_FILES['imagen_evento']['name'];
 
             if (file_exists($_POST['ioriginal']))
             {

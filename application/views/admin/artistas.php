@@ -7,8 +7,8 @@
         <div class="col-md-9">            
             <div class="row" id="head-backend">
                 <div class="col-md-6">
-                    <a href="<?php echo base_url(); ?>Admin/add_artista" type="button" class="btn btn-primary btn-block iframe cboxElement" data-toggle="tooltip" data-placement="bottom" title="AGREGAR">
-                        Agregar artista
+                    <a href="<?php echo base_url(); ?>Admin/add_artist" type="button" class="btn btn-primary btn-block iframe cboxElement" data-toggle="tooltip" data-placement="bottom" title="AGREGAR">
+                        Agregar Artista
                     </a>
                 </div>
                 <div class="col-md-6">                                
@@ -38,12 +38,14 @@
                         <table class="table table-striped" id="panel">
                             <tr>
                                 <th>Nombre del artista</th>
+                                <th>Tipo de artista</th>
                                 <th>Precio del artista</th>                               
                                 <th>Acciones</th>
                             </tr>
                             <?php foreach ($artista1 as $key): ?>
                             <tr>
                                 <td><?php echo $key->nombre_artista; ?></td>
+                                <td><?php echo $key->tipo_artista; ?></td>
                                 <td><?php echo $key->precio_contrato; ?></td>                                
                                 <td>                    
                                     <a href="<?php echo base_url(); ?>Admin/list_artist/<?php echo $key->id_artista; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
@@ -57,27 +59,27 @@
                                     </a>                    
                                 </td>
                             </tr>
-                            <?php endforeach ?>
-                            <tr class="divider"></tr>
-
-                        </table>
+                        </table>                            
+                        <?php endforeach ?>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="cate2">
                         <table class="table table-striped" id="panel">
                             <tr>
                                 <th>Nombre del artista</th>
+                                <th>Tipo de artista</th>
                                 <th>Precio del artista</th>                               
                                 <th>Acciones</th>
                             </tr>
                             <?php foreach ($artista2 as $key): ?>
                             <tr>
                                 <td><?php echo $key->nombre_artista; ?></td>
+                                <td><?php echo $key->tipo_artista; ?></td>
                                 <td><?php echo $key->precio_contrato; ?></td>                               
                                 <td>                    
-                                    <a href="<?php echo base_url(); ?>Admin/list_artista/<?php echo $key->id_artista; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
+                                    <a href="<?php echo base_url(); ?>Admin/list_artist/<?php echo $key->id_artista; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
                                         <span class='glyphicon glyphicon-eye-open'></span>
                                     </a>
-                                    <a href="<?php echo base_url(); ?>Admin/upd_artista/<?php echo $key->id_artista; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
+                                    <a href="<?php echo base_url(); ?>Admin/upd_artist/<?php echo $key->id_artista; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
                                         <span class='glyphicon glyphicon-cog'></span>
                                     </a>
                                     <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_artista; ?>" data-rol="artista" data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">
@@ -92,18 +94,20 @@
                         <table class="table table-striped" id="panel">
                             <tr>
                                 <th>Nombre del artista</th>
+                                <th>Tipo de artista</th>
                                 <th>Precio del artista</th>                                
                                 <th>Acciones</th>
                             </tr>
                             <?php foreach ($artista3 as $key): ?>
                             <tr>
                                 <td><?php echo $key->nombre_artista; ?></td>
+                                <td><?php echo $key->tipo_artista; ?></td>
                                 <td><?php echo $key->precio_contrato; ?></td>                                
                                 <td>                    
-                                    <a href="<?php echo base_url(); ?>Admin/list_artista/<?php echo $key->id_artista; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
+                                    <a href="<?php echo base_url(); ?>Admin/list_artist/<?php echo $key->id_artista; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
                                         <span class='glyphicon glyphicon-eye-open'></span>
                                     </a>
-                                    <a href="<?php echo base_url(); ?>Admin/upd_artista/<?php echo $key->id_artista; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
+                                    <a href="<?php echo base_url(); ?>Admin/upd_artist/<?php echo $key->id_artista; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
                                         <span class='glyphicon glyphicon-cog'></span>
                                     </a>
                                     <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_artista; ?>" data-rol="artista" data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">
@@ -111,7 +115,6 @@
                                     </a>                    
                                 </td>
                             </tr>
-                            <tr class="divider"></tr>
                             <?php endforeach ?>
                         </table>
                     </div>

@@ -15,8 +15,6 @@ class Admin extends CI_Controller {
         $this->load->model('mod_social');
         $this->load->model('mod_empresa');
         $this->load->model('mod_artist');
-        // $this->load->model('mod_event');
-        // $this->load->model('mod_artist');
         // $this->load->model('mod_tools');
         $this->upload_i = './public/images/page/salones/';
         /*$this->removeCache();*/
@@ -616,63 +614,15 @@ class Admin extends CI_Controller {
         if ($_POST) 
         { 
             
-            $this->form_validation->set_rules('nombre_evento', 'Nombre del evento', 'required');
-            $this->form_validation->set_rules('descripcion', 'Descripción del evento', 'required');
-            $this->form_validation->set_rules('tipo_evento', 'Tipo del evento', 'required');
-            $this->form_validation->set_rules('imagen_menu', 'Imagen del menú');
-
-            $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissable">
-                                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>', '
-                                                          </div>');
-            $event = $this->input->post('tipo_evento');
-            if ($event == "social") 
-            {
-                if ($this->form_validation->run() == true) 
-                {
-                    $this->mod_social->add_social();
-                } 
-            }
-            else
-            {
-                if ($this->form_validation->run() == true) 
-                {
-                    $this->mod_empresa->add_empresa();
-                }
-            }     
-        }
-        $this->load->view('layout/header');
-        $this->load->view('admin/admin_events/add_event');
-        $this->load->view('layout/footer');
-    } 
-
-    public function list_artist($id, $tipo_evento)
-    {
-        if ($tipo_evento == "social") 
-        {
-            $data['lstEvent'] = $this->mod_social->lst_social($id);
-            $data['tipo_evento'] = $tipo_evento;
-            $this->load->view('layout/header');
-            $this->load->view('admin/admin_events/list_event', $data);
-            $this->load->view('layout/footer');
-        }
-        else
-        {
-            $data['lstEvent'] = $this->mod_empresa->lst_empresa($id);
-            $data['tipo_evento'] = $tipo_evento;
-            $this->load->view('layout/header');
-            $this->load->view('admin/admin_events/list_event', $data);
-            $this->load->view('layout/footer');
-        }
-    }
-
-    public function upd_artist($id, $tipo_evento)
-    {
-        if ($_POST) 
-        {
-            $this->form_validation->set_rules('nombre_evento', 'Nombre del evento', 'required');
-            $this->form_validation->set_rules('descripcion', 'Descripción del evento', 'required');
-            $this->form_validation->set_rules('tipo_evento', 'Tipo del evento', 'required');
-            $this->form_validation->set_rules('imagen_menu', 'Imagen del menú');
+            $this->form_validation->set_rules('nombre_artista', 'Nombre del artista', 'required');
+            $this->form_validation->set_rules('categoria_artista', 'Categoria artista', 'required');
+            $this->form_validation->set_rules('precio_contrato', 'Predcio del contrato', 'required|is_numeric');
+            $this->form_validation->set_rules('nombre_contacto', 'Nombre del contacto', 'required');
+            $this->form_validation->set_rules('tel_contacto', 'Telefono del contacto', 'required|is_numeric');
+            $this->form_validation->set_rules('email_contacto', 'Correo de contacto', 'required');
+            $this->form_validation->set_rules('lista_canciones', 'Lista de canciones', 'required');
+            $this->form_validation->set_rules('tipo_artista', 'Tipo de artista', 'required');            
+            $this->form_validation->set_rules('imagen_artista', 'Imagen del artista');
 
             $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissable">
                                                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>', '
@@ -680,36 +630,56 @@ class Admin extends CI_Controller {
 
             if ($this->form_validation->run() == true) 
             {
-                $this->mod_empresa->upd_empresa($id);
+                $this->mod_artist->add_artist();
+            }   
+        }
+        $this->load->view('layout/header');
+        $this->load->view('admin/admin_artists/add_artist');
+        $this->load->view('layout/footer');
+    } 
+
+    public function list_artist($id)
+    {
+        $data['lstArtist'] = $this->mod_artist->lst_artist($id);
+        $this->load->view('layout/header');
+        $this->load->view('admin/admin_artists/list_artist', $data);
+        $this->load->view('layout/footer');
+    }
+
+    public function upd_artist($id)
+    {
+        if ($_POST) 
+        {
+            $this->form_validation->set_rules('nombre_artista', 'Nombre del artista', 'required');
+            $this->form_validation->set_rules('categoria_artista', 'Categoria artista', 'required');
+            $this->form_validation->set_rules('precio_contrato', 'Predcio del contrato', 'required|is_numeric');
+            $this->form_validation->set_rules('nombre_contacto', 'Nombre del contacto', 'required');
+            $this->form_validation->set_rules('tel_contacto', 'Telefono del contacto', 'required|is_numeric');
+            $this->form_validation->set_rules('email_contacto', 'Correo de contacto', 'required');
+            $this->form_validation->set_rules('lista_canciones', 'Lista de canciones', 'required');
+            $this->form_validation->set_rules('tipo_artista', 'Tipo de artista', 'required');            
+            $this->form_validation->set_rules('imagen_artista', 'Imagen del artista');
+            
+            $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissable">
+                                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>', '
+                                                          </div>');
+
+            if ($this->form_validation->run() == true) 
+            {
+                $this->mod_artist->upd_artist($id);
             }       
         }
 
-        // $data['eventUpd'] = $this->mod_event->lst_menu($id);
-        // $this->load->view('layout/header');
-        // $this->load->view('admin/admin_events/upd_event', $data);
-        // $this->load->view('layout/footer');
+        $data['artistUpd'] = $this->mod_social->lst_social($id);
+        $this->load->view('layout/header');
+        $this->load->view('admin/admin_artists/upd_artist', $data);
+        $this->load->view('layout/footer');
 
-        if ($tipo_evento == "social") 
-        {
-            $data['eventUpd'] = $this->mod_social->lst_social($id);
-            $data['tipo_evento'] = $tipo_evento;
-            $this->load->view('layout/header');
-            $this->load->view('admin/admin_events/upd_event', $data);
-            $this->load->view('layout/footer');
-        }
-        else
-        {
-            $data['eventUpd'] = $this->mod_empresa->lst_empresa($id);
-            $data['tipo_evento'] = $tipo_evento;
-            $this->load->view('layout/header');
-            $this->load->view('admin/admin_events/upd_event', $data);
-            $this->load->view('layout/footer');
-        }
     }
 
     public function dlt_artist($id)
     {
-        $this->mod_menu->dlt_menu($id);
+        $this->mod_artist->dlt_artist($id);
     }
 /*=====================================================================================================================================================================*/
 /*=====================================================================================================================================================================*/

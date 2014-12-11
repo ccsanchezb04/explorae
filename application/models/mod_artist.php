@@ -78,9 +78,9 @@ class Mod_artist extends CI_model
 
         $this->id_artista        = $this->input->post('id');
         $this->nombre_artista    = $this->input->post('nombre_artista');
-        $this->precio_artista    = $this->input->post('precio_artista');
+        $this->precio_contrato   = $this->input->post('precio_contrato');
         $this->categoria_artista = $this->input->post('categoria_artista');
-        $this->contacto_artista  = $this->input->post('contacto_artista');
+        $this->nombre_contacto   = $this->input->post('nombre_contacto');
         $this->telefono_contacto = $this->input->post('tel_contacto');
         $this->email_contacto    = $this->input->post('email_contacto');
         $this->lista_canciones   = $this->input->post('lista_canciones');
@@ -88,16 +88,16 @@ class Mod_artist extends CI_model
         $this->imagen_artista    = $config['file_name']; 
 
 
-        $artista = array('id_artista'         => $this->id_artista,
-                          'nombre_artista'    => $this->nombre_artista,
-                          'precio_artista'    => $this->precio_artista,
-                          'categoria_artista' => $this->categoria_artista, 
-                          'contacto_artista'  => $this->contacto_artista,
-                          'telefono_contacto' => $this->telefono_contacto,
-                          'email_contacto'    => $this->email_contacto,
-                          'lista_canciones'   => $this->lista_canciones,
-                          'tipo_artista'      => $this->tipo_artista,
-                          'imagen_artista'    => $this->imagen_artista);
+        $artista = array('id_artista'        => $this->id_artista,
+                         'nombre_artista'    => $this->nombre_artista,
+                         'precio_contrato'   => $this->precio_contrato,
+                         'categoria_artista' => $this->categoria_artista, 
+                         'nombre_contacto'   => $this->nombre_contacto,
+                         'telefono_contacto' => $this->telefono_contacto,
+                         'email_contacto'    => $this->email_contacto,
+                         'lista_canciones'   => $this->lista_canciones,
+                         'tipo_artista'      => $this->tipo_artista,
+                         'imagen_artista'    => $this->imagen_artista);
 
         if (!$this->db->insert('artistas', $artista)) 
         {
@@ -111,6 +111,7 @@ class Mod_artist extends CI_model
             echo "<script type='text/javascript'>";
             echo "alert('La artista se adiciono con exito....!');";
             echo "</script>";
+            header("Location: ".base_url()."a/");
         }
     }
 
@@ -157,9 +158,9 @@ class Mod_artist extends CI_model
         
         $this->id_artista        = $this->input->post('id');
         $this->nombre_artista    = $this->input->post('nombre_artista');
-        $this->precio_artista    = $this->input->post('precio_artista');
+        $this->precio_contrato   = $this->input->post('precio_contrato');
         $this->categoria_artista = $this->input->post('categoria_artista');
-        $this->contacto_artista  = $this->input->post('contacto_artista');
+        $this->nombre_contacto   = $this->input->post('nombre_contacto');
         $this->telefono_contacto = $this->input->post('tel_contacto');
         $this->email_contacto    = $this->input->post('email_contacto');
         $this->lista_canciones   = $this->input->post('lista_canciones');
@@ -175,9 +176,9 @@ class Mod_artist extends CI_model
 
         $artistaUpd = array('id_artista'        => $this->id_artista,
                             'nombre_artista'    => $this->nombre_artista,
-                            'precio_artista'    => $this->precio_artista,
+                            'precio_contrato'   => $this->precio_contrato,
                             'categoria_artista' => $this->categoria_artista, 
-                            'contacto_artista'  => $this->contacto_artista,
+                            'nombre_contacto '  => $this->nombre_contacto,
                             'telefono_contacto' => $this->telefono_contacto,
                             'email_contacto'    => $this->email_contacto,
                             'lista_canciones'   => $this->lista_canciones,
@@ -188,7 +189,7 @@ class Mod_artist extends CI_model
 
         if (!$this->db->update('artistas', $artistaUpd)) 
         {
-           echo "<script type='text/javascript'>";
+            echo "<script type='text/javascript'>";
             echo "alert('Problemas al modificar el artista!');";
             echo "</script>";
         }
@@ -197,6 +198,7 @@ class Mod_artist extends CI_model
             echo "<script type='text/javascript'>";
             echo "alert('El artista se modifico con exito....!');";
             echo "</script>";
+            header("Location: ".base_url()."Admin/artista/");
         }
     }
 
@@ -205,7 +207,7 @@ class Mod_artist extends CI_model
         $query = $this->db->get_where('artistas', array('id_artista' => $id));
         $ruta = $query->result();
         foreach ($ruta as $key) {
-            $rutafinal = $key->imagen_producto;
+            $rutafinal = $key->imagen_artista;
         }
 
         unlink("./public/images/page/artistas".$rutafinal);

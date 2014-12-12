@@ -67,23 +67,26 @@
                 <label for="direccion" class="col-sm-4 control-label">Imagen del artista:</label>
                 <div class="col-sm-6">
                     <div class="fileupload fileupload-new" data-provides="fileupload"><input type="hidden">
-                        <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px; line-height: 150px;"></div>
+                        <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px; line-height: 150px;">
+                            <img src="<?php echo base_url(); ?>public/images/page/artistas/<?php echo $key->imagen_artista; ?>" alt="">
+                        </div>
                         <div>
                             <span class="btn btn-danger btn-file">
                                 <span class="fileupload-new">Seleccione Imagen</span>
                                 <span class="fileupload-exists">Cambiar</span>
                                 <input type="file" name="imagen_artista" accept="image/png image/jpg">
+                                <input type="hidden" name="ioriginal" value="<?php echo $key->imagen_artista; ?>">
                             </span>
                             <a href="#" class="btn btn-info fileupload-exists" data-dismiss="fileupload">Remover</a>
                         </div>
                     </div>
                 </div>                                
-                <input type="hidden" name="id" value="default">
+                <input type="hidden" name="id" value="<?php echo $key->id_artista; ?>">
             </div>
         <?php endforeach ?>
             <div class="form-group">
                 <div class="col-sm-offset-4 col-sm-6">
-                    <button type="submit" class="btn btn-success btn-block">Agregar</button>
+                    <button type="submit" class="btn btn-success btn-block">Modificar</button>
                 </div> 
             </div>
         </form>

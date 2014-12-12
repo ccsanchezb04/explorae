@@ -15,7 +15,7 @@ class Admin extends CI_Controller {
         $this->load->model('mod_social');
         $this->load->model('mod_empresa');
         $this->load->model('mod_artist');
-        // $this->load->model('mod_tools');
+        $this->load->model('mod_tools');
         $this->upload_i = './public/images/page/salones/';
         /*$this->removeCache();*/
     }
@@ -670,7 +670,7 @@ class Admin extends CI_Controller {
             }       
         }
 
-        $data['artistUpd'] = $this->mod_social->lst_social($id);
+        $data['artistUpd'] = $this->mod_artist->lst_artist($id);
         $this->load->view('layout/header');
         $this->load->view('admin/admin_artists/upd_artist', $data);
         $this->load->view('layout/footer');
@@ -678,6 +678,93 @@ class Admin extends CI_Controller {
     }
 
     public function dlt_artist($id)
+    {
+        $this->mod_artist->dlt_artist($id);
+    }
+/*=====================================================================================================================================================================*/
+/*=====================================================================================================================================================================*/
+/*=====================================================================================================================================================================*/
+
+/*=====================================================================================================================================================================*/
+/*========================================================= EQUIPOS ===================================================================================================*/
+/*=====================================================================================================================================================================*/
+    public function equipo()
+    {
+        $id = $this->session->userdata('idUser'); 
+        $data['lstu'] = $this->homeadmin->lstUsers($id);
+        $data['equipo1'] = $this->mod_tools->toolCate1();
+        $data['equipo2'] = $this->mod_tools->toolCate2();        
+        $data['equipo3'] = $this->mod_tools->toolCate3();        
+        $this->load->view('layout/header');
+        $this->load->view('admin/equipos', $data);
+        $this->load->view('layout/footer');
+    }
+    public function add_tool()
+    {
+        if ($_POST) 
+        {             
+            $this->form_validation->set_rules('nombre_equipo', 'Nombre del equipo', 'required');
+            $this->form_validation->set_rules('categoria_equipo', 'Categoria equipo', 'required');
+            $this->form_validation->set_rules('precio_alquiler', 'Precio del alquiler', 'required|is_numeric');
+            $this->form_validation->set_rules('nombre_contacto', 'Nombre del contacto', 'required');
+            $this->form_validation->set_rules('tel_contacto', 'Telefono del contacto', 'required|is_numeric');
+            $this->form_validation->set_rules('email_contacto', 'Correo de contacto', 'required');
+            $this->form_validation->set_rules('detalles', 'detalles', 'required');           
+            $this->form_validation->set_rules('imagen_equipo', 'Imagen del equipo');
+
+            $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissable">
+                                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>', '
+                                                          </div>');
+
+            if ($this->form_validation->run() == true) 
+            {
+                $this->mod_tools->add_tool();
+            }   
+        }
+        $this->load->view('layout/header');
+        $this->load->view('admin/admin_tools/add_tool');
+        $this->load->view('layout/footer');
+    } 
+
+    public function list_tool($id)
+    {
+        $data['lstTool'] = $this->mod_tools->lst_tool($id);
+        $this->load->view('layout/header');
+        $this->load->view('admin/admin_tools/list_tool', $data);
+        $this->load->view('layout/footer');
+    }
+
+    public function upd_tool($id)
+    {
+        if ($_POST) 
+        {
+            $this->form_validation->set_rules('nombre_equipo', 'Nombre del equipo', 'required');
+            $this->form_validation->set_rules('categoria_equipo', 'Categoria equipo', 'required');
+            $this->form_validation->set_rules('precio_contrato', 'Predcio del contrato', 'required|is_numeric');
+            $this->form_validation->set_rules('nombre_contacto', 'Nombre del contacto', 'required');
+            $this->form_validation->set_rules('tel_contacto', 'Telefono del contacto', 'required|is_numeric');
+            $this->form_validation->set_rules('email_contacto', 'Correo de contacto', 'required');
+            $this->form_validation->set_rules('detalles', 'detalles', 'required');           
+            $this->form_validation->set_rules('imagen_equipo', 'Imagen del equipo');
+            
+            $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissable">
+                                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>', '
+                                                          </div>');
+
+            if ($this->form_validation->run() == true) 
+            {
+                $this->mod_tools->upd_tool($id);
+            }       
+        }
+
+        $data['toolUpd'] = $this->mod_tools->lst_tool($id);
+        $this->load->view('layout/header');
+        $this->load->view('admin/admin_tools/upd_tool', $data);
+        $this->load->view('layout/footer');
+
+    }
+
+    public function dlt_tool($id)
     {
         $this->mod_artist->dlt_artist($id);
     }

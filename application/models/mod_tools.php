@@ -1,62 +1,49 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Mod_artist extends CI_model 
+class Mod_tools extends CI_model 
 {
     //=====================================================================
     //======================== VARIABLES USUARIO ==========================
-    var $id_artista        = '';
-    var $nombre_artista    = '';
-    var $precio_artista    = '';
-    var $categoria_artista = '';
-    var $contacto_artista  = '';    
+    var $id_equipo         = '';
+    var $nombre_equipo     = '';
+    var $precio_alquiler   = '';
+    var $categoria_equipo  = '';
+    var $nombre_contacto   = '';    
     var $telefono_contacto = '';
     var $email_contacto    = '';
-    var $lista_canciones   = '';
-    var $tipo_artista      = '';
-    var $imagen_artista    = '';
+    var $detalles          = '';
+    var $imagen_equipo     = '';
     var $upload_i          = '';
     //=====================================================================
     //=====================================================================
 
     public function __construct(){
         parent::__construct();
-        $this->upload_i = './public/images/page/artistas/';
+        $this->upload_i = './public/images/page/equipos/';
     }
     
     /*=====================================================================================================================================================================*/
     /*======================================================= USUARIOS ====================================================================================================*/
     /*=====================================================================================================================================================================*/
-    public function artCate1()
+    public function toolCate1()
     {
-        $query = $this->db->get_where('artistas', array('categoria_artista' => 1));
+        $query = $this->db->get_where('equipos', array('categoria_equipo' => 1));
         return $query->result();
     }
 
-    public function artCate2()
+    public function toolCate2()
     {
-        $query = $this->db->get_where('artistas', array('categoria_artista' => 2));
+        $query = $this->db->get_where('equipos', array('categoria_equipo' => 2));
         return $query->result();
     }
 
-    public function artCate3()
+    public function toolCate3()
     {
-        $query = $this->db->get_where('artistas', array('categoria_artista' => 3));
+        $query = $this->db->get_where('equipos', array('categoria_equipo' => 3));
         return $query->result();
     }
 
-    public function artSolista()
-    {
-        $query = $this->db->get_where('artistas', array('tipo_artista' => 'solista'));
-        return $query->result();
-    }
-
-    public function artGrupo()
-    {
-        $query = $this->db->get_where('artistas', array('tipo_artista' => 'grupo'));
-        return $query->result();
-    }
-
-    public function add_artist()
+    public function add_tool()
     {
         $config = array(
             'upload_path'   => $this->upload_i,
@@ -66,7 +53,7 @@ class Mod_artist extends CI_model
         // Cargo la libreria upload con su configuracion
         $this->load->library('upload', $config);
         // Subo la imagen con name='imagen'
-        $this->upload->do_upload('imagen_artista');
+        $this->upload->do_upload('imagen_equipo');
         
         // Datos del Archivo Subido
         $datos = $this->upload->data();
@@ -76,56 +63,53 @@ class Mod_artist extends CI_model
             'full_name' => $datos['full_path']
         );
 
-        $this->id_artista        = $this->input->post('id');
-        $this->nombre_artista    = $this->input->post('nombre_artista');
-        $this->precio_contrato   = $this->input->post('precio_contrato');
-        $this->categoria_artista = $this->input->post('categoria_artista');
+        $this->id_equipo         = $this->input->post('id');
+        $this->nombre_equipo     = $this->input->post('nombre_equipo');
+        $this->precio_alquiler   = $this->input->post('precio_alquiler');
+        $this->categoria_equipo  = $this->input->post('categoria_equipo');
         $this->nombre_contacto   = $this->input->post('nombre_contacto');
         $this->telefono_contacto = $this->input->post('tel_contacto');
         $this->email_contacto    = $this->input->post('email_contacto');
-        $this->lista_canciones   = $this->input->post('lista_canciones');
-        $this->tipo_artista      = $this->input->post('tipo_artista');
-        $this->imagen_artista    = $config['file_name']; 
+        $this->detalles          = $this->input->post('detalles');
+        $this->imagen_equipo     = $config['file_name']; 
 
 
-        $artista = array('id_artista'        => $this->id_artista,
-                         'nombre_artista'    => $this->nombre_artista,
-                         'precio_contrato'   => $this->precio_contrato,
-                         'categoria_artista' => $this->categoria_artista, 
+        $equipo = array('id_equipo'          => $this->id_equipo,
+                         'nombre_equipo'     => $this->nombre_equipo,
+                         'precio_alquiler'   => $this->precio_alquiler,
+                         'categoria_equipo'  => $this->categoria_equipo, 
                          'nombre_contacto'   => $this->nombre_contacto,
                          'telefono_contacto' => $this->telefono_contacto,
                          'email_contacto'    => $this->email_contacto,
-                         'lista_canciones'   => $this->lista_canciones,
-                         'tipo_artista'      => $this->tipo_artista,
-                         'imagen_artista'    => $this->imagen_artista);
+                         'detalles'          => $this->detalles,                         
+                         'imagen_equipo'     => $this->imagen_equipo);
 
-        if (!$this->db->insert('artistas', $artista)) 
+        if (!$this->db->insert('equipos', $equipo)) 
         {
             //echo mysql_error($query);
             echo "<script type='text/javascript'>";
-            echo "alert('Problemas al Adicionar la artista!');";
+            echo "alert('Problemas al Adicionar la equipo!');";
             echo "</script>";
         }
         else
         {
             echo "<script type='text/javascript'>";
-            echo "alert('La artista se adiciono con exito....!');";
+            echo "alert('La equipo se adiciono con exito....!');";
             echo "</script>";
-            header("Location: ".base_url()."a/");
         }
     }
 
-    public function lst_artist($id)
+    public function lst_tool($id)
     {
-        $query = $this->db->get_where('artistas', array('id_artista' => $id));
+        $query = $this->db->get_where('equipos', array('id_equipo' => $id));
         return $query->result();
     }
 
-    public function upd_artist($id)
+    public function upd_tool($id)
     {
-        if ($_FILES['imagen_artista']['name']){
+        if ($_FILES['imagen_equipo']['name']){
 
-            $ruta = "../../public/images/page/artistas/".$_FILES['imagen_artista']['name'];
+            $ruta = "../../public/images/page/equipos/".$_FILES['imagen_equipo']['name'];
 
             if (file_exists($_POST['ioriginal']))
             {
@@ -146,7 +130,7 @@ class Mod_artist extends CI_model
         // Cargo la libreria upload con su configuracion
         $this->load->library('upload', $config);
         // Subo la imagen con name='imagen'
-        $this->upload->do_upload('imagen_artista');
+        $this->upload->do_upload('imagen_equipo');
         
         // Datos del Archivo Subido
         $datos = $this->upload->data();
@@ -156,74 +140,72 @@ class Mod_artist extends CI_model
             'full_name' => $datos['full_path']
         );
         
-        $this->id_artista        = $this->input->post('id');
-        $this->nombre_artista    = $this->input->post('nombre_artista');
-        $this->precio_contrato   = $this->input->post('precio_contrato');
-        $this->categoria_artista = $this->input->post('categoria_artista');
+        $this->id_equipo         = $this->input->post('id');
+        $this->nombre_equipo     = $this->input->post('nombre_equipo');
+        $this->precio_alquiler   = $this->input->post('precio_alquiler');
+        $this->categoria_equipo  = $this->input->post('categoria_equipo');
         $this->nombre_contacto   = $this->input->post('nombre_contacto');
         $this->telefono_contacto = $this->input->post('tel_contacto');
         $this->email_contacto    = $this->input->post('email_contacto');
-        $this->lista_canciones   = $this->input->post('lista_canciones');
-        $this->tipo_artista      = $this->input->post('tipo_artista');
+        $this->detalles          = $this->input->post('detalles');
         if (isset($ruta2)) 
         {
-            $this->imagen_artista = $ruta2;
+            $this->imagen_equipo = $ruta2;
         }
         else
         {
-            $this->imagen_artista = $config['file_name'];
+            $this->imagen_equipo = $config['file_name'];
         }
 
-        $artistaUpd = array('id_artista'        => $this->id_artista,
-                            'nombre_artista'    => $this->nombre_artista,
-                            'precio_contrato'   => $this->precio_contrato,
-                            'categoria_artista' => $this->categoria_artista, 
+        $equipoUpd = array('id_equipo'          => $this->id_equipo,
+                            'nombre_equipo'     => $this->nombre_equipo,
+                            'precio_alquiler'   => $this->precio_alquiler,
+                            'categoria_equipo'  => $this->categoria_equipo, 
                             'nombre_contacto '  => $this->nombre_contacto,
                             'telefono_contacto' => $this->telefono_contacto,
                             'email_contacto'    => $this->email_contacto,
-                            'lista_canciones'   => $this->lista_canciones,
-                            'tipo_artista'      => $this->tipo_artista,
-                            'imagen_artista'    => $this->imagen_artista);
+                            'detalles'          => $this->detalles,
+                            'imagen_equipo'     => $this->imagen_equipo);
 
-        $this->db->where('id_artista', $id);
+        $this->db->where('id_equipo', $id);
 
-        if (!$this->db->update('artistas', $artistaUpd)) 
+        if (!$this->db->update('equipos', $equipoUpd)) 
         {
             echo "<script type='text/javascript'>";
-            echo "alert('Problemas al modificar el artista!');";
+            echo "alert('Problemas al modificar el equipo!');";
             echo "</script>";
         }
         else
         {
             echo "<script type='text/javascript'>";
-            echo "alert('El artista se modifico con exito....!');";
+            echo "alert('El equipo se modifico con exito....!');";
             echo "</script>";
         }
     }
 
-    public function dlt_artist($id)
+    public function dlt_tool($id)
     {
-        $query = $this->db->get_where('artistas', array('id_artista' => $id));
+        $query = $this->db->get_where('equipos', array('id_equipo' => $id));
         $ruta = $query->result();
         foreach ($ruta as $key) {
-            $rutafinal = $key->imagen_artista;
+            $rutafinal = $key->imagen_equipo;
         }
 
-        unlink("./public/images/page/artistas".$rutafinal);
+        unlink("./public/images/page/equipos".$rutafinal);
 
-        $this->id_artista = $id;
-        $this->db->where('id_artista', $this->id_artista);
+        $this->id_equipo = $id;
+        $this->db->where('id_equipo', $this->id_equipo);
 
-        if (!$this->db->delete('artistas')) 
+        if (!$this->db->delete('equipos')) 
         {
             echo "<script type='text/javascript'>";
-            echo "alert('Problemas al eliminar la artista!');";
+            echo "alert('Problemas al eliminar la equipo!');";
             echo "</script>";
         }
         else
         {
             echo "<script type='text/javascript'>";
-            echo "alert('La artista se elimino con exito!');";            
+            echo "alert('La equipo se elimino con exito!');";            
             echo "</script>";
         }
     }

@@ -2,10 +2,10 @@
 <?php echo validation_errors(); ?>
    <div class="panel panel-default">   
         <div class="panel-heading">
-            <h3 class="text-info">Agregar Equipo</h3>
+            <h3 class="text-info">Modificar Equipo</h3>
         </div>
         <form class="form-horizontal" role="form" method="post" action="" enctype="multipart/form-data">
-        <?php foreach ($variable as $key => $value): ?>
+        <?php foreach ($toolUpd as $key): ?>
             <div class="form-group">
                 <label for="nombres" class="col-sm-4 control-label">Nombre del equipo:</label>
                 <div class="col-sm-6">
@@ -76,7 +76,7 @@
         <?php endforeach ?>
             <div class="form-group">
                 <div class="col-sm-offset-4 col-sm-6">
-                    <button type="submit" class="btn btn-success btn-block">Agregar</button>
+                    <button type="submit" class="btn btn-success btn-block">Modificar</button>
                 </div> 
             </div>
         </form>

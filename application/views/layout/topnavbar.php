@@ -27,7 +27,14 @@
                 </div>
                 <ul class="nav navbar-nav navbar-right">
                 <?php if ($this->session->userdata('roleUser') == "admin" || $this->session->userdata('roleUser') == "asesor"): ?>
-                    <li><a href="<?php echo base_url(); ?>Login/close">Iniciar Sesión</a></li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $this->session->userdata('nameUser'); ?><span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="<?php echo base_url(); ?>Admin/asesor_admin">Administrador</a></li>                                  
+                            <li><a href="<?php echo base_url(); ?>Admin/upd_user/<?php echo $this->session->userdata('idUser'); ?>" class="iframe cboxElement">Modificar Perfil</a></li>
+                            <li><a href="<?php echo base_url(); ?>Login/close">Cerrar Sesión</a></li>
+                        </ul>
+                    </li>
                 <?php else: ?>
                     <li><a href="#" data-toggle="modal" data-target="#login">Iniciar Sesión</a></li>
                 <?php endif ?>                       

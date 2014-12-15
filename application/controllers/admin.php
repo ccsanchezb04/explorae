@@ -740,7 +740,7 @@ class Admin extends CI_Controller {
         {
             $this->form_validation->set_rules('nombre_equipo', 'Nombre del equipo', 'required');
             $this->form_validation->set_rules('categoria_equipo', 'Categoria equipo', 'required');
-            $this->form_validation->set_rules('precio_contrato', 'Predcio del contrato', 'required|is_numeric');
+            $this->form_validation->set_rules('precio_alquiler', 'Precio del alquiler', 'required|is_numeric');
             $this->form_validation->set_rules('nombre_contacto', 'Nombre del contacto', 'required');
             $this->form_validation->set_rules('tel_contacto', 'Telefono del contacto', 'required|is_numeric');
             $this->form_validation->set_rules('email_contacto', 'Correo de contacto', 'required');
@@ -766,7 +766,7 @@ class Admin extends CI_Controller {
 
     public function dlt_tool($id)
     {
-        $this->mod_artist->dlt_artist($id);
+        $this->mod_tools->dlt_tool($id);
     }
 /*=====================================================================================================================================================================*/
 /*=====================================================================================================================================================================*/

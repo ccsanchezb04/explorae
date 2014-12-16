@@ -8,6 +8,7 @@ class Admin extends CI_Controller {
         $this->load->database();
         $this->load->helper('url', 'form_validation');      
         $this->load->model('homeadmin');
+        $this->load->model('mod_client');
         $this->load->model('mod_rooms');
         $this->load->model('mod_deco');
         $this->load->model('mod_tema');
@@ -30,7 +31,8 @@ class Admin extends CI_Controller {
         $data['lstu'] = $this->homeadmin->lstUsers($id);
         $data['lsta'] = $this->homeadmin->lstAdmin();
         $data['lsts'] = $this->homeadmin->lstAsesor();
-        $data['lstc'] = $this->homeadmin->lstCliente();
+        $data['lstcw'] = $this->mod_client->lstClienteWeb();
+        $data['lstcf'] = $this->mod_client->lstClienteForm();
         $this->load->view('layout/header');
         $this->load->view('admin/admin', $data);
         $this->load->view('layout/footer');
@@ -40,84 +42,174 @@ class Admin extends CI_Controller {
     {
         if ($_POST) 
         {            
-            $this->form_validation->set_rules('nombres', 'Nombres', 'required');
-            $this->form_validation->set_rules('apellidos', 'Apellidos', 'required');
-            $this->form_validation->set_rules('no_identificacion', 'Identificacion', 'required');
-            $this->form_validation->set_rules('email', 'Correo Electronico', 'required|valid_mail');
-            $this->form_validation->set_rules('password', 'Contrasena', 'required');            
-            $this->form_validation->set_rules('tel_fijo', 'Telefono Fijo', 'required|is_numeric');
-            $this->form_validation->set_rules('tel_movil', 'Telefono Movil', 'required|is_numeric');
-            $this->form_validation->set_rules('direccion', 'Direccion de residencia', 'required');
-            $this->form_validation->set_rules('ciudad', 'Ciudad de residencia', 'required');          
-            $this->form_validation->set_rules('tipo_usuario', 'Tipo de usuario', 'required');            
+            if ($this->input->post('tipo_usuario') == "cliente") 
+            {
+                $this->form_validation->set_rules('nombres', 'Nombres', 'required');
+                $this->form_validation->set_rules('apellidos', 'Apellidos', 'required');
+                $this->form_validation->set_rules('no_identificacion', 'Identificacion', 'required');
+                $this->form_validation->set_rules('email', 'Correo Electronico', 'required|valid_mail');           
+                $this->form_validation->set_rules('tel_fijo', 'Telefono Fijo', 'required|is_numeric');
+                $this->form_validation->set_rules('tel_movil', 'Telefono Movil', 'required|is_numeric');
+                $this->form_validation->set_rules('direccion', 'Direccion de residencia', 'required');
+                $this->form_validation->set_rules('ciudad', 'Ciudad de residencia', 'required');          
 
-            $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissable">
+                $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissable">
                                                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>', '
                                                           </div>');
 
-            if ($this->form_validation->run() == true) 
+                if ($this->form_validation->run() == true) 
+                {
+                    $this->mod_client->add_client();
+                }
+            }
+            else
             {
-                $this->homeadmin->add_user();
-            }       
+                $this->form_validation->set_rules('nombres', 'Nombres', 'required');
+                $this->form_validation->set_rules('apellidos', 'Apellidos', 'required');
+                $this->form_validation->set_rules('no_identificacion', 'Identificacion', 'required');
+                $this->form_validation->set_rules('email', 'Correo Electronico', 'required|valid_mail');
+                $this->form_validation->set_rules('password', 'Contrasena', 'required');            
+                $this->form_validation->set_rules('tel_fijo', 'Telefono Fijo', 'required|is_numeric');
+                $this->form_validation->set_rules('tel_movil', 'Telefono Movil', 'required|is_numeric');
+                $this->form_validation->set_rules('direccion', 'Direccion de residencia', 'required');
+                $this->form_validation->set_rules('ciudad', 'Ciudad de residencia', 'required');          
+                $this->form_validation->set_rules('tipo_usuario', 'Tipo de usuario', 'required');
+
+                $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissable">
+                                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>', '
+                                                          </div>');
+
+                if ($this->form_validation->run() == true) 
+                {
+                    $this->homeadmin->add_user();
+                }     
+            }  
         }
         $this->load->view('layout/header');
         $this->load->view('admin/admin_users/add_users');
         $this->load->view('layout/footer');
     } 
 
-    public function list_user($id)
+    public function list_user($id, $tipo_usuario)
     {
-        $data['lstu'] = $this->homeadmin->lstUsers($id);
-        $this->load->view('layout/header');
-        $this->load->view('admin/admin_users/list_user', $data);
-        $this->load->view('layout/footer');
+        if ($tipo_usuario == "cliente") 
+        {
+            $data['lstu'] = $this->mod_client->lstClients($id);
+            $data['tipo_usuario'] = "cliente";
+            $this->load->view('layout/header');
+            $this->load->view('admin/admin_users/list_user', $data);
+            $this->load->view('layout/footer');
+        }
+        else
+        {
+            $data['lstu'] = $this->homeadmin->lstUsers($id);
+            $data['tipo_usuario'] = "usuario";
+            $this->load->view('layout/header');
+            $this->load->view('admin/admin_users/list_user', $data);
+            $this->load->view('layout/footer');
+        }
     }
 
-    public function upd_user($id)
+    public function upd_user($id, $tipo_usuario)
     {
         if ($_POST) 
         {
-            $this->form_validation->set_rules('nombres', 'Nombres', 'required');
-            $this->form_validation->set_rules('apellidos', 'Apellidos', 'required');
-            $this->form_validation->set_rules('no_identificacion', 'Identificacion', 'required');
-            $this->form_validation->set_rules('email', 'Correo Electronico', 'required|valid_mail');
-            $this->form_validation->set_rules('password', 'Contrasena', 'required');            
-            $this->form_validation->set_rules('tel_fijo', 'Telefono Fijo', 'required|is_numeric');
-            $this->form_validation->set_rules('tel_movil', 'Telefono Movil', 'required|is_numeric');
-            $this->form_validation->set_rules('direccion', 'Direccion de residencia', 'required');
-            $this->form_validation->set_rules('ciudad', 'Ciudad de residencia', 'required');            
-            $this->form_validation->set_rules('tipo_usuario', 'Tipo de usuario', 'required'); 
-            $this->form_validation->set_rules('estado', 'Estado', 'required'); 
+            if ($this->input->post('tipo_usuario') == "cliente") 
+            {
+                $this->form_validation->set_rules('nombres', 'Nombres', 'required');
+                $this->form_validation->set_rules('apellidos', 'Apellidos', 'required');
+                $this->form_validation->set_rules('no_identificacion', 'Identificacion', 'required');
+                $this->form_validation->set_rules('email', 'Correo Electronico', 'required|valid_mail');           
+                $this->form_validation->set_rules('tel_fijo', 'Telefono Fijo', 'required|is_numeric');
+                $this->form_validation->set_rules('tel_movil', 'Telefono Movil', 'required|is_numeric');
+                $this->form_validation->set_rules('direccion', 'Direccion de residencia', 'required');
+                $this->form_validation->set_rules('ciudad', 'Ciudad de residencia', 'required');          
 
-            $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissable">
+                $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissable">
                                                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>', '
                                                           </div>');
 
-            if ($this->form_validation->run() == true) 
+                if ($this->form_validation->run() == true) 
+                {
+                    $this->mod_client->upd_client($id);
+                }
+            }
+            else
             {
-                $this->homeadmin->upd_user($id);
+                $this->form_validation->set_rules('nombres', 'Nombres', 'required');
+                $this->form_validation->set_rules('apellidos', 'Apellidos', 'required');
+                $this->form_validation->set_rules('no_identificacion', 'Identificacion', 'required');
+                $this->form_validation->set_rules('email', 'Correo Electronico', 'required|valid_mail');
+                $this->form_validation->set_rules('password', 'Contrasena', 'required');            
+                $this->form_validation->set_rules('tel_fijo', 'Telefono Fijo', 'required|is_numeric');
+                $this->form_validation->set_rules('tel_movil', 'Telefono Movil', 'required|is_numeric');
+                $this->form_validation->set_rules('direccion', 'Direccion de residencia', 'required');
+                $this->form_validation->set_rules('ciudad', 'Ciudad de residencia', 'required');          
+                $this->form_validation->set_rules('tipo_usuario', 'Tipo de usuario', 'required');
+
+                $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissable">
+                                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>', '
+                                                              </div>');
+
+                if ($this->form_validation->run() == true) 
+                {
+                    $this->homeadmin->upd_user($id);
+                }     
             }           
         }
 
-        $data['lstu'] = $this->homeadmin->lstUsers($id);
-        $this->load->view('layout/header');
-        $this->load->view('admin/admin_users/upd_user', $data);
-        $this->load->view('layout/footer');
+        if ($tipo_usuario == "cliente") 
+        {
+            $data['lstu'] = $this->mod_client->lstClients($id);
+            $data['tipo_usuario'] = "cliente";
+            $this->load->view('layout/header');
+            $this->load->view('admin/admin_users/upd_user', $data);
+            $this->load->view('layout/footer');
+        }
+        else
+        {
+            $data['lstu'] = $this->homeadmin->lstUsers($id);
+            $data['tipo_usuario'] = "usuario";
+            $this->load->view('layout/header');
+            $this->load->view('admin/admin_users/upd_user', $data);
+            $this->load->view('layout/footer');
+        }
     }
 
-    public function inact_user($id)
+    public function inact_user($id, $tipo_usuario)
     {
-        $this->homeadmin->inact_user($id);
+        if ($tipo_usuario == "cliente") 
+        {
+            $this->mod_client->inact_client($id);
+        }
+        else
+        {
+            $this->homeadmin->inact_user($id);
+        }
     }
 
-    public function act_user($id)
+    public function act_user($id, $tipo_usuario)
     {
-        $this->homeadmin->act_user($id);
+        if ($tipo_usuario == "cliente") 
+        {
+            $this->mod_client->act_client($id);
+        }
+        else
+        {
+            $this->homeadmin->act_user($id);
+        }
     }
 
-    public function dlt_user($id)
+    public function dlt_user($id, $tipo_usuario)
     {
-        $this->homeadmin->dlt_user($id);
+        if ($tipo_usuario == "cliente") 
+        {
+            $this->mod_client->dlt_client($id);
+        }
+        else
+        {
+            $this->homeadmin->dlt_user($id);
+        }
     }
 /*=====================================================================================================================================================================*/
 /*=====================================================================================================================================================================*/

@@ -8,7 +8,18 @@
     <?php foreach ($lstu as $key): ?>
         <tr>
             <th>ID Usuario</th>
-            <td><?php echo $key->id_usuario; ?></td>
+            <td>
+            <?php 
+                if ($tipo_usuario == "cliente") 
+                {
+                    echo $key->id_cliente;
+                }
+                else
+                {
+                    echo $key->id_usuario;
+                } 
+            ?>
+            </td>
         </tr>
         <tr>
             <th>Nombres y Apellidos</th>
@@ -40,7 +51,18 @@
         </tr>
         <tr>
             <th>Tipo de usuario</th>
-            <td><?php echo $key->tipo_usuario; ?></td>
+            <td>
+            <?php 
+                if ($tipo_usuario == "cliente") 
+                {
+                    echo "Cliente";
+                }
+                else
+                {
+                    echo $key->tipo_usuario;
+                }
+            ?>
+            </td>
         </tr>
         <tr>
             <th>Estado</th>

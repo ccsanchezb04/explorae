@@ -1,6 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Homeadmin extends CI_model 
+class Mod_client extends CI_model 
 {
     //=====================================================================
     //======================== VARIABLES cliente ==========================
@@ -22,18 +22,23 @@ class Homeadmin extends CI_model
     /*=====================================================================================================================================================================*/
     /*======================================================= clientes ====================================================================================================*/
     /*=====================================================================================================================================================================*/
-    public function lstUsers($id)
+    public function lstClients($id)
     {
         $query = $this->db->get_where('clientes', array('id_cliente' => $id));
         return $query->result();
     }
-    public function lstCliente()
+    public function lstClienteWeb()
     {
-        $query = $this->db->get_where('clientes', array('tipo_cliente' => 'cliente'));
+        $query = $this->db->get_where('clientes', array('procedencia' => 'web'));
+        return $query->result();
+    }
+    public function lstClienteForm()
+    {
+        $query = $this->db->get_where('clientes', array('procedencia' => 'formulario'));
         return $query->result();
     }
 
-    public function add_user()
+    public function add_client()
     {
         $this->id_cliente           = $this->input->post('id');
         $this->nombres              = $this->input->post('nombres');
@@ -44,7 +49,7 @@ class Homeadmin extends CI_model
         $this->telefono_movil       = $this->input->post('tel_movil');  
         $this->direccion_residencia = $this->input->post('direccion');      
         $this->ciudad_residencia    = $this->input->post('ciudad');      
-        $this->tipo_cliente         = $this->input->post('tipo_cliente');
+        $this->procedencia          = $this->input->post('procedencia');
         $this->estado               = $this->input->post('estado');      
         $this->fecha_registro       = $this->input->post('fecha_registro'); 
 
@@ -63,7 +68,7 @@ class Homeadmin extends CI_model
         }
     }
 
-    public function upd_user($id)
+    public function upd_client($id)
     {
         $this->id_cliente           = $this->input->post('id');
         $this->nombres              = $this->input->post('nombres');
@@ -74,7 +79,7 @@ class Homeadmin extends CI_model
         $this->telefono_movil       = $this->input->post('tel_movil');  
         $this->direccion_residencia = $this->input->post('direccion');      
         $this->ciudad_residencia    = $this->input->post('ciudad');      
-        $this->tipo_cliente         = $this->input->post('tipo_cliente');
+        $this->procedencia          = $this->input->post('procedencia');
         $this->estado               = $this->input->post('estado');      
         $this->fecha_registro       = $this->input->post('fecha_registro'); 
 
@@ -94,7 +99,7 @@ class Homeadmin extends CI_model
         }
     }
 
-    public function act_user($id)
+    public function act_client($id)
     {        
         $this->estado = "Activo";
         $this->db->where('id_cliente', $id);
@@ -114,7 +119,7 @@ class Homeadmin extends CI_model
 
     }
 
-    public function inact_user($id)
+    public function inact_client($id)
     {        
         $this->estado = "Inactivo";
         $this->db->where('id_cliente', $id);
@@ -133,7 +138,7 @@ class Homeadmin extends CI_model
         }
     }
 
-    public function dlt_user($id)
+    public function dlt_client($id)
     {
         $this->id_cliente = $id;
         $this->db->where('id_cliente', $this->id_cliente);

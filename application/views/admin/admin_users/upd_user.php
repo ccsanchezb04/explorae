@@ -8,7 +8,7 @@
             <div class="form-group">
                 <label for="nombres" class="col-sm-4 control-label">Nombres:</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="nombres" value="<?php echo $key->nombres; ?>" id="nombres">
+                    <input type="text" class="form-control" name="nombres" value="<?php echo $key->nombres; ?>" id="nombres">                    
                 </div>
             </div>
             <div class="form-group">
@@ -29,12 +29,14 @@
                     <input type="email" name="email" class="form-control" value="<?php echo $key->email; ?>" id="email">
                 </div> 
             </div>
+        <?php if ($tipo_usuario != "cliente"): ?>
             <div class="form-group">
                 <label for="password" class="col-sm-4 control-label">Contraseña:</label>
                 <div class="col-sm-6">
                     <input type="password" class="form-control" name="password" value="<?php echo $key->password; ?>" id="password">
                 </div> 
-            </div>
+            </div>  
+        <?php endif ?>
             <div class="form-group">
                 <label for="fijo" class="col-sm-4 control-label">Telefono Fijo:</label>
                 <div class="col-sm-6">
@@ -58,17 +60,20 @@
                 <div class="col-sm-6">
                     <input type="text" class="form-control" name="ciudad" value="<?php echo $key->ciudad_residencia; ?>" id="ciudad">
                 </div>                   
-            </div>           
+            </div>
+        <?php if ($tipo_usuario == "cliente"): ?>
+            <input type="hidden" name="tipo_usuario" value="cliente">
+        <?php else: ?>
             <div class="form-group">
                 <label for="tipo_usuario" class="col-sm-4 control-label">Tipo de usuario:</label>
                 <div class="col-sm-6">                        
                     <select name="tipo_usuario" id="tipo_usuario" class="form-control">
                         <option <?php if ($key->tipo_usuario == "admin") { echo "selected='selected'"; } ?> value="admin">Administrador</option>
-                        <option <?php if ($key->tipo_usuario == "asesor") { echo "selected='selected'"; } ?> value="asesor">Asesor(a)</option>
-                        <option <?php if ($key->tipo_usuario == "cliente") { echo "selected='selected'"; } ?> value="cliente">Cliente</option>
+                        <option <?php if ($key->tipo_usuario == "asesor") { echo "selected='selected'"; } ?> value="asesor">Asesor(a)</option>                    
                     </select>
                 </div> 
             </div>
+        <?php endif ?>    
             <div class="form-group">
                 <label for="estado" class="col-sm-4 control-label">Tipo de usuario:</label>
                 <div class="col-sm-6">                        
@@ -77,8 +82,13 @@
                         <option <?php if ($key->estado == "Inactivo") { echo "selected='selected'"; } ?> value="Inactivo">Inactivo</option>
                     </select>
                 </div>
+            <?php if ($tipo_usuario == "cliente"): ?>
+                <input type="hidden" name="id" value="<?php echo $key->id_cliente; ?>">
+            <?php else: ?>
                 <input type="hidden" name="id" value="<?php echo $key->id_usuario; ?>">
+            <?php endif ?>                
                 <input type="hidden" name="fecha_registro" value="<?php echo $key->fecha_registro; ?>"> 
+                <input type="hidden" name="procedencia" value="web">  
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-4 col-sm-6">

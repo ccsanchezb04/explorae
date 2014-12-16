@@ -71,6 +71,7 @@
                 <input type="hidden" name="id" value="default">
                 <input type="hidden" name="estado" value="Activo">
                 <input type="hidden" name="fecha_registro" value="<?php echo date('Y-m-d'); ?>">
+                <input type="hidden" name="procedencia" value="web"> 
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-4 col-sm-6">

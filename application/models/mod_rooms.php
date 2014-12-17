@@ -37,6 +37,24 @@ class Mod_rooms extends CI_model
         $query = $this->db->get('salones');
         return $query->result();
     }
+    
+    public function roomCate1()
+    {
+        $query = $this->db->get_where('salones', array('categoria_salon' => 1));
+        return $query->result();
+    }
+    
+    public function roomCate2()
+    {
+        $query = $this->db->get_where('salones', array('categoria_salon' => 2));
+        return $query->result();
+    }
+
+    public function roomCate3()
+    {
+        $query = $this->db->get_where('salones', array('categoria_salon' => 3));
+        return $query->result();
+    }
 
     public function add_room()
     {

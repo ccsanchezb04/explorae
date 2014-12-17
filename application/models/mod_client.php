@@ -113,7 +113,7 @@ class Mod_client extends CI_model
         {
             echo "<script type='text/javascript'>";
             echo "alert('El estado del cliente es: ".$this->estado."');";
-            echo "window.location.replace('".base_url()."Admin');";
+            echo "window.location.replace('".base_url()."Asesor/asesor_admin');";
             echo "</script>";
         }
 
@@ -133,7 +133,7 @@ class Mod_client extends CI_model
         {
             echo "<script type='text/javascript'>";
             echo "alert('El estado del cliente es: ".$this->estado."');";
-            echo "window.location.replace('".base_url()."Admin');";
+            echo "window.location.replace('".base_url()."Asesor/asesor_admin');";
             echo "</script>";
         }
     }
@@ -153,7 +153,7 @@ class Mod_client extends CI_model
         {
             echo "<script type='text/javascript'>";
             echo "alert('El cliente se elimino con exito....!');";
-            echo "window.location.replace('".base_url()."Admin');";
+            echo "window.location.replace('".base_url()."Asesor/asesor_admin');";
             echo "</script>";
         }
     }

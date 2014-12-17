@@ -35,12 +35,6 @@
         <li <?php if ($page=="admin-salon") {echo "class='active'";} ?>>
             <a href="<?php echo base_url(); ?>Admin/salon">Gestión de cotizaciones</a>                     
         </li>
-        <li <?php if ($page=="admin-deco") {echo "class='active'";} ?>>
-            <a href="<?php echo base_url(); ?>Admin/decoracion">Gestión Decoración</a>                     
-        </li>
-        <li <?php if ($page=="admin-tema") {echo "class='active'";} ?>>
-            <a href="<?php echo base_url(); ?>Admin/tematica">Gestión Temáticas</a>                     
-        </li>
     <?php endif ?>
     </ul>
 </div>

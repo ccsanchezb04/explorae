@@ -16,6 +16,9 @@ class Login extends CI_Controller
             case 'admin':
                 redirect(base_url().'Admin', 'refresh');
                 break;
+           /* case 'asesor':
+                redirect(base_url(), 'refresh');
+                break;*/
             
             default:
                 $this->form_validation->set_rules('id', 'No. de Identificacion', 'required');

@@ -4,9 +4,7 @@ class Admin extends CI_Controller {
 
     public function __construct()
     {
-        parent::__construct();
-        $this->load->database();
-        $this->load->helper('url', 'form_validation');      
+        parent::__construct();     
         $this->load->model('homeadmin');
         $this->load->model('mod_client');
         $this->load->model('mod_rooms');
@@ -35,6 +33,34 @@ class Admin extends CI_Controller {
         $data['lstcf'] = $this->mod_client->lstClienteForm();
         $this->load->view('layout/header');
         $this->load->view('admin/admin', $data);
+        $this->load->view('layout/footer');
+    }
+
+    public function data_upd($id)
+    {
+        if ($_POST) 
+        {            
+            $this->form_validation->set_rules('nombres', 'Nombres', 'required');
+            $this->form_validation->set_rules('apellidos', 'Apellidos', 'required');
+            $this->form_validation->set_rules('no_identificacion', 'Identificacion', 'required');
+            $this->form_validation->set_rules('email', 'Correo Electronico', 'required|valid_mail');           
+            $this->form_validation->set_rules('tel_fijo', 'Telefono Fijo', 'required|is_numeric');
+            $this->form_validation->set_rules('tel_movil', 'Telefono Movil', 'required|is_numeric');
+            $this->form_validation->set_rules('direccion', 'Direccion de residencia', 'required');
+            $this->form_validation->set_rules('ciudad', 'Ciudad de residencia', 'required');          
+
+            $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissable">
+                                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>', '
+                                                      </div>');
+
+            if ($this->form_validation->run() == true) 
+            {
+                $this->homeadmin->upd_user($id);
+            }
+        }
+        $data['lstu'] = $this->homeadmin->lstUsers($id);
+        $this->load->view('layout/header');
+        $this->load->view('admin/admin_users/data_upd', $data);
         $this->load->view('layout/footer');
     }
 

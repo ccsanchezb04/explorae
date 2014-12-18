@@ -16,12 +16,12 @@
                 <div class="navbar-header">   
                     <div class="collapse navbar-collapse navbar-ex1-collapse">
                         <ul class="nav navbar-nav">
-                            <li <?php if ($page == "home") echo "class='active'"; ?>><a href="index.php">Inicio</a></li>
-                            <li <?php //if ($page == "") echo "class='active'"; ?>><a href="#">Salones</a></li>
-                            <li <?php //if ($page == "") echo "class='active'"; ?>><a href="backend_shopping.php">Decoración</a></li>
-                            <li <?php //if ($page == "") echo "class='active'"; ?>><a href="backend_buyer.php">Temáticas</a></li>
-                            <li <?php //if ($page == "") echo "class='active'"; ?>><a href="backend_buyer.php">Menú</a></li>
-                            <li <?php //if ($page == "") echo "class='active'"; ?>><a href="backend_buyer.php">Cotiza Ya</a></li>
+                            <li <?php if ($page == "home") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>">Inicio</a></li>
+                            <li <?php if ($page == "room") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>Inicio/salones">Salones</a></li>
+                            <li <?php if ($page == "deco") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>Inicio/">Decoración</a></li>
+                            <li <?php if ($page == "tema") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>Inicio/">Temáticas</a></li>
+                            <li <?php if ($page == "menu") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>Inicio/">Menú</a></li>
+                            <li <?php if ($page == "coti") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>Inicio/">Cotiza Ya</a></li>
                         </ul>
                     </div>
                 </div>

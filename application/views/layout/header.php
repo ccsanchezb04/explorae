@@ -11,3 +11,4 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>public/bxslider/jquery.bxslider.css">
 </head>
 <body>
+    <div class="container">

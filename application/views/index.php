@@ -1,9 +1,4 @@
 <div class="container">
-<?php 
-    $data['page'] = "home";
-    $this->load->view('layout/topnavbar', $data);
-    $this->load->view('layout/carousel', $data);
-?>
 </div>
 <div class="row" id="sub-menu">
     <div class="container">    

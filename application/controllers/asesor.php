@@ -91,4 +91,12 @@ class Asesor extends CI_Controller {
     {
         $this->mod_client->act_client($id);
     }
+
+    public function admin_quote()
+    {
+        //$data['lstq'] = $this->mod_client->lstClients($id);
+        $this->load->view('layout/header');
+        $this->load->view('asesor/quote');
+        $this->load->view('layout/footer');
+    }
 }

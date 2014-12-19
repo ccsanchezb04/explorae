@@ -32,8 +32,8 @@
         <li <?php if ($page=="admin") {echo "class='active'";} ?>>
             <a href="<?php echo base_url(); ?>Asesor/asesor_admin">Gestión Clientes</a>                     
         </li>
-        <li <?php if ($page=="admin-salon") {echo "class='active'";} ?>>
-            <a href="<?php echo base_url(); ?>Admin/salon">Gestión de cotizaciones</a>                     
+        <li <?php if ($page=="admin-quote") {echo "class='active'";} ?>>
+            <a href="<?php echo base_url(); ?>Asesor/admin_quote">Gestión de cotizaciones</a>                     
         </li>
     <?php endif ?>
     </ul>

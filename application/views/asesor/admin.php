@@ -19,7 +19,7 @@
                                         <span class="glyphicon glyphicon-user"></span>&nbsp;<?php echo $this->session->userdata('nameUser'); ?>&nbsp;<span class="caret"></span>            
                                     </button>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Ir a pagina</a></li>                                    
+                                        <li><a href="<?php echo base_url(); ?>">Ir a pagina</a></li>                                    
                                         <li><a href="<?php echo base_url(); ?>Admin/data_upd/<?php echo $this->session->userdata('idUser'); ?>" class="iframe cboxElement">Modificar Perfil</a></li>                                                                                               
                                         <li class="divider"></li>
                                         <li><a href="<?php echo base_url(); ?>Login/close">Cerrar Sesión</a></li>

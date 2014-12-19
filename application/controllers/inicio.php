@@ -27,11 +27,8 @@ class Inicio extends CI_Controller {
 
 	public function index()
 	{
-		$data['res'] = $this->Index->mostrar();
-		$data['page'] = "home";    
-		$this->load->view('layout/header');
-		$this->load->view('layout/topnavbar', $data);
-    	$this->load->view('layout/carousel', $data);
+		$data['res'] = $this->Index->mostrar();		   
+		$this->load->view('layout/header');		
 		$this->load->view('index', $data);		
 		$this->load->view('layout/content_footer');
 		$this->load->view('layout/modals', $data);
@@ -43,9 +40,7 @@ class Inicio extends CI_Controller {
 		$data['room1'] = $this->mod_rooms->roomCate1();
 		$data['room2'] = $this->mod_rooms->roomCate2();
 		$data['room3'] = $this->mod_rooms->roomCate3();
-		$data['page'] = "room";    
 		$this->load->view('layout/header');
-		$this->load->view('layout/topnavbar', $data);
 		$this->load->view('salones', $data);
 		$this->load->view('layout/content_footer');
 		$this->load->view('layout/modals', $data);

@@ -21,7 +21,11 @@
                             <li <?php if ($page == "deco") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>Inicio/">Decoración</a></li>
                             <li <?php if ($page == "tema") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>Inicio/">Temáticas</a></li>
                             <li <?php if ($page == "menu") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>Inicio/">Menú</a></li>
+                        <?php if ($this->session->userdata('roleUser') == "admin" || $this->session->userdata('roleUser') == "asesor"): ?>
+                            <li <?php if ($page == "coti") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>Inicio/">Mi carrito</a></li>
+                        <?php else: ?>
                             <li <?php if ($page == "coti") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>Inicio/">Cotiza Ya</a></li>
+                        <?php endif ?>
                         </ul>
                     </div>
                 </div>

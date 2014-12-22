@@ -6,7 +6,7 @@
             </div>
             <div class="col-md-9">
                 <div class="tab-content">
-                    <div class="tab-pane active" id="usuarios">
+                    <div class="tab-pane active" id="">
                         <div class="row" id="head-backend">
                             <div class="col-md-6">
                                 <a href="<?php echo base_url(); ?>" type="button" id="add-quote" class="btn btn-primary btn-block iframe cboxElement" data-toggle="tooltip" data-placement="bottom" title="AGREGAR">

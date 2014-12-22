@@ -3,6 +3,11 @@ $(document).ready(function() {
     $('.bxslider').bxSlider({auto: true});
     $(".iframe").colorbox({iframe:true, width:"90%", height:"60%"});
 
+    $("body").on('click', '#add-quote', function(event) {
+        event.preventDefault();
+        window.location.replace('http://localhost/explorae/');
+    });
+
     $('body').on('click', '.btn-delete', function(event) {
         event.preventDefault();
         $cnf = confirm("¿Realmente desea eliminar este registro?");

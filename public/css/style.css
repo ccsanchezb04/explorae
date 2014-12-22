@@ -180,6 +180,9 @@ footer .row ul li {
     margin: 0 auto; 
     width: 90%;
 }
+.bx-viewport {
+    height: auto !important;
+}
 @media screen and (max-width: 768px){
     .carousel-caption {
         display: none;

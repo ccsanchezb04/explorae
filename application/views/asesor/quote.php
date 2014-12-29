@@ -35,7 +35,7 @@
                                 <th>Correo</th>
                                 <th>Acciones</th>
                             </tr>
-                            <?php foreach ($lstcw as $key): ?>
+                            <?php foreach ($quote as $key): ?>
                             <tr>
                                 <td><?php echo $key->no_identificacion; ?></td>
                                 <td><?php echo $key->nombres." ".$key->apellidos; ?></td>

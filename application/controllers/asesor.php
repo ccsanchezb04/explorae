@@ -7,6 +7,7 @@ class Asesor extends CI_Controller {
         parent::__construct();   
         $this->load->model('homeadmin');
         $this->load->model('mod_client');
+        $this->load->model('mod_quote');
         /*$this->removeCache();*/
     }
 
@@ -94,9 +95,9 @@ class Asesor extends CI_Controller {
 
     public function admin_quote()
     {
-        //$data['lstq'] = $this->mod_client->lstClients($id);
+        $data['quote'] = $this->mod_quote->lstQuotes();
         $this->load->view('layout/header');
-        $this->load->view('asesor/quote');
+        $this->load->view('asesor/quote', $data);
         $this->load->view('layout/footer');
     }
 }

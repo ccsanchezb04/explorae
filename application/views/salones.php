@@ -3,7 +3,7 @@
         $data['page'] = "room";    
         $this->load->view('layout/topnavbar', $data);
     ?>    
-    <div class="row">
+    <div class="row" id="rooms">
         <div class="col-md-12">
             <h3>Salones Categoria: <span class="glyphicon glyphicon-star"></span></h3>
             <ul class="bxslider">                
@@ -19,7 +19,9 @@
                     <?php endif ?>
                         <h4>Total de capacidad: <?php echo $key->total_capacidad; ?></h4>
                         <h4>Direccion de ubicación: <?php echo $key->direccion_ubicacion; ?></h4>
-                        <a href="<?php echo base_url(); ?>//<?php echo $key->id_salon; ?>" class="btn btn-xs btn-success">Agregar <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                    <?php if ($this->session->userdata('roleUser') == "asesor"): ?>
+                        <a href="<?php echo base_url(); ?>//<?php echo $key->id_salon; ?>" class="btn btn-xs btn-success" id="add-cart">Agregar <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                    <?php endif ?>
                     </div>
                 </li>
             <?php endforeach ?>
@@ -40,7 +42,9 @@
                     <?php endif ?>
                         <h4>Total de capacidad: <?php echo $key->total_capacidad; ?></h4>
                         <h4>Direccion de ubicación: <?php echo $key->direccion_ubicacion; ?></h4>
-                        <a href="<?php echo base_url(); ?>//<?php echo $key->id_salon; ?>" class="btn btn-xs btn-success">Agregar <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                    <?php if ($this->session->userdata('roleUser') == "asesor"): ?>
+                        <a href="<?php echo base_url(); ?>//<?php echo $key->id_salon; ?>" class="btn btn-xs btn-success" id="add-cart">Agregar <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                    <?php endif ?>
                     </div>
                 </li>
             <?php endforeach ?>
@@ -61,7 +65,9 @@
                     <?php endif ?>
                         <h4>Total de capacidad: <?php echo $key->total_capacidad; ?></h4>
                         <h4>Direccion de ubicación: <?php echo $key->direccion_ubicacion; ?></h4>
-                        <a href="<?php echo base_url(); ?>//<?php echo $key->id_salon; ?>" class="btn btn-xs btn-success">Agregar <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                    <?php if ($this->session->userdata('roleUser') == "asesor"): ?>
+                        <a href="<?php echo base_url(); ?>//<?php echo $key->id_salon; ?>" class="btn btn-xs btn-success" id="add-cart">Agregar <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                    <?php endif ?>
                     </div>
                 </li>
             <?php endforeach ?>

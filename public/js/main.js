@@ -49,4 +49,19 @@ $(document).ready(function() {
             }               
         };
     });
+    $("#rooms").on('click', '#add-cart', function(event) {
+        event.preventDefault();
+        $.ajax({
+            url: 'http://localhost/explorae/cart/add_cart',
+            type: 'POST',
+            data: {id: ''}
+        })
+        .fail(function() {
+            
+        })
+        .always(function() {
+            console.log("complete");
+        });
+        
+    });
 });

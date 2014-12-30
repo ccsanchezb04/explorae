@@ -51,17 +51,24 @@ $(document).ready(function() {
     });
     $("#rooms").on('click', '#add-cart', function(event) {
         event.preventDefault();
+        var prod_id = $('#add-cart').attr('id-prod');
+        var prod_table = $('#add-cart').attr('table-prod');
+        var prod_field = $('#add-cart').attr('field');
+        console.log(prod_id);
+        console.log(prod_table);
+        console.log(prod_field);
         $.ajax({
             url: 'http://localhost/explorae/cart/add_cart',
             type: 'POST',
-            data: {id: ''}
+            dataType: 'json',
+            data: {id: prod_id, table: prod_table, field: prod_field},
+            success: function () {
+                console.log(datos);
+                alert(datos);
+            },
+            error: function () {
+                alert("hay un error");
+            }
         })
-        .fail(function() {
-            
-        })
-        .always(function() {
-            console.log("complete");
-        });
-        
     });
 });

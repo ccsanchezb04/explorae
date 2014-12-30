@@ -20,7 +20,7 @@
                         <h4>Total de capacidad: <?php echo $key->total_capacidad; ?></h4>
                         <h4>Direccion de ubicación: <?php echo $key->direccion_ubicacion; ?></h4>
                     <?php if ($this->session->userdata('roleUser') == "asesor"): ?>
-                        <a href="<?php echo base_url(); ?>//<?php echo $key->id_salon; ?>" class="btn btn-xs btn-success" id="add-cart">Agregar <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                        <button class="btn btn-xs btn-success" id-prod="<?php echo $key->id_salon; ?>" field="salon" table-prod="salones" id="add-cart">Agregar <span class="glyphicon glyphicon-shopping-cart"></span></button>
                     <?php endif ?>
                     </div>
                 </li>
@@ -43,7 +43,7 @@
                         <h4>Total de capacidad: <?php echo $key->total_capacidad; ?></h4>
                         <h4>Direccion de ubicación: <?php echo $key->direccion_ubicacion; ?></h4>
                     <?php if ($this->session->userdata('roleUser') == "asesor"): ?>
-                        <a href="<?php echo base_url(); ?>//<?php echo $key->id_salon; ?>" class="btn btn-xs btn-success" id="add-cart">Agregar <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                        <button class="btn btn-xs btn-success" id-prod="<?php echo $key->id_salon; ?>" field="salon" table-prod="salones" id="add-cart">Agregar <span class="glyphicon glyphicon-shopping-cart"></span></button>
                     <?php endif ?>
                     </div>
                 </li>
@@ -66,7 +66,7 @@
                         <h4>Total de capacidad: <?php echo $key->total_capacidad; ?></h4>
                         <h4>Direccion de ubicación: <?php echo $key->direccion_ubicacion; ?></h4>
                     <?php if ($this->session->userdata('roleUser') == "asesor"): ?>
-                        <a href="<?php echo base_url(); ?>//<?php echo $key->id_salon; ?>" class="btn btn-xs btn-success" id="add-cart">Agregar <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                        <button class="btn btn-xs btn-success" id-prod="<?php echo $key->id_salon; ?>" field="salon" table-prod="salones" id="add-cart">Agregar <span class="glyphicon glyphicon-shopping-cart"></span></button>
                     <?php endif ?>
                     </div>
                 </li>

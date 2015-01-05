@@ -18,7 +18,17 @@ class Cart extends CI_Controller {
 
     public function add_cart($id, $table, $field)
     {
-        $data['prod'] = $this->mod_quote->list_prod($id, $table, $field);
-
+        if ($_POST) {
+            $data['prod'] = $this->mod_quote->list_prod($id, $table, $field);
+            echo "<script>"
+            echo "alert('si llega algo');";
+            echo "</script>"            
+        }
+        else
+        {
+            echo "<script>"
+            echo "alert('no llega nada');";
+            echo "</script>"
+        }
     }
 }

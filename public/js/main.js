@@ -49,26 +49,45 @@ $(document).ready(function() {
             }               
         };
     });
-    $("#rooms").on('click', '#add-cart', function(event) {
+    /*$("#rooms").on('click', '#add-cart', function(event) {
         event.preventDefault();
-        var prod_id = $('#add-cart').attr('id-prod');
-        var prod_table = $('#add-cart').attr('table-prod');
-        var prod_field = $('#add-cart').attr('field');
+        var prod = $('.producto').attr('id');
+        var prod_id = $('#'+prod+'#add-cart').attr('id-prod');
+        var prod_table = $('#'+prod+'#add-cart').attr('table-prod');
+        var prod_field = $('#'+prod+'#add-cart').attr('field');
+        console.log(prod);
         console.log(prod_id);
         console.log(prod_table);
         console.log(prod_field);
         $.ajax({
             url: 'http://localhost/explorae/cart/add_cart',
             type: 'POST',
-            dataType: 'json',
             data: {id: prod_id, table: prod_table, field: prod_field},
             success: function () {
-                console.log(datos);
-                alert(datos);
+                alert("Llegaron los datos "+prod_id+", "+prod_table+", "+prod_field);
             },
             error: function () {
                 alert("hay un error");
             }
         })
-    });
+    });*/
 });
+function add_cart () {
+    console.log(id);
+    console.log(table);
+    console.log(field);
+    var prod_id = $('#add-cart').attr('prod-id');
+    var prod_table = $('#add-cart').attr('prod-table');
+    var prod_field = $('#add-cart').attr('prod-field');
+    $.ajax({
+            url: 'http://localhost/explorae/cart/add_cart',
+            type: 'POST',
+            data: {id: prod_id, table: prod_table, field: prod_field},
+            success: function () {
+                alert("Llegaron los datos "+id+", "+table+", "+field);
+            },
+            error: function () {
+                alert("hay un error");
+            }
+    })
+}

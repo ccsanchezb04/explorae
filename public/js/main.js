@@ -72,22 +72,25 @@ $(document).ready(function() {
         })
     });*/
 });
-function add_cart () {
+function add_cart(id, table, field) {
     console.log(id);
     console.log(table);
     console.log(field);
-    var prod_id = $('#add-cart').attr('prod-id');
+    /*var prod_id = $('#add-cart').attr('prod-id');
     var prod_table = $('#add-cart').attr('prod-table');
-    var prod_field = $('#add-cart').attr('prod-field');
+    var prod_field = $('#add-cart').attr('prod-field');*/
     $.ajax({
-            url: 'http://localhost/explorae/cart/add_cart',
-            type: 'POST',
-            data: {id: prod_id, table: prod_table, field: prod_field},
-            success: function () {
-                alert("Llegaron los datos "+id+", "+table+", "+field);
-            },
-            error: function () {
-                alert("hay un error");
-            }
+        url: 'http://localhost/explorae/cart/add_cart',
+        type: 'POST',
+        dataType: 'json',
+        data: {id: id, table: table, field: field},
+        success: function (data) {
+            var json_x = $.parseJSON(data);
+            alert("Llegaron los datos "+id+", "+table+", "+field);
+            console.log(data);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log("hay un error: "+textStatus+", "+errorThrown);
+        }
     })
 }

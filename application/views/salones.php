@@ -73,5 +73,8 @@
             <?php endforeach ?>
             </ul>
         </div>
+        <div class="respuesta">
+            
+        </div>
     </div>
 </div>

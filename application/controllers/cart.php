@@ -8,7 +8,17 @@ class Cart extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('mod_quote');
+        $this->load->model('Index');
+        $this->load->model('homeadmin');
+        $this->load->model('mod_client');
+        $this->load->model('mod_rooms');
+        $this->load->model('mod_deco');
+        $this->load->model('mod_tema');
+        $this->load->model('mod_menu');
+        $this->load->model('mod_social');
+        $this->load->model('mod_empresa');
+        $this->load->model('mod_artist');
+        $this->load->model('mod_tools');
         // $this->load->model('listar');
         $this->removeCache();
     }
@@ -22,7 +32,8 @@ class Cart extends CI_Controller {
             $data['prod'] = $this->mod_quote->list_prod($id, $table, $field);
             echo "<script>"
             echo "alert('si llega algo');";
-            echo "</script>"            
+            echo "</script>"
+            var_dump($data);            
         }
         else
         {

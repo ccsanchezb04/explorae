@@ -63,19 +63,20 @@ function add_cart(id, table, field) {
         url: 'http://localhost/explorae/cart/add_cart',
         type: 'POST',
         dataType: 'json',        
-        success: function (data) {
+        success: function(data) {
             var json_x = $.parseJSON(data);
-            alert("Llegaron los datos "+id+", "+table+", "+field);
+            alert(json_x);
             console.log(json_x);
 
-            var nombreproducto = json_x.nombreproduc;
+            var nombre_field = json_x.nombre_field;
             var m = json_x.loqueseaquellegue;
 
-            var str='<p>' + m + '</p>';
+            var str = '<p>'+m+'</p>';
 
             jquery(".respuesta").html(str);
         },
-        error: function (jqXHR, textStatus, errorThrown) {
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("hay un error: "+textStatus+", "+errorThrown);
             console.log("hay un error: "+textStatus+", "+errorThrown);
         }
     })

@@ -28,12 +28,12 @@ class Cart extends CI_Controller {
 
     public function add_cart($id, $table, $field)
     {
-        if ($_POST) {
+        if ($this->input->is_ajax_request()) {
             $data['prod'] = $this->mod_quote->list_prod($id, $table, $field);
             echo "<script>"
             echo "alert('si llega algo');";
             echo "</script>"
-            var_dump($data);            
+            echo json_encode($data);            
         }
         else
         {

@@ -75,7 +75,7 @@ function add_cart(id, table, field) {
 
             jquery(".respuesta").html(str);
         },
-        error: function(jqXHR, textStatus, errorThrown) {
+        error: function(jqXhr, textStatus, errorThrown) {
             alert("hay un error: "+textStatus+", "+errorThrown);
             console.log("hay un error: "+textStatus+", "+errorThrown);
         }

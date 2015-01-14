@@ -26,20 +26,30 @@ class Cart extends CI_Controller {
     - I n d e x     P e d i d o
     -------------------------------------*/
 
-    public function add_cart($id, $table, $field)
+    public function add_cart($id, $field)
     {
-        if ($this->input->is_ajax_request()) {
-            $data['prod'] = $this->mod_quote->list_prod($id, $table, $field);
-            echo "<script>"
-            echo "alert('si llega algo');";
-            echo "</script>"
-            echo json_encode($data);            
-        }
-        else
+        if (!$this->input->is_ajax_request()) 
         {
             echo "<script>"
             echo "alert('no llega nada');";
-            echo "</script>"
+            echo "</script>"            
+        }
+        else
+        {
+            switch ($field) {
+                case 'salon':
+                    $data['prod'] = $this->mod_rooms->list_room($id);
+                    json_encode($data);
+                    break;
+
+                case 'deco':
+                    $data['prod'] = $this->mod_deco->list_deco($id);
+                    break;
+                
+                default:
+                    echo "string";
+                    break;
+            }
         }
     }
 }

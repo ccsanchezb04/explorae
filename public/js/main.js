@@ -51,33 +51,32 @@ $(document).ready(function() {
     });
 });
 
-function add_cart(id, table, field) {
+function add_cart(id, field) {
     console.log(id);
-    console.log(table);
     console.log(field);
     /*var prod_id = $('#add-cart').attr('prod-id');
     var prod_table = $('#add-cart').attr('prod-table');
     var prod_field = $('#add-cart').attr('prod-field');*/
     $.ajax({
-        data: {id: id, table: table, field: field},
+        data: {id: id, field: field},
         url: 'http://localhost/explorae/cart/add_cart',
         type: 'POST',
         dataType: 'json',        
         success: function(data) {
             var json_x = $.parseJSON(data);
             alert(json_x);
-            console.log(json_x);
+            /*console.log(json_x);*/
 
-            var nombre_field = json_x.nombre_field;
-            var m = json_x.loqueseaquellegue;
+            /*var nombre_field = json_x.nombre_field;*/
+            /*var m = json_x.loqueseaquellegue;*/
 
-            var str = '<p>'+m+'</p>';
+            /*var str = '<p>'+m+'</p>';*/
 
-            jquery(".respuesta").html(str);
+            jquery(".respuesta").html(data);
         },
-        error: function(jqXhr, textStatus, errorThrown) {
-            alert("hay un error: "+textStatus+", "+errorThrown);
-            console.log("hay un error: "+textStatus+", "+errorThrown);
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            alert("hay un error: "+XMLHttpRequest+", "+textStatus+", "+errorThrown);
+            console.log("hay un error: "+XMLHttpRequest+", "+textStatus+", "+errorThrown);
         }
     })
 }

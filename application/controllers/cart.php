@@ -26,30 +26,26 @@ class Cart extends CI_Controller {
     - I n d e x     P e d i d o
     -------------------------------------*/
 
-    public function add_cart($id, $field)
+    public function add_cart()
     {
-        if (!$this->input->is_ajax_request()) 
-        {
-            echo "<script>"
-            echo "alert('no llega nada');";
-            echo "</script>"            
-        }
-        else
-        {
-            switch ($field) {
-                case 'salon':
-                    $data['prod'] = $this->mod_rooms->list_room($id);
-                    json_encode($data);
-                    break;
+        $id = $_POST['id'];
+        $field = $_POST['field'];
 
-                case 'deco':
-                    $data['prod'] = $this->mod_deco->list_deco($id);
-                    break;
-                
-                default:
-                    echo "string";
-                    break;
-            }
+        $this->session->set_userdata(array('idProd' => $id,
+                                           'fieldProd' => $field));
+        switch ($field) {
+            case 'salon':
+                $data['prod'] = $this->mod_rooms->lst_room($id);                
+                break;
+
+            case 'deco':
+                $data['prod'] = $this->mod_deco->list_deco($id);
+                break;
+            
+            default:
+                echo "No llegan datos";
+                break;
         }
+        echo json_encode($data);
     }
 }

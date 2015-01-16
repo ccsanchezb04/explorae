@@ -52,31 +52,37 @@ $(document).ready(function() {
 });
 
 function add_cart(id, field) {
-    console.log(id);
-    console.log(field);
-    /*var prod_id = $('#add-cart').attr('prod-id');
-    var prod_table = $('#add-cart').attr('prod-table');
-    var prod_field = $('#add-cart').attr('prod-field');*/
+    /*debugger;*/
     $.ajax({
-        data: {id: id, field: field},
+        data:{
+            id:id,
+            field:field
+        },
         url: 'http://localhost/explorae/cart/add_cart',
-        type: 'POST',
-        dataType: 'json',        
+        type: 'POST',      
         success: function(data) {
-            var json_x = $.parseJSON(data);
-            alert(json_x);
-            /*console.log(json_x);*/
+            var todoslosdatos = JSON.parse(data);
+            console.log(todoslosdatos);
+            
+            var str = "<ul>";
+                todoslosdatos.prod.forEach(function(elemento){
+                    var nombre  = "<li>"+elemento.nombre_contacto+"</li>";
+                    //var bla bla bla = elemento
+                    //me tengo que ir ya mañana seguimos le parece?
+                    //hagale muchas
+                    //pero asi se manda los datos tiene 2 opciones
+                    // si va a crear una vista en el codeigniter pa renderizar esos datos
+                    // not iene dnecesitdad de hacer eso que etmaos haceindoe n ele javscript porque la vista ya esta renderizada solo usa el .html y respuesta y yapero si va a mandar un json le toca hacer todo esto por eso ya depende de como lo vea mejor  y de susu requemirnetos si algo me escribe pro faccebook chaoooooo
+                    str += "<li>" + nombre + "</li>"; 
+                });
+            str += "</ul>";
+            
+            $(".respuesta").html(str);
 
-            /*var nombre_field = json_x.nombre_field;*/
-            /*var m = json_x.loqueseaquellegue;*/
 
-            /*var str = '<p>'+m+'</p>';*/
-
-            jquery(".respuesta").html(data);
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
-            alert("hay un error: "+XMLHttpRequest+", "+textStatus+", "+errorThrown);
             console.log("hay un error: "+XMLHttpRequest+", "+textStatus+", "+errorThrown);
         }
-    })
+    });
 }

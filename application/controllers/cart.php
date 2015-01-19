@@ -47,5 +47,9 @@ class Cart extends CI_Controller {
                 break;
         }
         echo json_encode($data);
+
+        // $this->load->view('layout/header');
+        // $this->load->view('cart/view_products', $data);
+        // $this->load->view('layout/footer');
     }
 }

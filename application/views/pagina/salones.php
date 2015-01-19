@@ -8,6 +8,7 @@
             <h3>Salones Categoria: <span class="glyphicon glyphicon-star"></span></h3>
             <ul class="bxslider">                
             <?php foreach ($room1 as $key): ?>
+                <?php if ($room1 >= 0): ?>
                 <li id="<?php echo $key->nombre_salon; ?>" class="producto">
                     <div class="col-md-4">
                         <img src="<?php echo base_url(); ?>public/images/page/salones/<?php echo $key->imagen_salon; ?>" alt="">
@@ -24,6 +25,13 @@
                     <?php endif ?>
                     </div>
                 </li>
+                <?php else: ?>
+                <li>
+                    <div class="alert alert-info" role="alert">
+                        No hay decoraciones registradas
+                    </div>
+                </li> 
+                <?php endif ?>
             <?php endforeach ?>
             </ul>
         </div>
@@ -31,6 +39,7 @@
             <h3>Salones Categoria: <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></h3>
             <ul class="bxslider">                
             <?php foreach ($room2 as $key): ?>
+                <?php if ($room2 >= 0): ?>
                 <li id="<?php echo $key->nombre_salon; ?>" class="producto">
                     <div class="col-md-4">
                         <img src="<?php echo base_url(); ?>public/images/page/salones/<?php echo $key->imagen_salon; ?>" alt="">
@@ -47,6 +56,13 @@
                     <?php endif ?>
                     </div>
                 </li>
+                <?php else: ?>
+                <li>
+                    <div class="alert alert-info" role="alert">
+                        No hay decoraciones registradas
+                    </div>
+                </li> 
+                <?php endif ?>
             <?php endforeach ?>
             </ul>
         </div>
@@ -54,6 +70,7 @@
             <h3>Salones Categoria <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></h3>
             <ul class="bxslider">                
             <?php foreach ($room3 as $key): ?>
+                <?php if ($room3 >= 0): ?>
                 <li id="<?php echo $key->nombre_salon; ?>" class="producto">
                     <div class="col-md-4">
                         <img src="<?php echo base_url(); ?>public/images/page/salones/<?php echo $key->imagen_salon; ?>" alt="">
@@ -70,6 +87,13 @@
                     <?php endif ?>
                     </div>
                 </li>
+                <?php else: ?>
+                <li>
+                    <div class="alert alert-info" role="alert">
+                        No hay decoraciones registradas
+                    </div>
+                </li> 
+                <?php endif ?>
             <?php endforeach ?>
             </ul>
         </div>

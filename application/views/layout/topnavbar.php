@@ -18,9 +18,9 @@
                         <ul class="nav navbar-nav">
                             <li <?php if ($page == "home") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>">Inicio</a></li>
                             <li <?php if ($page == "room") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>Inicio/salones">Salones</a></li>
-                            <li <?php if ($page == "deco") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>Inicio/">Decoración</a></li>
-                            <li <?php if ($page == "tema") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>Inicio/">Temáticas</a></li>
-                            <li <?php if ($page == "menu") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>Inicio/">Menú</a></li>
+                            <li <?php if ($page == "deco") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>Inicio/decoraciones">Decoración</a></li>
+                            <li <?php if ($page == "tema") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>Inicio/tematicas">Temáticas</a></li>
+                            <li <?php if ($page == "menu") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>Inicio/menu">Menú</a></li>
                         <?php if ($this->session->userdata('roleUser') == "admin" || $this->session->userdata('roleUser') == "asesor"): ?>
                             <li <?php if ($page == "coti") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>Inicio/">Mi carrito</a></li>
                         <?php else: ?>

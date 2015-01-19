@@ -3,13 +3,14 @@
         <div class="row">
             <div class="col-md-3">
                 <?php $this->load->view('layout/navs_backend', $data); ?>
+                <?php $this->load->view('layout/form_quote'); ?>
             </div>
             <div class="col-md-9">
                 <div class="tab-content">
                     <div class="tab-pane active" id="">
                         <div class="row" id="head-backend">
                             <div class="col-md-6">
-                                <a href="<?php echo base_url(); ?>" type="button" id="add-quote" class="btn btn-primary btn-block iframe cboxElement" data-toggle="tooltip" data-placement="bottom" title="AGREGAR">
+                                <a href="#" type="button" id="add-quote" data-toggle="modal" data-target="#form-quote" class="btn btn-primary btn-block" data-toggle="tooltip" data-placement="bottom" title="AGREGAR">
                                     Agregar Cotización
                                 </a>
                             </div>

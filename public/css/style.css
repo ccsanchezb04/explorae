@@ -183,6 +183,47 @@ footer .row ul li {
 .bx-viewport {
     height: auto !important;
 }
+.boxgrid{ 
+  width: 293px; 
+  height: 260px; 
+  margin:10px; 
+  float:center; 
+  background:#161613; 
+  border: solid 2px #8399AF; 
+  overflow: hidden; 
+  position: relative; 
+  display: inline-block;
+}
+.boxgrid .cover {
+    padding: 0px 0px 0px 10px;
+}
+.boxgrid img{ 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  border: 0; 
+}
+.boxgrid p{ 
+  padding: 0 10px; 
+  color:#afafaf; 
+  font-weight:bold; 
+  font:10pt "Lucida Grande", Arial, sans-serif; 
+}
+.boxcaption{ 
+  float: left; 
+  position: absolute; 
+  background: #000; 
+  height: 100px; 
+  width: 100%; 
+  opacity: .8; 
+  bottom: -100px;
+  /* For IE 5-7 */
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  /* For IE 8 */
+  -MS-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+}
+.captionfull .boxcaption { left: 0; }
+.caption .boxcaption { left: 0; }
 @media screen and (max-width: 768px){
     .carousel-caption {
         display: none;

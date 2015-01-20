@@ -10,13 +10,13 @@
                 <div class="form-group">
                     <label for="id-cliente" class="col-sm-4 control-label">Identificacion Cliente</label>
                     <div class="col-sm-6">
-                        <input type="search" onkeypress="buscar();" class="form-control" name="id_cliente" id="id-cliente">
+                        <input type="text" class="form-control" name="id_cliente" id="id-cliente">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="nombre" class="col-sm-4 control-label">Nombre del cliente:</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="id" id="nombre">
+                        <input type="text" class="form-control" name="id" id="nombre-cliente">
                     </div>
                 </div>
                 <div class="form-group">

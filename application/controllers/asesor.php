@@ -100,4 +100,11 @@ class Asesor extends CI_Controller {
         $this->load->view('asesor/quote', $data);
         $this->load->view('layout/footer');
     }
+
+    public function search_client()
+    {
+        $id = $_POST['id'];
+        $data['client'] = $this->mod_client->buscarClients($id);
+        echo json_encode($data);
+    }
 }

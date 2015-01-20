@@ -1,3 +1,4 @@
+var urlClient = 'http://localhost/explorae/asesor/search_client'; 
 $(document).ready(function() {
     $('.btn').tooltip();
     $('.bxslider').bxSlider({auto: true});
@@ -17,8 +18,12 @@ $(document).ready(function() {
             }
         }); 
         return false;       
+    });*/
+    $("#id-cliente").blur(function(event) {
+        event.preventDefault();
+        return searchClient();       
     });
-*/
+
     $('.boxgrid.slidedown').hover(function(){
         $(".cover", this).stop().animate({top:'-260px'},{queue:false,duration:300});
     }, function() {
@@ -119,8 +124,6 @@ function add_cart(id, field) {
             str += "</ul>";
             
             $(".respuesta").html(str);
-
-
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
             console.log("hay un error: "+XMLHttpRequest+", "+textStatus+", "+errorThrown);
@@ -128,55 +131,24 @@ function add_cart(id, field) {
     });
 }
 
-function buscador(){
-    var xmlhttp=false;
-    try{
-        xmlhttp = new ActiveXObject("Msxm12.XMLHTTP");
-    }
-    catch(e){
-        try{
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        catch(E){
-            xmlhttp = false;
-        }
-    }
-    if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
-        xmlhttp = new XMLHttpRequest();
-    }
-    return xmlhttp;
-}
+function searchClient() {
+    $.ajax({
+        data: {id: $("#id-cliente").val()},
+        url: urlClient,
+        type: 'POST',      
+        success: function(data) {
+            var datosCliente = JSON.parse(data);
+            console.log(datosCliente);
+            
+            datosCliente.prod.forEach(function(elemento){
+                var nombre  = elemento.nombres+" "+elemento.apellidos;
+                console.log(nombre);                   
+            });
 
-function buscar(){
-    var busqueda  = document.getElementById('busqueda').value;
-    var resultado = document.getElementById('res_tabla');
-    ajax = buscador();
-    ajax.open("GET", '?q='+busqueda);
-    ajax.onreadystatechange = function(){
-        if (ajax.readyState == 3) {
-            resultado.innerHTML = ajax.responseText;
+            $('#nombre-cliente').val(nombre);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log("hay un error: "+XMLHttpRequest+", "+textStatus+", "+errorThrown);
         }
-        
-    }
-    
-    console.log(resultado);
-    ajax.send(null);
-}
- 
-/*===============================================*/
-/*saber que tecla se oprimio y ejecutar buscar*/
-/*===============================================*/
-function callkeydownhandler(evnt) {
-   var ev   = (evnt) ? evnt : event;
-   var code =(ev.which) ? ev.which : event.keyCode;
-   //alert("El código de la tecla pulsada es: " + code);
-   if (code == 8) {
-        buscar();
-   };
-}
-if (window.document.addEventListener) {
-   window.document.addEventListener("keyup", callkeydownhandler, false);
-} 
-else {
-   window.document.attachEvent("onkeydown", callkeydownhandler);
+    }); 
 }

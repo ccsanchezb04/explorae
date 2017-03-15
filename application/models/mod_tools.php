@@ -42,6 +42,27 @@ class Mod_tools extends CI_model
         $query = $this->db->get_where('equipos', array('categoria_equipo' => 3));
         return $query->result();
     }
+    public function caracteristicas($id){
+        $query = $this->db->get_where('equipos', array('id_equipo' => $id));
+        foreach($query->result() as $datos){
+            if ($datos->caracteristica_1 != null || $datos->caracteristica_1 != '' ) {
+                 echo '<input type="radio" class="caracteristica" name="caracteristica" value="'.$datos->caracteristica_1.'"><label class="opciones-add-cart" for="">'.$datos->caracteristica_1.'</label><br>';
+            }
+            if ($datos->caracteristica_2 != null || $datos->caracteristica_2 != '' ) {
+                 echo '<input type="radio" class="caracteristica" name="caracteristica" value="'.$datos->caracteristica_2.'"><label class="opciones-add-cart" for="">'.$datos->caracteristica_2.'</label><br>';
+            }
+            if ($datos->caracteristica_3 != null || $datos->caracteristica_3 != '' ) {
+                 echo '<input type="radio" class="caracteristica" name="caracteristica" value="'.$datos->caracteristica_3.'"><label class="opciones-add-cart" for="">'.$datos->caracteristica_3.'</label><br>';
+            }
+            if ($datos->caracteristica_4 != null || $datos->caracteristica_4 != '' ) {
+                 echo '<input type="radio" class="caracteristica" name="caracteristica" value="'.$datos->caracteristica_4.'"><label class="opciones-add-cart" for="">'.$datos->caracteristica_4.'</label><br>';
+            }
+            if ($datos->caracteristica_5 != null || $datos->caracteristica_5 != '' ) {
+                 echo '<input type="radio" class="caracteristica" name="caracteristica" value="'.$datos->caracteristica_5.'"><label class="opciones-add-cart" for="">'.$datos->caracteristica_5.'</label><br>';
+            }
+            echo '<input type="radio" class="caracteristica" name="caracteristica" value="otro"><label class="opciones-add-cart" for="">Otra caracteristica</label>';
+        }
+    }
 
     public function add_tool()
     {

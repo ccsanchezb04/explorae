@@ -8,11 +8,11 @@ class Mod_social extends CI_model
     var $nombre_evento = '';
     var $descripcion   = '';
     var $imagen_social = '';
-    var $galeria_1     = '';
-    var $galeria_2     = '';
-    var $galeria_3     = '';
-    var $galeria_4     = '';
-    var $galeria_5     = '';
+    var $caracteristica_1     = '';
+    var $caracteristica_2     = '';
+    var $caracteristica_3     = '';
+    var $caracteristica_4     = '';
+    var $caracteristica_5     = '';
     var $upload_i      = '';
     //=====================================================================
     //=====================================================================
@@ -57,11 +57,11 @@ class Mod_social extends CI_model
         $this->nombre_evento = $this->input->post('nombre_evento');
         $this->descripcion   = $this->input->post('descripcion');
         $this->imagen_social = $config['file_name']; 
-        // $this->$this->galeria_1     = $config['file_name']; 
-        // $this->$this->galeria_2     = $config['file_name']; 
-        // $this->$this->galeria_3     = $config['file_name']; 
-        // $this->$this->galeria_4     = $config['file_name'];
-        // $this->$this->galeria_5     = $config['file_name'];
+        // $this->$this->caracteristica_1     = $config['file_name']; 
+        // $this->$this->caracteristica_2     = $config['file_name']; 
+        // $this->$this->caracteristica_3     = $config['file_name']; 
+        // $this->$this->caracteristica_4     = $config['file_name'];
+        // $this->$this->caracteristica_5     = $config['file_name'];
 
         $social = array('id_sociales'   => $this->id_sociales,
                         'nombre_evento' => $this->nombre_evento,

@@ -17,7 +17,7 @@
                         <a href=""><h2><?php echo $key->nombre_menu; ?></h2></a>
                     <?php if ($this->session->userdata('roleUser') == "asesor"): ?>
                         <h4>Precio de menu: <b class="text-danger">$<?php echo $key->precio_menu; ?></b></h4>
-                        <button class="btn btn-xs btn-success" id="add-cart" onclick="add_cart(<?php echo $key->id_menu; ?>,'menu')">Agregar <span class="glyphicon glyphicon-shopping-cart"></span></button>
+                        <button data-cat="<?php echo $key->categoria_menu; ?>" data-tipo="menu" data-img="<?php echo base_url(); ?>public/images/page/menus/<?php echo $key->imagen_menu; ?>" data-nombre="<?php echo $key->nombre_menu; ?>" data-precio="<?php echo $key->precio_menu; ?>" data-id="<?php echo $key->id_menu; ?>" class="btn btn-xs btn-success add-cart" id="add-cart">Agregar <span class="glyphicon glyphicon-shopping-cart"></span></button>
                     <?php endif ?>
                     </div>
                 </li>
@@ -44,7 +44,7 @@
                         <a href=""><h2><?php echo $key->nombre_menu; ?></h2></a>
                     <?php if ($this->session->userdata('roleUser') == "asesor"): ?>
                         <h4>Precio de menu: <b class="text-danger">$<?php echo $key->precio_menu; ?></b></h4>
-                        <button class="btn btn-xs btn-success" id="add-cart" onclick="add_cart(<?php echo $key->id_menu; ?>,'menu')">Agregar <span class="glyphicon glyphicon-shopping-cart"></span></button>
+                         <button data-cat="<?php echo $key->categoria_menu; ?>" data-tipo="menu" data-img="<?php echo base_url(); ?>public/images/page/menus/<?php echo $key->imagen_menu; ?>" data-nombre="<?php echo $key->nombre_menu; ?>" data-precio="<?php echo $key->precio_menu; ?>" data-id="<?php echo $key->id_menu; ?>" class="btn btn-xs btn-success add-cart" id="add-cart">Agregar <span class="glyphicon glyphicon-shopping-cart"></span></button>
                     <?php endif ?>
                     </div>
                 </li>
@@ -71,7 +71,7 @@
                         <a href=""><h2><?php echo $key->nombre_menu; ?></h2></a>
                     <?php if ($this->session->userdata('roleUser') == "asesor"): ?>
                         <h4>Precio de menu: <b class="text-danger">$<?php echo $key->precio_menu; ?></b></h4>
-                        <button class="btn btn-xs btn-success" id="add-cart" onclick="add_cart(<?php echo $key->id_menu; ?>,'menu')">Agregar <span class="glyphicon glyphicon-shopping-cart"></span></button>
+                         <button data-cat="<?php echo $key->categoria_menu; ?>" data-tipo="menu" data-img="<?php echo base_url(); ?>public/images/page/menus/<?php echo $key->imagen_menu; ?>" data-nombre="<?php echo $key->nombre_menu; ?>" data-precio="<?php echo $key->precio_menu; ?>" data-id="<?php echo $key->id_menu; ?>" class="btn btn-xs btn-success add-cart" id="add-cart">Agregar <span class="glyphicon glyphicon-shopping-cart"></span></button>
                     <?php endif ?>
                     </div>
                 </li>

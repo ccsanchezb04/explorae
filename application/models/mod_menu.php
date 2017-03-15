@@ -15,11 +15,11 @@ class Mod_menu extends CI_model
     var $ensalada           = '';
     var $bocado_acompanante = '';
     var $imagen_menu        = '';
-    var $galeria_1          = '';
-    var $galeria_2          = '';
-    var $galeria_3          = '';
-    var $galeria_4          = '';
-    var $galeria_5          = '';
+    var $caracteristica_1          = '';
+    var $caracteristica_2          = '';
+    var $caracteristica_3          = '';
+    var $caracteristica_4          = '';
+    var $caracteristica_5          = '';
     var $upload_i           = '';
     //=====================================================================
     //=====================================================================
@@ -49,6 +49,28 @@ class Mod_menu extends CI_model
         $query = $this->db->get_where('menu', array('categoria_menu' => 3));
         return $query->result();
     }
+    public function caracteristicas($id){
+        $query = $this->db->get_where('menu', array('id_menu' => $id));
+        foreach($query->result() as $datos){
+            if ($datos->caracteristica_1 != null || $datos->caracteristica_1 != '' ) {
+                 echo '<input type="radio" class="caracteristica" name="caracteristica" value="'.$datos->caracteristica_1.'"><label class="opciones-add-cart" for="">'.$datos->caracteristica_1.'</label><br>';
+            }
+            if ($datos->caracteristica_2 != null || $datos->caracteristica_2 != '' ) {
+                 echo '<input type="radio" class="caracteristica" name="caracteristica" value="'.$datos->caracteristica_2.'"><label class="opciones-add-cart" for="">'.$datos->caracteristica_2.'</label><br>';
+            }
+            if ($datos->caracteristica_3 != null || $datos->caracteristica_3 != '' ) {
+                 echo '<input type="radio" class="caracteristica" name="caracteristica" value="'.$datos->caracteristica_3.'"><label class="opciones-add-cart" for="">'.$datos->caracteristica_3.'</label><br>';
+            }
+            if ($datos->caracteristica_4 != null || $datos->caracteristica_4 != '' ) {
+                 echo '<input type="radio" class="caracteristica" name="caracteristica" value="'.$datos->caracteristica_4.'"><label class="opciones-add-cart" for="">'.$datos->caracteristica_4.'</label><br>';
+            }
+            if ($datos->caracteristica_5 != null || $datos->caracteristica_5 != '' ) {
+                 echo '<input type="radio" class="caracteristica" name="caracteristica" value="'.$datos->caracteristica_5.'"><label class="opciones-add-cart" for="">'.$datos->caracteristica_5.'</label><br>';
+            }
+            echo '<input type="radio" class="caracteristica" name="caracteristica" value="otro"><label class="opciones-add-cart" for="">Otra caracteristica</label>';
+        }
+    }
+
 
     public function add_menu()
     {
@@ -81,11 +103,11 @@ class Mod_menu extends CI_model
         $this->ensalada           = $this->input->post('ensalada');
         $this->bocado_acompanante = $this->input->post('bocado_acompanante');
         $this->imagen_menu        = $config['file_name']; 
-        // $this->$this->galeria_1     = $config['file_name']; 
-        // $this->$this->galeria_2     = $config['file_name']; 
-        // $this->$this->galeria_3     = $config['file_name']; 
-        // $this->$this->galeria_4     = $config['file_name'];
-        // $this->$this->galeria_5     = $config['file_name'];
+        // $this->$this->caracteristica_1     = $config['file_name']; 
+        // $this->$this->caracteristica_2     = $config['file_name']; 
+        // $this->$this->caracteristica_3     = $config['file_name']; 
+        // $this->$this->caracteristica_4     = $config['file_name'];
+        // $this->$this->caracteristica_5     = $config['file_name'];
 
         $menu = array('id_menu'            => $this->id_menu,
                       'nombre_menu'        => $this->nombre_menu,

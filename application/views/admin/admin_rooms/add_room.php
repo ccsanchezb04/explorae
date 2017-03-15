@@ -4,7 +4,7 @@
         <div class="panel-heading">
             <h3 class="text-info">Agregar Salon</h3>
         </div>
-        <form class="form-horizontal" role="form" method="post" action="<?php echo base_url(); ?>Admin/add_room" enctype="multipart/form-data">
+        <form class="form-horizontal" role="form" method="post" action="<?php echo base_url(); ?>admin/add_room" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="nombres" class="col-sm-4 control-label">Nombre Salon:</label>
                 <div class="col-sm-6">

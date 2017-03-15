@@ -9,7 +9,7 @@
                 <div class="tab-pane active" id="salones">
                     <div class="row" id="head-backend">
                         <div class="col-md-6">
-                            <a href="<?php echo base_url(); ?>Admin/add_room" type="button" class="btn btn-primary btn-block iframe cboxElement" data-toggle="tooltip" data-placement="bottom" title="AGREGAR">
+                            <a href="<?php echo base_url(); ?>admin/add_room" type="button" class="btn btn-primary btn-block iframe cboxElement" data-toggle="tooltip" data-placement="bottom" title="AGREGAR">
                                 Agregar Salon
                             </a>
                         </div>
@@ -20,9 +20,9 @@
                                 </button>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="#">Ir a pagina</a></li>                                    
-                                    <li><a href="<?php echo base_url(); ?>Admin/data_upd/<?php echo $this->session->userdata('idUser'); ?>" class="iframe cboxElement">Modificar Perfil</a></li>                                                                                               
+                                    <li><a href="<?php echo base_url(); ?>admin/data_upd/<?php echo $this->session->userdata('idUser'); ?>" class="iframe cboxElement">Modificar Perfil</a></li>                                                                                               
                                     <li class="divider"></li>
-                                    <li><a href="<?php echo base_url(); ?>Login/close">Cerrar Sesión</a></li>
+                                    <li><a href="<?php echo base_url(); ?>login/close">Cerrar Sesión</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -42,10 +42,10 @@
                             <td><?php echo $key->nombre_contacto; ?></td>
                             <td><?php echo $key->email_contacto; ?></td>
                             <td>                    
-                                <a href="<?php echo base_url(); ?>Admin/list_room/<?php echo $key->id_salon; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
+                                <a href="<?php echo base_url(); ?>admin/list_room/<?php echo $key->id_salon; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
                                     <span class='glyphicon glyphicon-eye-open'></span>
                                 </a>
-                                <a href="<?php echo base_url(); ?>Admin/upd_room/<?php echo $key->id_salon; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
+                                <a href="<?php echo base_url(); ?>admin/upd_room/<?php echo $key->id_salon; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
                                     <span class='glyphicon glyphicon-cog'></span>
                                 </a>
                                 <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_salon; ?>" data-rol="room" data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">

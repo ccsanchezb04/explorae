@@ -21,43 +21,48 @@
                                     </button>
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="<?php echo base_url(); ?>">Ir a pagina</a></li>                                    
-                                        <li><a href="<?php echo base_url(); ?>Admin/data_upd/<?php echo $this->session->userdata('idUser'); ?>" class="iframe cboxElement">Modificar Perfil</a></li>                                                                                               
+                                        <li><a href="<?php echo base_url(); ?>admin/data_upd/<?php echo $this->session->userdata('idUser'); ?>" class="iframe cboxElement">Modificar Perfil</a></li>                                                                                               
                                         <li class="divider"></li>
-                                        <li><a href="<?php echo base_url(); ?>Login/close">Cerrar Sesión</a></li>
+                                        <li><a href="<?php echo base_url(); ?>login/close">Cerrar Sesión</a></li>
                                     </ul>
                                 </div>
                             </div>                            
                         </div>                        
                         <table class="table table-striped" id="panel">
                             <tr>
-                                <th>Identificación</th>
-                                <th>Nombre Completo</th>
-                                <th>Telefono Movil</th>
-                                <th>Correo</th>
+                                <th>Cliente</th>
+                                <th>Tipo Evento</th>
+                                <th>Total</th>
+                                <th>Fecha del evento</th>
                                 <th>Acciones</th>
                             </tr>
                             <?php foreach ($quote as $key): ?>
+                            <?php                                 
+
+                                $id = $key->cliente_id;
+
+                                $this->db->from('clientes');
+                                $this->db->join('cotizacion_evento', 'cotizacion_evento.cliente_id = clientes.id_cliente', 'LEFT');
+                                $this->db->where("clientes.id_cliente = ".$id."");
+
+                                $query = $this->db->get();
+                                foreach ($query->result() as $row) 
+                                {
+                                    $cliente_name = $row->nombres." ".$row->apellidos;
+                                }
+                            ?>
                             <tr>
-                                <td><?php echo $key->no_identificacion; ?></td>
-                                <td><?php echo $key->nombres." ".$key->apellidos; ?></td>
-                                <td><?php echo $key->telefono_movil; ?></td>
-                                <td><?php echo $key->email; ?></td>
+                                <td><?php echo $cliente_name; ?></td>
+                                <td><?php echo $key->nombre_evento; ?></td>
+                                <td><?php echo $key->total; ?></td>
+                                <td><?php echo $key->fecha_evento; ?></td>
                                 <td>                    
-                                    <a href="<?php echo base_url(); ?>Asesor/list_client/<?php echo $key->id_cliente; ?>/cliente" type='button' class='btn btn-sm btn-primary iframe cboxElement'  data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
+                                    <a href="<?php echo base_url(); ?>asesor/list_client/<?php echo $key->id_cotizacion; ?>/<?php echo $key->cliente_id; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement'  data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
                                         <span class='glyphicon glyphicon-eye-open'></span>
                                     </a>
-                                    <a href="<?php echo base_url(); ?>Asesor/upd_client/<?php echo $key->id_cliente; ?>/cliente" type='button' class='btn btn-sm btn-primary iframe cboxElement'  data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
+                                    <a href="<?php echo base_url(); ?>asesor/upd_client/<?php echo $key->id_cotizacion; ?>/<?php echo $key->cliente_id; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement'  data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
                                         <span class='glyphicon glyphicon-cog'></span>
-                                    </a>
-                                <?php if ($key->estado == "Activo"): ?>
-                                    <a href="<?php echo base_url(); ?>Admin/inact_user/<?php echo $key->id_cliente; ?>/cliente" type='button' class='btn btn-sm btn-warning'  data-toggle="tooltip" data-placement="bottom" title="CAMBIAR ESTADO / DESACTIVAR">
-                                        <span class='glyphicon glyphicon-remove'></span>
-                                    </a>
-                                <?php else: ?>
-                                    <a href="<?php echo base_url(); ?>Admin/act_user/<?php echo $key->id_cliente; ?>/cliente" type='button' class='btn btn-sm btn-warning'  data-toggle="tooltip" data-placement="bottom" title="CAMBIAR ESTADO / ACTIVAR">
-                                        <span class='glyphicon glyphicon-ok'></span>
-                                    </a>
-                                <?php endif ?>                           
+                                    </a>                        
                                 </td>
                             </tr>
                             <?php endforeach ?>

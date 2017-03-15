@@ -113,7 +113,7 @@ class Mod_client extends CI_model
         {
             echo "<script type='text/javascript'>";
             echo "alert('El estado del cliente es: ".$this->estado."');";
-            echo "window.location.replace('".base_url()."Asesor/asesor_admin');";
+            echo "window.location.replace('".base_url()."asesor/asesor_admin');";
             echo "</script>";
         }
 
@@ -133,7 +133,7 @@ class Mod_client extends CI_model
         {
             echo "<script type='text/javascript'>";
             echo "alert('El estado del cliente es: ".$this->estado."');";
-            echo "window.location.replace('".base_url()."Asesor/asesor_admin');";
+            echo "window.location.replace('".base_url()."asesor/asesor_admin');";
             echo "</script>";
         }
     }
@@ -153,17 +153,49 @@ class Mod_client extends CI_model
         {
             echo "<script type='text/javascript'>";
             echo "alert('El cliente se elimino con exito....!');";
-            echo "window.location.replace('".base_url()."Asesor/asesor_admin');";
+            echo "window.location.replace('".base_url()."asesor/asesor_admin');";
             echo "</script>";
         }
     }
 
-    public function buscarClients($id)
+    public function buscarClients($doc)
     {
-        $this->db->like('id', $id);        
+        $this->db->like('no_identificacion', $doc);        
         $query = $this->db->get('clientes');
+        foreach ($query->result() as $dato) {
+            echo "-";
+            echo $dato->id_cliente;
+            echo "/";
+            echo $dato->nombres.' '.$dato->apellidos;
+            echo "/";
+            echo $dato->no_identificacion;
+            echo "/";
+            echo $dato->telefono_movil;
+            echo "/";
+            echo $dato->direccion_residencia;
 
-        return $query->result();
+        }
+    }
+    public function buscarEvento($tipo)
+    {
+        if($tipo == 'social'){       
+            $query = $this->db->get('eventos_sociales');
+            echo '<select type="number" class="form-control nombre_evento_select" name="tipo_evento" >';
+            echo '<option value="0">- Seleccionar -</option>';
+            foreach ($query->result() as $datos) {
+                echo '<option value="'.$datos->id_sociales.'">'.$datos->nombre_evento.'</option>';
+            }
+            echo '</select>';
+        }
+        if($tipo == 'empresarial'){
+            $query = $this->db->get('eventos_empresariales');
+            echo '<select type="number" class="form-control nombre_evento_select" name="tipo_evento" >';
+            echo '<option value="0">- Seleccionar -</option>';
+            foreach ($query->result() as $datos) {
+                echo '<option value="'.$datos->id_empresariales.'">'.$datos->nombre_evento.'</option>';
+            }
+            echo '</select>';
+        }
     }
     /*=====================================================================================================================================================================*/
     /*=====================================================================================================================================================================*/

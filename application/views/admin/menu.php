@@ -7,7 +7,7 @@
         <div class="col-md-9">            
             <div class="row" id="head-backend">
                 <div class="col-md-6">
-                    <a href="<?php echo base_url(); ?>Admin/add_menu" type="button" class="btn btn-primary btn-block iframe cboxElement" data-toggle="tooltip" data-placement="bottom" title="AGREGAR">
+                    <a href="<?php echo base_url(); ?>admin/add_menu" type="button" class="btn btn-primary btn-block iframe cboxElement" data-toggle="tooltip" data-placement="bottom" title="AGREGAR">
                         Agregar menú
                     </a>
                 </div>
@@ -18,9 +18,9 @@
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#">Ir a pagina</a></li>                                    
-                            <li><a href="<?php echo base_url(); ?>Admin/data_upd/<?php echo $this->session->userdata('idUser'); ?>" class="iframe cboxElement">Modificar Perfil</a></li>                                                                                               
+                            <li><a href="<?php echo base_url(); ?>admin/data_upd/<?php echo $this->session->userdata('idUser'); ?>" class="iframe cboxElement">Modificar Perfil</a></li>                                                                                               
                             <li class="divider"></li>
-                            <li><a href="<?php echo base_url(); ?>Login/close">Cerrar Sesión</a></li>
+                            <li><a href="<?php echo base_url(); ?>login/close">Cerrar Sesión</a></li>
                         </ul>
                     </div>
                 </div>
@@ -46,10 +46,10 @@
                                 <td><?php echo $key->nombre_menu; ?></td>
                                 <td><?php echo $key->precio_menu; ?></td>                                
                                 <td>                    
-                                    <a href="<?php echo base_url(); ?>Admin/list_menu/<?php echo $key->id_menu; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
+                                    <a href="<?php echo base_url(); ?>admin/list_menu/<?php echo $key->id_menu; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
                                         <span class='glyphicon glyphicon-eye-open'></span>
                                     </a>
-                                    <a href="<?php echo base_url(); ?>Admin/upd_menu/<?php echo $key->id_menu; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
+                                    <a href="<?php echo base_url(); ?>admin/upd_menu/<?php echo $key->id_menu; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
                                         <span class='glyphicon glyphicon-cog'></span>
                                     </a>
                                     <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_menu; ?>" data-rol="menu" data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">
@@ -72,10 +72,10 @@
                                 <td><?php echo $key->nombre_menu; ?></td>
                                 <td><?php echo $key->precio_menu; ?></td>                               
                                 <td>                    
-                                    <a href="<?php echo base_url(); ?>Admin/list_menu/<?php echo $key->id_menu; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
+                                    <a href="<?php echo base_url(); ?>admin/list_menu/<?php echo $key->id_menu; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
                                         <span class='glyphicon glyphicon-eye-open'></span>
                                     </a>
-                                    <a href="<?php echo base_url(); ?>Admin/upd_menu/<?php echo $key->id_menu; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
+                                    <a href="<?php echo base_url(); ?>admin/upd_menu/<?php echo $key->id_menu; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
                                         <span class='glyphicon glyphicon-cog'></span>
                                     </a>
                                     <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_menu; ?>" data-rol="menu" data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">
@@ -98,10 +98,10 @@
                                 <td><?php echo $key->nombre_menu; ?></td>
                                 <td><?php echo $key->precio_menu; ?></td>                                
                                 <td>                    
-                                    <a href="<?php echo base_url(); ?>Admin/list_menu/<?php echo $key->id_menu; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
+                                    <a href="<?php echo base_url(); ?>admin/list_menu/<?php echo $key->id_menu; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
                                         <span class='glyphicon glyphicon-eye-open'></span>
                                     </a>
-                                    <a href="<?php echo base_url(); ?>Admin/upd_menu/<?php echo $key->id_menu; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
+                                    <a href="<?php echo base_url(); ?>admin/upd_menu/<?php echo $key->id_menu; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
                                         <span class='glyphicon glyphicon-cog'></span>
                                     </a>
                                     <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_menu; ?>" data-rol="menu" data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">

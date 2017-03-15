@@ -68,7 +68,7 @@
                 <label for="tipo_usuario" class="col-sm-4 control-label">Tipo de usuario:</label>
                 <div class="col-sm-6">                        
                     <select name="tipo_usuario" id="tipo_usuario" class="form-control">
-                        <option <?php if ($key->tipo_usuario == "admin") { echo "selected='selected'"; } ?> value="admin">Administrador</option>
+                        <option <?php if ($key->tipo_usuario == "admin") { echo "selected='selected'"; } ?> value="admin">administrador</option>
                         <option <?php if ($key->tipo_usuario == "asesor") { echo "selected='selected'"; } ?> value="asesor">Asesor(a)</option>                    
                     </select>
                 </div> 

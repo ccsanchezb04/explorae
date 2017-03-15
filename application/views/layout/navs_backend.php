@@ -5,35 +5,35 @@
     <ul class="nav nav-pills nav-stacked">
     <?php if ($this->session->userdata('roleUser') == "admin"): ?>
         <li <?php if ($page=="admin") {echo "class='active'";} ?>>
-            <a href="<?php echo base_url(); ?>Admin">Gestión Usuarios</a>                     
+            <a href="<?php echo base_url(); ?>admin">Gestión Usuarios</a>                     
         </li>
         <li <?php if ($page=="admin-salon") {echo "class='active'";} ?>>
-            <a href="<?php echo base_url(); ?>Admin/salon">Gestión Salones</a>                     
+            <a href="<?php echo base_url(); ?>admin/salon">Gestión Salones</a>                     
         </li>
         <li <?php if ($page=="admin-deco") {echo "class='active'";} ?>>
-            <a href="<?php echo base_url(); ?>Admin/decoracion">Gestión Decoración</a>                     
+            <a href="<?php echo base_url(); ?>admin/decoracion">Gestión Decoración</a>                     
         </li>
         <li <?php if ($page=="admin-tema") {echo "class='active'";} ?>>
-            <a href="<?php echo base_url(); ?>Admin/tematica">Gestión Temáticas</a>                     
+            <a href="<?php echo base_url(); ?>admin/tematica">Gestión Temáticas</a>                     
         </li>
         <li <?php if ($page=="admin-menu") {echo "class='active'";} ?>>
-            <a href="<?php echo base_url(); ?>Admin/menu">Gestión Menú</a>                     
+            <a href="<?php echo base_url(); ?>admin/menu">Gestión Menú</a>                     
         </li>
         <li <?php if ($page=="admin-event") {echo "class='active'";} ?>>
-            <a href="<?php echo base_url(); ?>Admin/evento">Gestión Eventos</a>                     
+            <a href="<?php echo base_url(); ?>admin/evento">Gestión Eventos</a>                     
         </li>        
         <li <?php if ($page=="admin-artista") {echo "class='active'";} ?>>
-            <a href="<?php echo base_url(); ?>Admin/artista">Gestión Artistas</a>                     
+            <a href="<?php echo base_url(); ?>admin/artista">Gestión Artistas</a>                     
         </li>
         <li <?php if ($page=="admin-equipo") {echo "class='active'";} ?>>
-            <a href="<?php echo base_url(); ?>Admin/equipo">Gestion Equipos</a>                     
+            <a href="<?php echo base_url(); ?>admin/equipo">Gestion Equipos</a>                     
         </li>
     <?php else: ?>
         <li <?php if ($page=="admin") {echo "class='active'";} ?>>
-            <a href="<?php echo base_url(); ?>Asesor/asesor_admin">Gestión Clientes</a>                     
+            <a href="<?php echo base_url(); ?>asesor/asesor_admin">Gestión Clientes</a>                     
         </li>
         <li <?php if ($page=="admin-quote") {echo "class='active'";} ?>>
-            <a href="<?php echo base_url(); ?>Asesor/admin_quote">Gestión de cotizaciones</a>                     
+            <a href="<?php echo base_url(); ?>asesor/admin_quote">Gestión de cotizaciones</a>                     
         </li>
     <?php endif ?>
     </ul>

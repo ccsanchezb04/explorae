@@ -121,7 +121,7 @@ class Homeadmin extends CI_model
         {
             echo "<script type='text/javascript'>";
             echo "alert('El estado del usuarios es: ".$this->estado."');";
-            echo "window.location.replace('".base_url()."Admin');";
+            echo "window.location.replace('".base_url()."admin');";
             echo "</script>";
         }
 
@@ -141,7 +141,7 @@ class Homeadmin extends CI_model
         {
             echo "<script type='text/javascript'>";
             echo "alert('El estado del usuarios es: ".$this->estado."');";
-            echo "window.location.replace('".base_url()."Admin');";
+            echo "window.location.replace('".base_url()."admin');";
             echo "</script>";
         }
     }
@@ -161,7 +161,7 @@ class Homeadmin extends CI_model
         {
             echo "<script type='text/javascript'>";
             echo "alert('El usuario se elimino con exito....!');";
-            echo "window.location.replace('".base_url()."Admin');";
+            echo "window.location.replace('".base_url()."admin');";
             echo "</script>";
         }
     }

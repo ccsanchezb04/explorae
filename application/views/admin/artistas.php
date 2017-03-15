@@ -7,7 +7,7 @@
         <div class="col-md-9">            
             <div class="row" id="head-backend">
                 <div class="col-md-6">
-                    <a href="<?php echo base_url(); ?>Admin/add_artist" type="button" class="btn btn-primary btn-block iframe cboxElement" data-toggle="tooltip" data-placement="bottom" title="AGREGAR">
+                    <a href="<?php echo base_url(); ?>admin/add_artist" type="button" class="btn btn-primary btn-block iframe cboxElement" data-toggle="tooltip" data-placement="bottom" title="AGREGAR">
                         Agregar Artista
                     </a>
                 </div>
@@ -18,9 +18,9 @@
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#">Ir a pagina</a></li>                                    
-                            <li><a href="<?php echo base_url(); ?>Admin/data_upd/<?php echo $this->session->userdata('idUser'); ?>" class="iframe cboxElement">Modificar Perfil</a></li>                                                                                               
+                            <li><a href="<?php echo base_url(); ?>admin/data_upd/<?php echo $this->session->userdata('idUser'); ?>" class="iframe cboxElement">Modificar Perfil</a></li>                                                                                               
                             <li class="divider"></li>
-                            <li><a href="<?php echo base_url(); ?>Login/close">Cerrar Sesión</a></li>
+                            <li><a href="<?php echo base_url(); ?>login/close">Cerrar Sesión</a></li>
                         </ul>
                     </div>
                 </div>
@@ -48,10 +48,10 @@
                                 <td><?php echo $key->tipo_artista; ?></td>
                                 <td><?php echo $key->precio_contrato; ?></td>                                
                                 <td>                    
-                                    <a href="<?php echo base_url(); ?>Admin/list_artist/<?php echo $key->id_artista; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
+                                    <a href="<?php echo base_url(); ?>admin/list_artist/<?php echo $key->id_artista; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
                                         <span class='glyphicon glyphicon-eye-open'></span>
                                     </a>
-                                    <a href="<?php echo base_url(); ?>Admin/upd_artist/<?php echo $key->id_artista; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
+                                    <a href="<?php echo base_url(); ?>admin/upd_artist/<?php echo $key->id_artista; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
                                         <span class='glyphicon glyphicon-cog'></span>
                                     </a>
                                     <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_artista; ?>" data-rol="artista" data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">
@@ -76,10 +76,10 @@
                                 <td><?php echo $key->tipo_artista; ?></td>
                                 <td><?php echo $key->precio_contrato; ?></td>                               
                                 <td>                    
-                                    <a href="<?php echo base_url(); ?>Admin/list_artist/<?php echo $key->id_artista; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
+                                    <a href="<?php echo base_url(); ?>admin/list_artist/<?php echo $key->id_artista; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
                                         <span class='glyphicon glyphicon-eye-open'></span>
                                     </a>
-                                    <a href="<?php echo base_url(); ?>Admin/upd_artist/<?php echo $key->id_artista; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
+                                    <a href="<?php echo base_url(); ?>admin/upd_artist/<?php echo $key->id_artista; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
                                         <span class='glyphicon glyphicon-cog'></span>
                                     </a>
                                     <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_artista; ?>" data-rol="artista" data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">
@@ -104,10 +104,10 @@
                                 <td><?php echo $key->tipo_artista; ?></td>
                                 <td><?php echo $key->precio_contrato; ?></td>                                
                                 <td>                    
-                                    <a href="<?php echo base_url(); ?>Admin/list_artist/<?php echo $key->id_artista; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
+                                    <a href="<?php echo base_url(); ?>admin/list_artist/<?php echo $key->id_artista; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="CONSULTAR">
                                         <span class='glyphicon glyphicon-eye-open'></span>
                                     </a>
-                                    <a href="<?php echo base_url(); ?>Admin/upd_artist/<?php echo $key->id_artista; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
+                                    <a href="<?php echo base_url(); ?>admin/upd_artist/<?php echo $key->id_artista; ?>" type='button' class='btn btn-sm btn-primary iframe cboxElement' data-toggle="tooltip" data-placement="bottom" title="MODIFICAR">
                                         <span class='glyphicon glyphicon-cog'></span>
                                     </a>
                                     <a href="<?php echo base_url(); ?>" type='button' class='btn btn-sm btn-danger btn-delete' data-id="<?php echo $key->id_artista; ?>" data-rol="artista" data-toggle="tooltip" data-placement="bottom" title="ELIMINAR">

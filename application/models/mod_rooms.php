@@ -13,11 +13,11 @@ class Mod_rooms extends CI_model
     var $telefono_contacto   = '';
     var $email_contacto      = '';
     var $imagen_salon        = '';
-    var $galeria_1           = '';
-    var $galeria_2           = '';
-    var $galeria_3           = '';
-    var $galeria_4           = '';
-    var $galeria_5           = '';
+    var $caracteristica_1           = '';
+    var $caracteristica_2           = '';
+    var $caracteristica_3           = '';
+    var $caracteristica_4           = '';
+    var $caracteristica_5           = '';
     var $upload_i            = '';
     var $upload_galeria      = '';
     //=====================================================================
@@ -55,7 +55,27 @@ class Mod_rooms extends CI_model
         $query = $this->db->get_where('salones', array('categoria_salon' => 3));
         return $query->result();
     }
-
+    public function caracteristicas($id){
+        $query = $this->db->get_where('salones', array('id_salon' => $id));
+        foreach($query->result() as $datos){
+            if ($datos->caracteristica_1 != null || $datos->caracteristica_1 != '' ) {
+                 echo '<input type="radio" class="caracteristica" name="caracteristica" value="'.$datos->caracteristica_1.'"><label class="opciones-add-cart" for="">'.$datos->caracteristica_1.'</label><br>';
+            }
+            if ($datos->caracteristica_2 != null || $datos->caracteristica_2 != '' ) {
+                 echo '<input type="radio" class="caracteristica" name="caracteristica" value="'.$datos->caracteristica_2.'"><label class="opciones-add-cart" for="">'.$datos->caracteristica_2.'</label><br>';
+            }
+            if ($datos->caracteristica_3 != null || $datos->caracteristica_3 != '' ) {
+                 echo '<input type="radio" class="caracteristica" name="caracteristica" value="'.$datos->caracteristica_3.'"><label class="opciones-add-cart" for="">'.$datos->caracteristica_3.'</label><br>';
+            }
+            if ($datos->caracteristica_4 != null || $datos->caracteristica_4 != '' ) {
+                 echo '<input type="radio" class="caracteristica" name="caracteristica" value="'.$datos->caracteristica_4.'"><label class="opciones-add-cart" for="">'.$datos->caracteristica_4.'</label><br>';
+            }
+            if ($datos->caracteristica_5 != null || $datos->caracteristica_5 != '' ) {
+                 echo '<input type="radio" class="caracteristica" name="caracteristica" value="'.$datos->caracteristica_5.'"><label class="opciones-add-cart" for="">'.$datos->caracteristica_5.'</label><br>';
+            }
+            echo '<input type="radio" class="caracteristica" name="caracteristica" value="otro"><label class="opciones-add-cart" for="">Otra caracteristica</label>';
+        }
+    }
     public function add_room()
     {
         // ===========================================================
@@ -126,11 +146,11 @@ class Mod_rooms extends CI_model
         $this->telefono_contacto   = $this->input->post('tel_contacto');
         $this->email_contacto      = $this->input->post('email_contacto');
         $this->imagen_salon        = $config['file_name'];
-        // $this->$this->galeria_1    = $galeria1['file_name']; 
-        // $this->$this->galeria_2    = $galeria2['file_name']; 
-        // $this->$this->galeria_3    = $galeria3['file_name']; 
-        // $this->$this->galeria_4    = $galeria4['file_name'];
-        // $this->$this->galeria_5    = $galeria5['file_name'];
+        // $this->$this->caracteristica_1    = $galeria1['file_name']; 
+        // $this->$this->caracteristica_2    = $galeria2['file_name']; 
+        // $this->$this->caracteristica_3    = $galeria3['file_name']; 
+        // $this->$this->caracteristica_4    = $galeria4['file_name'];
+        // $this->$this->caracteristica_5    = $galeria5['file_name'];
 
         $salon = array('id_salon'            => $this->id_salon,
                        'nombre_salon'        => $this->nombre_salon,

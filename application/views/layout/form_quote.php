@@ -6,17 +6,21 @@
             <h4 class="modal-title" id="myModalLabel">Datos Cotización</h4>
         </div>
         <div class="modal-body">
-            <form class="form-horizontal" id="form-quote" role="form" method="post">
+            <form class="form-horizontal" id="form-quote" role="form" method="post" onsubmit="return false;">
                 <div class="form-group">
-                    <label for="id-cliente" class="col-sm-4 control-label">Identificacion Cliente</label>
+                    <label for="ident-cliente" class="col-sm-4 control-label">Identificacion Cliente</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="id_cliente" id="id-cliente">
+                        <input type="search" class="form-control" name="no_documento" id="ident-cliente">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="nombre" class="col-sm-4 control-label">Nombre del cliente:</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="id" id="nombre-cliente">
+                        <input type="text" readonly="" class="form-control" name="nombre" id="nombre-cliente">
+                        <input type="hidden" readonly="" class="form-control" name="direccion" id="direccion-cliente">
+                        <input type="hidden" readonly="" class="form-control" name="celular" id="celular-cliente">
+                        <input type="hidden" readonly="" class="form-control" name="doc" id="doc-cliente">
+                        <input type="hidden" readonly="" class="form-control" name="id" id="id-cliente">
                     </div>
                 </div>
                 <div class="form-group">
@@ -26,15 +30,35 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="evento" class="col-sm-4 control-label">Tipo de evento:</label>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="radio" name="evento" value="social" class="evento"><label class="control-label control-label-name"> Social</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="radio" name="evento" value="empresarial" class="evento"><label class="control-label control-label-name"> Empresarial</label>
+                            </div>
+                            <input type="hidden" readonly="" class="form-control" name="tipo" id="tipo-evento">                            
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" id="tipo-evento">
+                    <div class="col-sm-offset-4 col-sm-6" id="tipoEvento">
+                        
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="fecha-evento" class="col-sm-4 control-label">Fecha del Evento:</label>
                     <div class="col-sm-6">
                         <input type="date" class="form-control" name="fecha_evento" id="fecha-evento">
                         <input type="hidden" name="fecha_registro" value="<?php echo date('Y-m-d'); ?>">
+                        <input type="hidden" name="id_cliente" id="id_cliente" value="">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-6 col-sm-6">
-                        <button type="submit" class="btn btn-success">Enviar</button>
+                        <button type="submit" class="btn btn-success enviar-cliente">Enviar</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                     </div>
                 </div>

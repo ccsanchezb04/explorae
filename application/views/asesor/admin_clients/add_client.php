@@ -3,7 +3,7 @@
         <div class="panel-heading">
             <h3 class="text-info">Agregar Cliente</h3>
         </div>
-        <form class="form-horizontal" role="form"method="post" action="<?php echo base_url(); ?>Asesor/add_client">
+        <form class="form-horizontal" role="form"method="post" action="<?php echo base_url(); ?>asesor/add_client">
             <div class="form-group">
                 <label for="nombres" class="col-sm-4 control-label">Nombres:</label>
                 <div class="col-sm-6">

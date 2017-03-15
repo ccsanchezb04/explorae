@@ -21,7 +21,7 @@
                         <h4>Total de capacidad: <?php echo $key->total_capacidad; ?></h4>
                         <h4>Direccion de ubicación: <?php echo $key->direccion_ubicacion; ?></h4>
                     <?php if ($this->session->userdata('roleUser') == "asesor"): ?>
-                        <button class="btn btn-xs btn-success" id="add-cart" onclick="add_cart(<?php echo $key->id_salon; ?>,'salon')">Agregar <span class="glyphicon glyphicon-shopping-cart"></span></button>
+                        <button data-cat="<?php echo $key->categoria_salon; ?>" data-tipo="room" data-img="<?php echo base_url(); ?>public/images/page/salones/<?php echo $key->imagen_salon; ?>" data-nombre="<?php echo $key->nombre_salon; ?>" data-precio="<?php echo $key->precio_alquiler; ?>" data-id="<?php echo $key->id_salon; ?>" class="btn btn-xs btn-success add-cart" id="add-cart">Agregar <span class="glyphicon glyphicon-shopping-cart"></span></button>
                     <?php endif ?>
                     </div>
                 </li>
@@ -52,7 +52,7 @@
                         <h4>Total de capacidad: <?php echo $key->total_capacidad; ?></h4>
                         <h4>Direccion de ubicación: <?php echo $key->direccion_ubicacion; ?></h4>
                     <?php if ($this->session->userdata('roleUser') == "asesor"): ?>
-                        <button class="btn btn-xs btn-success" id="add-cart" onclick="add_cart(<?php echo $key->id_salon; ?>,'salon')">Agregar <span class="glyphicon glyphicon-shopping-cart"></span></button>
+                        <button data-cat="<?php echo $key->categoria_salon; ?>" data-tipo="room" data-img="<?php echo base_url(); ?>public/images/page/salones/<?php echo $key->imagen_salon; ?>" data-nombre="<?php echo $key->nombre_salon; ?>" data-precio="<?php echo $key->precio_alquiler; ?>" data-id="<?php echo $key->id_salon; ?>" class="btn btn-xs btn-success add-cart" id="add-cart">Agregar <span class="glyphicon glyphicon-shopping-cart"></span></button>
                     <?php endif ?>
                     </div>
                 </li>
@@ -83,7 +83,7 @@
                         <h4>Total de capacidad: <?php echo $key->total_capacidad; ?></h4>
                         <h4>Direccion de ubicación: <?php echo $key->direccion_ubicacion; ?></h4>
                     <?php if ($this->session->userdata('roleUser') == "asesor"): ?>
-                        <button class="btn btn-xs btn-success" id="add-cart" onclick="add_cart(<?php echo $key->id_salon; ?>,'salon')">Agregar <span class="glyphicon glyphicon-shopping-cart"></span></button>
+                        <button data-cat="<?php echo $key->categoria_salon; ?>" data-tipo="room" data-img="<?php echo base_url(); ?>public/images/page/salones/<?php echo $key->imagen_salon; ?>" data-nombre="<?php echo $key->nombre_salon; ?>" data-precio="<?php echo $key->precio_alquiler; ?>" data-id="<?php echo $key->id_salon; ?>" class="btn btn-xs btn-success add-cart" id="add-cart">Agregar <span class="glyphicon glyphicon-shopping-cart"></span></button>
                     <?php endif ?>
                     </div>
                 </li>

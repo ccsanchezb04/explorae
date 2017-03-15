@@ -111,7 +111,6 @@ class Mod_artist extends CI_model
             echo "<script type='text/javascript'>";
             echo "alert('La artista se adiciono con exito....!');";
             echo "</script>";
-            header("Location: ".base_url()."a/");
         }
     }
 
@@ -224,6 +223,7 @@ class Mod_artist extends CI_model
         {
             echo "<script type='text/javascript'>";
             echo "alert('La artista se elimino con exito!');";            
+            echo "window.location.replace('".base_url()."admin/artista');";           
             echo "</script>";
         }
     }

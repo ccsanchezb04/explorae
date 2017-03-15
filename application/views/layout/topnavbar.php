@@ -17,14 +17,14 @@
                     <div class="collapse navbar-collapse navbar-ex1-collapse">
                         <ul class="nav navbar-nav">
                             <li <?php if ($page == "home") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>">Inicio</a></li>
-                            <li <?php if ($page == "room") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>Inicio/salones">Salones</a></li>
-                            <li <?php if ($page == "deco") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>Inicio/decoraciones">Decoración</a></li>
-                            <li <?php if ($page == "tema") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>Inicio/tematicas">Temáticas</a></li>
-                            <li <?php if ($page == "menu") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>Inicio/menu">Menú</a></li>
+                            <li <?php if ($page == "room") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>inicio/salones">Salones</a></li>
+                            <li <?php if ($page == "deco") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>inicio/decoraciones">Decoración</a></li>
+                            <li <?php if ($page == "tema") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>inicio/tematicas">Temáticas</a></li>
+                            <li <?php if ($page == "menu") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>inicio/menu">Menú</a></li>
                         <?php if ($this->session->userdata('roleUser') == "admin" || $this->session->userdata('roleUser') == "asesor"): ?>
-                            <li <?php if ($page == "coti") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>Inicio/">Mi carrito</a></li>
+                            <li <?php if ($page == "coti") echo "class='active'"; ?>><a class="boton-cart view-cart" href="javascript:;">Mi carrito <span class="badge btn-cont cart-cont">0</span></a></li>
                         <?php else: ?>
-                            <li <?php if ($page == "coti") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>Inicio/">Cotiza Ya</a></li>
+                            <li <?php if ($page == "coti") echo "class='active'"; ?>><a href="<?php echo base_url(); ?>inicio/">Cotiza Ya</a></li>
                         <?php endif ?>
                         </ul>
                     </div>
@@ -34,9 +34,9 @@
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $this->session->userdata('nameUser'); ?><span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="<?php echo base_url(); ?>Asesor/asesor_admin">Administrador</a></li>                                  
-                            <li><a href="<?php echo base_url(); ?>Admin/data_upd/<?php echo $this->session->userdata('idUser'); ?>" class="iframe cboxElement">Modificar Perfil</a></li>
-                            <li><a href="<?php echo base_url(); ?>Login/close">Cerrar Sesión</a></li>
+                            <li><a href="<?php echo base_url(); ?>asesor/asesor_admin">Administrador</a></li>                                  
+                            <li><a href="<?php echo base_url(); ?>admin/data_upd/<?php echo $this->session->userdata('idUser'); ?>" class="iframe cboxElement">Modificar Perfil</a></li>
+                            <li><a href="<?php echo base_url(); ?>login/close">Cerrar Sesión</a></li>
                         </ul>
                     </li>
                 <?php else: ?>
